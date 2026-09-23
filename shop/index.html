@@ -3238,50 +3238,60 @@ div.product .woocommerce-tabs .panel h2 {
 
 <!-- НАЧАЛО СТИЛЕЙ СТРЕЖНЯ -->
 <style>
-  body, .site, #page, .site-content, #main, .content-area, .site-main {
+  /* 1. Перекрашиваем ВСЕ возможные блоки фона в цвет Стрежня */
+  body, .site, #page, .site-content, #main, .content-area, .site-main,
+  header, .site-header, .ast-primary-header-bar, .main-header-bar,
+  .elementor-section, .elementor-container, .page-header, .entry-content,
+  div[data-elementor-type="wp-page"], div[data-elementor-type="header"] {
     background-color: #eae4dc !important; 
+    background: #eae4dc !important;
     color: #333333 !important;
-    font-family: Roboto, Arial, Helvetica, sans-serif !important;
   }
-  h1, h2, h3, h4, h5, h6, .entry-title, .product-title, .woocommerce-loop-product__title, .price, .amount, .price ins {
+
+  /* 2. Заголовки, названия моторов, верхнее меню и цены — темно-графитовые */
+  h1, h2, h3, h4, h5, h6, 
+  .entry-title, .product-title, .woocommerce-loop-product__title,
+  .price, .amount, .price ins,
+  .main-navigation a, .nav-menu a, .site-header a, .menu-link {
     color: #333333 !important;
-    font-family: Roboto, Arial, Helvetica, sans-serif !important;
   }
-  .product, .card, .ast-woocommerce-container ul.products li.product {
+
+  /* 3. Делаем подложку под фильтрами моторов и самими карточками белоснежной */
+  .ast-woocommerce-container ul.products li.product, 
+  .product, .card, 
+  .elementor-widget-container, 
+  ul.products li.product {
     background-color: #ffffff !important;
+    background: #ffffff !important;
     border: none !important;
     border-radius: 4px !important;
-    padding: 20px !important;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important;
   }
-  .button, .button.product_type_simple, .woocommerce-button, .alt {
+
+  /* 4. Кнопки переключения категорий («2-х тактные моторы» и т.д.) */
+  .elementor-tabs-wrapper, .elementor-tab-title {
+    background-color: #ffffff !important;
+    border-color: #d1c9be !important;
+  }
+  .elementor-tab-title a {
+    color: #333333 !important;
+  }
+
+  /* 5. Кнопки «Купить» / «Подробнее» — фирменный зеленый цвет Стрежня */
+  .button, .button.product_type_simple, .woocommerce-button, .alt, .wp-block-button__link {
     background-color: #4a6747 !important; 
     color: #ffffff !important;
     border-radius: 4px !important;
     text-transform: uppercase !important;
     font-weight: 500 !important;
-    letter-spacing: 1px !important;
-    padding: 12px 25px !important;
     border: none !important;
-    transition: background-color 0.2s ease !important;
   }
   .button:hover, .button.product_type_simple:hover, .alt:hover {
     background-color: #385036 !important;
   }
-  .page-numbers {
-    color: #333333 !important;
-    background-color: #ffffff !important;
-    border: 1px solid #d1c9be !important;
-    padding: 8px 14px !important;
-    border-radius: 4px !important;
-  }
-  .page-numbers.current {
-    background-color: #4a6747 !important;
-    color: #ffffff !important;
-    border-color: #4a6747 !important;
-  }
 </style>
 <!-- КОНЕЦ СТИЛЕЙ СТРЕЖНЯ -->
+
 
  </head>
 
