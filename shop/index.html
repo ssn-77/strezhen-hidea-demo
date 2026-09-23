@@ -3,65 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <title>Каталог моторов Hidea</title>
-    <link href="https://jsdelivr.net" rel="stylesheet">
     <style>
-        body { background-color: #f8f9fa; font-family: sans-serif; }
-        .navbar { background-color: #212529; }
-        .product-card { border: 1px solid #e3e6ec; border-radius: 8px; background: #fff; height: 100%; display: flex; flex-direction: column; }
-        .img-container { background: #1a1a1a; text-align: center; height: 160px; display: flex; align-items: center; justify-content: center; overflow: hidden; border-top-left-radius: 7px; border-top-right-radius: 7px; }
-        .product-img-svg { width: 60px; height: 60px; fill: #6c757d; }
-        .price-text { font-size: 1.15rem; font-weight: bold; color: #dc3545; }
+        /* Собственные чистые стили без использования внешних библиотек */
+        body { background-color: #f4f6f9; font-family: system-ui, -apple-system, sans-serif; margin: 0; padding: 20px; color: #333; }
+        .navbar { background-color: #212529; padding: 15px; color: white; display: flex; justify-content: space-between; align-items: center; border-radius: 6px; margin-bottom: 30px; }
+        .navbar a { color: #fff; text-decoration: none; font-weight: bold; font-size: 0.9rem; }
+        .navbar-text { color: #198754; font-weight: bold; }
+        
+        .catalog-title { font-size: 1.5rem; font-weight: bold; margin-bottom: 25px; }
+        
+        /* Сетка товаров */
+        .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px; }
         .page-bucket { display: none; }
-        .page-bucket.active { display: flex; }
+        .page-bucket.active { display: grid; }
+        
+        /* Карточка товара */
+        .product-card { border: 1px solid #e3e6ec; border-radius: 8px; background: #fff; display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+        .img-container { background: #111; text-align: center; height: 150px; display: flex; align-items: center; justify-content: center; }
+        .product-img-placeholder { color: #6c757d; font-size: 0.8rem; font-weight: bold; text-transform: uppercase; }
+        
+        .card-body { padding: 15px; display: flex; flex-direction: column; flex-grow: 1; }
+        .motor-title { font-size: 0.95rem; font-weight: bold; margin: 0 0 10px 0; color: #212529; min-height: 38px; }
+        .price-text { font-size: 1.1rem; font-weight: bold; color: #dc3545; margin-top: auto; }
+        
+        /* Пагинация */
+        .pagination-container { display: flex; justify-content: center; margin: 40px 0; }
+        .pagination-btn { background: #fff; border: 1px solid #dee2e6; padding: 8px 16px; margin: 0 4px; cursor: pointer; border-radius: 4px; font-weight: bold; color: #0d6efd; transition: all 0.2s; }
+        .pagination-btn:hover { background: #e9ecef; }
+        .pagination-btn.active { background: #0d6efd; color: #fff; border-color: #0d6efd; }
     </style>
 </head>
 <body>
 
-    <nav class="navbar navbar-dark mb-4">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="../index.html">← НАЗАД НА САЙТ СТРЕЖЕНЬ</a>
-            <span class="navbar-text text-success fw-bold">⚓ АВТОНОМНЫЙ КАТАЛОГ HIDEA</span>
-        </div>
-    </nav>
+    <!-- Шапка без внешних скриптов -->
+    <div class="navbar">
+        <a href="../index.html">← НАЗАД НА САЙТ СТРЕЖЕНЬ</a>
+        <span class="navbar-text">⚓ АВТОНОМНЫЙ КАТАЛОГ</span>
+    </div>
 
     <div class="container">
-        <h3 class="fw-bold text-dark mb-4">Каталог лодочных моторов Hidea</h3>
+        <div class="catalog-title">Каталог лодочных моторов Hidea</div>
 
         <!-- СТРАНИЦА 1 -->
-        <div class="row row-cols-1 row-cols-md-4 g-3 page-bucket active" id="content-page-1">
-            <div class="col"><div class="product-card shadow-sm"><div class="img-container"><svg class="product-img-svg" viewBox="0 0 16 16"><path d="M5.521 2.57c-1.353 0-2.48 1.055-2.534 2.408L2.5 12.553a1 1 0 0 0 1 1.042h9a1 1 0 0 0 1-1.042l-.487-7.575C12.96 3.626 11.832 2.57 10.48 2.57H5.521zM6 5h4v1H6V5z"/></svg></div><div class="card-body p-3"><h6>HD 3 (2-х тактный)</h6><span class="price-text">Цена по запросу</span></div></div></div>
-            <div class="col"><div class="product-card shadow-sm"><div class="img-container"><svg class="product-img-svg" viewBox="0 0 16 16"><path d="M5.521 2.57c-1.353 0-2.48 1.055-2.534 2.408L2.5 12.553a1 1 0 0 0 1 1.042h9a1 1 0 0 0 1-1.042l-.487-7.575C12.96 3.626 11.832 2.57 10.48 2.57H5.521zM6 5h4v1H6V5z"/></svg></div><div class="card-body p-3"><h6>HD 4 (2-х тактный)</h6><span class="price-text">Цена по запросу</span></div></div></div>
-            <div class="col"><div class="product-card shadow-sm"><div class="img-container"><svg class="product-img-svg" viewBox="0 0 16 16"><path d="M5.521 2.57c-1.353 0-2.48 1.055-2.534 2.408L2.5 12.553a1 1 0 0 0 1 1.042h9a1 1 0 0 0 1-1.042l-.487-7.575C12.96 3.626 11.832 2.57 10.48 2.57H5.521zM6 5h4v1H6V5z"/></svg></div><div class="card-body p-3"><h6>HD 5 (2-х тактный)</h6><span class="price-text">Цена по запросу</span></div></div></div>
-            <div class="col"><div class="product-card shadow-sm"><div class="img-container"><svg class="product-img-svg" viewBox="0 0 16 16"><path d="M5.521 2.57c-1.353 0-2.48 1.055-2.534 2.408L2.5 12.553a1 1 0 0 0 1 1.042h9a1 1 0 0 0 1-1.042l-.487-7.575C12.96 3.626 11.832 2.57 10.48 2.57H5.521zM6 5h4v1H6V5z"/></svg></div><div class="card-body p-3"><h6>HD 9.8 (2-х тактный)</h6><span class="price-text">Цена по запросу</span></div></div></div>
-            <div class="col"><div class="product-card shadow-sm"><div class="img-container"><svg class="product-img-svg" viewBox="0 0 16 16"><path d="M5.521 2.57c-1.353 0-2.48 1.055-2.534 2.408L2.5 12.553a1 1 0 0 0 1 1.042h9a1 1 0 0 0 1-1.042l-.487-7.575C12.96 3.626 11.832 2.57 10.48 2.57H5.521zM6 5h4v1H6V5z"/></svg></div><div class="card-body p-3"><h6>HD 9.9 (2-х тактный)</h6><span class="price-text">Цена по запросу</span></div></div></div>
-            <div class="col"><div class="product-card shadow-sm"><div class="img-container"><svg class="product-img-svg" viewBox="0 0 16 16"><path d="M5.521 2.57c-1.353 0-2.48 1.055-2.534 2.408L2.5 12.553a1 1 0 0 0 1 1.042h9a1 1 0 0 0 1-1.042l-.487-7.575C12.96 3.626 11.832 2.57 10.48 2.57H5.521zM6 5h4v1H6V5z"/></svg></div><div class="card-body p-3"><h6>HDD 9.9 ENDURO</h6><span class="price-text">Цена по запросу</span></div></div></div>
-            <div class="col"><div class="product-card shadow-sm"><div class="img-container"><svg class="product-img-svg" viewBox="0 0 16 16"><path d="M5.521 2.57c-1.353 0-2.48 1.055-2.534 2.408L2.5 12.553a1 1 0 0 0 1 1.042h9a1 1 0 0 0 1-1.042l-.487-7.575C12.96 3.626 11.832 2.57 10.48 2.57H5.521zM6 5h4v1H6V5z"/></svg></div><div class="card-body p-3"><h6>HD 9.9 PRO</h6><span class="price-text">Цена по запросу</span></div></div></div>
-            <div class="col"><div class="product-card shadow-sm"><div class="img-container"><svg class="product-img-svg" viewBox="0 0 16 16"><path d="M5.521 2.57c-1.353 0-2.48 1.055-2.534 2.408L2.5 12.553a1 1 0 0 0 1 1.042h9a1 1 0 0 0 1-1.042l-.487-7.575C12.96 3.626 11.832 2.57 10.48 2.57H5.521zM6 5h4v1H6V5z"/></svg></div><div class="card-body p-3"><h6>HD 9.9 PRO (дист.)</h6><span class="price-text">Цена по запросу</span></div></div></div>
+        <div class="products-grid page-bucket active" id="content-page-1">
+            <div class="product-card"><div class="img-container"><span class="product-img-placeholder">HD 3 ИЗОБРАЖЕНИЕ</span></div><div class="card-body"><h6 class="motor-title">HD 3 (2-х тактный)</h6><span class="price-text">Цена по запросу</span></div></div>
+            <div class="product-card"><div class="img-container"><span class="product-img-placeholder">HD 4 ИЗОБРАЖЕНИЕ</span></div><div class="card-body"><h6 class="motor-title">HD 4 (2-х тактный)</h6><span class="price-text">Цена по запросу</span></div></div>
+            <div class="product-card"><div class="img-container"><span class="product-img-placeholder">HD 5 ИЗОБРАЖЕНИЕ</span></div><div class="card-body"><h6 class="motor-title">HD 5 (2-х тактный)</h6><span class="price-text">Цена по запросу</span></div></div>
+            <div class="product-card"><div class="img-container"><span class="product-img-placeholder">HD 9.8 ИЗОБРАЖЕНИЕ</span></div><div class="card-body"><h6 class="motor-title">HD 9.8 (2-х тактный)</h6><span class="price-text">Цена по запросу</span></div></div>
+            <div class="product-card"><div class="img-container"><span class="product-img-placeholder">HD 9.9 ИЗОБРАЖЕНИЕ</span></div><div class="card-body"><h6 class="motor-title">HD 9.9 (2-х тактный)</h6><span class="price-text">Цена по запросу</span></div></div>
+            <div class="product-card"><div class="img-container"><span class="product-img-placeholder">ENDURO ИЗОБРАЖЕНИЕ</span></div><div class="card-body"><h6 class="motor-title">HDD 9.9 ENDURO</h6><span class="price-text">Цена по запросу</span></div></div>
+            <div class="product-card"><div class="img-container"><span class="product-img-placeholder">PRO ИЗОБРАЖЕНИЕ</span></div><div class="card-body"><h6 class="motor-title">HD 9.9 PRO</h6><span class="price-text">Цена по запросу</span></div></div>
+            <div class="product-card"><div class="img-container"><span class="product-img-placeholder">PRO ДИСТ ИЗОБРАЖЕНИЕ</span></div><div class="card-body"><h6 class="motor-title">HD 9.9 PRO (дист.)</h6><span class="price-text">Цена по запросу</span></div></div>
         </div>
 
         <!-- СТРАНИЦА 2 -->
-        <div class="row row-cols-1 row-cols-md-4 g-3 page-bucket" id="content-page-2">
-            <div class="col"><div class="product-card shadow-sm"><div class="img-container"><svg class="product-img-svg" viewBox="0 0 16 16"><path d="M5.521 2.57c-1.353 0-2.48 1.055-2.534 2.408L2.5 12.553a1 1 0 0 0 1 1.042h9a1 1 0 0 0 1-1.042l-.487-7.575C12.96 3.626 11.832 2.57 10.48 2.57H5.521zM6 5h4v1H6V5z"/></svg></div><div class="card-body p-3"><h6>HD 30 (2-х тактный)</h6><span class="price-text">Цена по запросу</span></div></div></div>
-            <div class="col"><div class="product-card shadow-sm"><div class="img-container"><svg class="product-img-svg" viewBox="0 0 16 16"><path d="M5.521 2.57c-1.353 0-2.48 1.055-2.534 2.408L2.5 12.553a1 1 0 0 0 1 1.042h9a1 1 0 0 0 1-1.042l-.487-7.575C12.96 3.626 11.832 2.57 10.48 2.57H5.521zM6 5h4v1H6V5z"/></svg></div><div class="card-body p-3"><h6>HD 30 (дист.)</h6><span class="price-text">Цена по запросу</span></div></div></div>
-            <div class="col"><div class="product-card shadow-sm"><div class="img-container"><svg class="product-img-svg" viewBox="0 0 16 16"><path d="M5.521 2.57c-1.353 0-2.48 1.055-2.534 2.408L2.5 12.553a1 1 0 0 0 1 1.042h9a1 1 0 0 0 1-1.042l-.487-7.575C12.96 3.626 11.832 2.57 10.48 2.57H5.521zM6 5h4v1H6V5z"/></svg></div><div class="card-body p-3"><h6>HD 40 (2-х тактный)</h6><span class="price-text">Цена по запросу</span></div></div></div>
+        <div class="products-grid page-bucket" id="content-page-2">
+            <div class="product-card"><div class="img-container"><span class="product-img-placeholder">HD 30 ИЗОБРАЖЕНИЕ</span></div><div class="card-body"><h6 class="motor-title">HD 30 (2-х тактный)</h6><span class="price-text">Цена по запросу</span></div></div>
+            <div class="product-card"><div class="img-container"><span class="product-img-placeholder">HD 30 ДИСТ ИЗОБРАЖЕНИЕ</span></div><div class="card-body"><h6 class="motor-title">HD 30 (дист.)</h6><span class="price-text">Цена по запросу</span></div></div>
+            <div class="product-card"><div class="img-container"><span class="product-img-placeholder">HD 40 ИЗОБРАЖЕНИЕ</span></div><div class="card-body"><h6 class="motor-title">HD 40 (2-х тактный)</h6><span class="price-text">Цена по запросу</span></div></div>
+            <div class="product-card"><div class="img-container"><span class="product-img-placeholder">HD 40 ДИСТ ИЗОБРАЖЕНИЕ</span></div><div class="card-body"><h6 class="motor-title">HD 40 (дист.)</h6><span class="price-text">Цена по запросу</span></div></div>
+            <div class="product-card"><div class="img-container"><span class="product-img-placeholder">TRIM ИЗОБРАЖЕНИЕ</span></div><div class="card-body"><h6 class="motor-title">HD 40 (дист. + трим)</h6><span class="price-text">Цена по запросу</span></div></div>
+            <div class="product-card"><div class="img-container"><span class="product-img-placeholder">HD 60 ИЗОБРАЖЕНИЕ</span></div><div class="card-body"><h6 class="motor-title">HD 60 (2-х тактный)</h6><span class="price-text">Цена по запросу</span></div></div>
         </div>
 
-        <!-- Навигация (Пагинация) -->
-        <nav class="my-4">
-            <ul class="pagination justify-content-center">
-                <li class="page-item active" id="nav-1"><button class="page-link" onclick="switchTab(1)">1</button></li>
-                <li class="page-item" id="nav-2"><button class="page-link" onclick="switchTab(2)">2</button></li>
-            </ul>
-        </nav>
+        <!-- СТРАНИЦА 3 -->
+        <div class="products-grid page-bucket" id="content-page-3">
+            <div class="product-card"><div class="img-container"><span class="product-img-placeholder">HD 90 ИЗОБРАЖЕНИЕ</span></div><div class="card-body"><h6 class="motor-title">HD 90 (2-х тактный)</h6><span class="price-text">Цена по запросу</span></div></div>
+            <div class="product-card"><div class="img-container"><span class="product-img-placeholder">HDF 3.5 ИЗОБРАЖЕНИЕ</span></div><div class="card-body"><h6 class="motor-title">HDF 3.5 (4-х тактный)</h6><span class="price-text">Цена по запросу</span></div></div>
+            <div class="product-card"><div class="img-container"><span class="product-img-placeholder">EFI 30 ИЗОБРАЖЕНИЕ</span></div><div class="card-body"><h6 class="motor-title">HD 30 FES-EFI</h6><span class="price-text">Цена по запросу</span></div></div>
+            <div class="product-card"><div class="img-container"><span class="product-img-placeholder">EFI 60 ИЗОБРАЖЕНИЕ</span></div><div class="card-body"><h6 class="motor-title">HD 60 FEL-T-EFI</h6><span class="price-text">Цена по запросу</span></div></div>
+        </div>
+
+        <!-- Переключатель страниц каталога -->
+        <div class="pagination-container">
+            <button class="pagination-btn active" id="nav-1" onclick="switchTab(1)">1</button>
+            <button class="pagination-btn" id="nav-2" onclick="switchTab(2)">2</button>
+            <button class="pagination-btn" id="nav-3" onclick="switchTab(3)">3</button>
+        </div>
     </div>
 
     <script>
         function switchTab(pageNum) {
-            document.querySelectorAll('.page-bucket').forEach(el => el.classList.remove('active'));
-            document.getElementById(`content-page-${pageNum}`).classList.add('active');
+            // Переключаем активную сетку товаров
+            const buckets = document.querySelectorAll('.page-bucket');
+            buckets.forEach(el => el.classList.remove('active'));
+            const activeBucket = document.getElementById('content-page-' + pageNum);
+            if(activeBucket) activeBucket.classList.add('active');
             
-            document.querySelectorAll('.page-item').forEach(el => el.classList.remove('active'));
-            document.getElementById(`nav-${pageNum}`).classList.add('active');
+            // Переключаем состояние кнопок пагинации
+            const buttons = document.querySelectorAll('.pagination-btn');
+            buttons.forEach(el => el.classList.remove('active'));
+            const activeBtn = document.getElementById('nav-' + pageNum);
+            if(activeBtn) activeBtn.classList.add('active');
         }
     </script>
 </body>
