@@ -1,0 +1,483 @@
+if (typeof ptBannerImageLiquid === 'undefined') {
+	function ptBannerImageLiquid(el, options = {}) {
+		this.$area = jQuery(el)
+		this.$sliderSwiper = null,
+		this.$imageSlider = this.$area.find('.image-slider-type3')
+		this.$slider = this.$area.find('.image-slider-type3 .slider')
+		this.$thumbs = this.$area.find('.image-slider-type3 .thumbs .swiper-container')
+		this.$contentItems = this.$area.find('.banner-item')
+		this.slidesUrl = this.$imageSlider.attr('data-images').split(',')
+		this.$pagination = this.$area.find('.swiper-dots-type2')
+		this.$counter = this.$area.find('.counter-block')
+		this.slidesCount = this.slidesUrl.length
+		this.autoplayOption = this.$area.attr('data-autoplay')
+		this.autoplayTimeoutOption = +this.$area.attr('data-autoplay-timeout')
+		this.isAnimated = false
+		this.direction = true // Next if true
+		this.previousIndex = 0
+		this.currentIndex = 0
+		this.handleChange = false
+		this.tl = gsap.timeline({
+			onStart: () => {
+				this.isAnimated = true
+				
+				!this.direction ? this.mat.uniforms.intensity.value = -0.2 : this.mat.uniforms.intensity.value = 0.2
+
+				this.changeTexture()
+				this.changeSlideRatio()
+			},
+			onComplete: () => {
+				this.isAnimated = false
+				this.resetValuesAfterAnimation()
+				this.tl.clear()
+			}
+		})
+		this.transitionTime = 1
+		this.renderer = null
+		this.vert = `
+			varying vec2 vUv;
+			void main() {
+				vUv = uv;
+				gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+			}
+		`
+
+		this.frag = `
+			varying vec2 vUv;
+
+			uniform sampler2D texture1;
+			uniform sampler2D texture2;
+			uniform sampler2D disp;
+
+			uniform float dispPower;
+			uniform float intensity;
+
+			uniform vec2 screenSize;
+			uniform vec2 imageSize;
+			
+			vec2 backgroundCoverUv( vec2 screenSize, vec2 imageSize, vec2 uv ) {
+				float screenRatio = screenSize.x / screenSize.y;
+				float imageRatio = imageSize.x / imageSize.y;
+				vec2 newSize = screenRatio < imageRatio 
+						? vec2(imageSize.x * (screenSize.y / imageSize.y), screenSize.y)
+						: vec2(screenSize.x, imageSize.y * (screenSize.x / imageSize.x));
+				vec2 newOffset = (screenRatio < imageRatio 
+						? vec2((newSize.x - screenSize.x) / 2.0, 0.0) 
+						: vec2(0.0, (newSize.y - screenSize.y) / 2.0)) / newSize;
+				return uv * screenSize / newSize + newOffset;
+			}
+
+			void main() {
+
+				vec2 uv = backgroundCoverUv(screenSize, imageSize, vUv);
+				vec4 disp = texture2D(disp, uv);
+				vec2 dispVec = vec2(disp.x, disp.y);
+
+				
+				vec2 distPos1 = vec2(uv.x + dispPower * (disp.r*intensity), uv.y);
+				vec2 distPos2 = vec2(uv.x - (1.0 - dispPower) * (disp.r*intensity), uv.y);
+				
+				vec4 _texture1 = texture2D(texture1, distPos1);
+				vec4 _texture2 = texture2D(texture2, distPos2);
+				
+				gl_FragColor = mix(_texture1, _texture2, dispPower);
+			}
+		`
+
+		this.initThree = () => {
+			this.scene = new THREE.Scene()
+			this.camera = new THREE.OrthographicCamera(
+				this.$imageSlider.height() / -2,
+				this.$imageSlider.height() / 2,
+				this.$imageSlider.height() / 2,
+				this.$imageSlider.height() / -2,
+				1,
+				1000
+			);
+
+			this.camera.position.z = 1;
+
+			this.renderer = new THREE.WebGLRenderer({
+				antialias: false,
+				alpha: true
+			});
+
+			this.renderer.setPixelRatio(window.devicePixelRatio);
+			this.renderer.setClearColor(0xffffff, 0.0);
+			this.renderer.setSize(this.$imageSlider.width(), this.$imageSlider.height());
+			this.$imageSlider.append(this.renderer.domElement);
+
+			this.render()
+		}
+
+		this.initShader = () => {
+			this.mat = new THREE.ShaderMaterial({
+				uniforms: {
+					dispPower: {
+						type: 'f',
+						value: 0.0
+					},
+					intensity: {
+						type: 'f',
+						value: 0.2
+					},
+					screenSize: {
+						value: new THREE.Vector2(this.$imageSlider.width(), this.$imageSlider.height())
+					},
+					imageSize: {
+						value: new THREE.Vector2(this.textures[0].image.naturalWidth, this.textures[0].image.naturalHeight)
+					},
+					texture1: {
+						type: 't',
+						value: this.textures[0]
+					},
+					texture2: {
+						type: 't',
+						value: this.textures[1]
+					},
+					disp: {
+						type: 't',
+						value: this.disp
+					}
+				},
+				transparent: true,
+				vertexShader: this.vert,
+				fragmentShader: this.frag
+			})
+
+			const geometry = new THREE.PlaneBufferGeometry(
+				this.$imageSlider.height(),
+				this.$imageSlider.height(),
+				2
+			)
+
+			const mesh = new THREE.Mesh(geometry, this.mat)
+
+			this.scene.add(mesh);
+
+			this.render()
+		}
+
+		this.texturesLoader = () => {
+			const loader = new THREE.TextureLoader()
+			loader.crossOrigin = ''
+
+			this.textures = []
+
+			this.slidesUrl.forEach((value, index) => {
+				const texture = loader.load(value, () => {
+					if (index == 0) {
+						this.initShader()
+					}
+
+					this.render()
+				})
+
+				texture.minFilter = THREE.LinearFilter
+				texture.generateMipmaps = false
+
+				this.textures.push(texture)
+			})
+
+			this.disp = loader.load(this.$area.attr('data-displacement'), this.render())
+			this.disp.magFilter = this.disp.minFilter = THREE.LinearFilter
+			this.disp.wrapS = this.disp.wrapT = THREE.RepeatWrapping
+		}
+
+		this.changeTexture = () => {
+			this.mat.uniforms.texture1.value = this.textures[this.previousIndex]
+			this.mat.uniforms.texture2.value = this.textures[this.currentIndex]
+		}
+
+		this.changeSlideRatio = () => {
+			this.tl.to(this.mat.uniforms.imageSize.value, this.transitionTime, {
+				x: this.textures[this.currentIndex].image.naturalWidth,
+				y: this.textures[this.currentIndex].image.naturalHeight,
+				ease: Expo.easeInOut,
+			}, 0)
+
+			this.render()
+		}
+
+		this.initSwiper = () => {
+			let thumbs = {},
+			autoplay = false
+			
+			this.$thumbsSwiper = {}
+
+			if(this.$thumbs.length) {
+				this.$thumbsSwiper = new Swiper(this.$thumbs.get(0), {
+					loop: false,
+					slidesPerView: 'auto',
+					spaceBetween: 15,
+					breakpoints: {
+						480: {
+							//slidesPerView: 4
+						},
+					}
+				})
+
+				thumbs = {
+					swiper: this.$thumbsSwiper
+				}
+			}
+
+			if(this.autoplayOption == 'on' || this.autoplayOption == 'yes') {
+				autoplay = {
+					delay: +this.autoplayTimeoutOption,
+				}
+			}
+
+			this.$sliderSwiper = new Swiper(this.$slider.get(0), {
+				loop: true,
+				thumbs: thumbs,
+				autoplay: autoplay,
+				on: {
+					slideChangeTransitionStart: () => {
+						this.changeSlide()
+						console.log('32');
+					},
+					slideChangeTransitionEnd: () => {
+						this.handleChange = false
+					}
+				}
+			})
+
+			this.changeSlide()
+		}
+
+		this.render = () => { 
+			this.renderer.render(this.scene, this.camera)
+		}
+
+		this.resize = () => {
+			this.$area.css({
+				height: jQuery(window).height() - jQuery('#wpadminbar').height() - jQuery('.header-space:visible').height()
+			});
+
+			this.$imageSlider.css({
+				height: this.$area.height(),
+				width: this.$area.width(),
+			})
+
+			let $thumbs = this.$area.find('.image-slider-type3 .thumbs')
+			thumbsWidth = 0,
+			thumbsPaddings = parseInt($thumbs.css('padding-left')) + parseInt($thumbs.css('padding-right')),
+			maxWidth = 998,
+			itemWidth = 85,
+			areaWidth = this.$area.width()*.9
+
+			if(areaWidth/itemWidth > this.slidesCount) {
+				$thumbs.css({
+					width: this.slidesCount*itemWidth+thumbsPaddings-15
+				})
+			} else {
+				thumbsWidth = Math.floor(areaWidth/itemWidth)*itemWidth+thumbsPaddings-15
+				$thumbs.css({
+					width: thumbsWidth > maxWidth ? maxWidth : thumbsWidth
+				})
+			}
+
+			this.renderer.setSize(this.$imageSlider.width(), this.$imageSlider.height());
+			this.camera.aspect = this.$imageSlider.width() / this.$imageSlider.height();
+			this.camera.updateProjectionMatrix();
+			this.mat.uniforms.screenSize.value = [this.$imageSlider.width(), this.$imageSlider.height()];
+
+			this.render()
+		}
+
+		this.resetValuesAfterAnimation = () => {
+			if (typeof this.mat === 'undefined') return false;
+
+			this.mat.uniforms.dispPower.value = 0.0
+			this.mat.uniforms.texture1.value = this.mat.uniforms.texture2.value;
+
+			this.render()
+		}
+
+		this.initContent = () => {
+			let activeContentSlide = this.$contentItems.eq(this.currentIndex),
+			tl = gsap.timeline()
+			
+			if (activeContentSlide.find('.h-top').length) {
+				tl.fromTo(activeContentSlide.find('.h-top'), {
+					y: 70,
+					opacity: 0
+				}, {
+					y: 0,
+					opacity: 1,
+					delay: .4,
+				}, 0)
+			}
+			if (activeContentSlide.find('.h').length) {
+				tl.fromTo(activeContentSlide.find('.h'), {
+					y: 70,
+					opacity: 0
+				}, {
+					y: 0,
+					opacity: 1,
+					delay: .7,
+					onComplete: (elem) => {
+						activeContentSlide.find('.h').addClass('active')
+					}
+				}, 0)
+			}
+			if (activeContentSlide.find('.text').length) {
+				tl.fromTo(activeContentSlide.find('.text'), {
+					y: 70,
+					opacity: 0
+				}, {
+					y: 0,
+					opacity: 1,
+					delay: 1,
+				}, 0)
+			}
+			if (activeContentSlide.find('.link-block').length) {
+				tl.fromTo(activeContentSlide.find('.link-block'), {
+					y: 70,
+					opacity: 0
+				}, {
+					y: 0,
+					opacity: 1.2,
+				}, 0)
+			}
+		}
+
+		this.changeContent = () => {
+			let prevContentSlide = this.$contentItems.eq(this.currentIndex).siblings(),
+			activeContentSlide = this.$contentItems.eq(this.currentIndex),
+			prevEls = [],
+			activeEls = [];
+
+			if (prevContentSlide.find('.h-top').length) {
+				prevEls.push(prevContentSlide.find('.h-top'));
+			}
+			if (prevContentSlide.find('.h').length) {
+				prevEls.push(prevContentSlide.find('.h'));
+			}
+			if (prevContentSlide.find('.text').length) {
+				prevEls.push(prevContentSlide.find('.text'));
+			}
+			if (prevContentSlide.find('.link-block').length) {
+				prevEls.push(prevContentSlide.find('.link-block'));
+			}
+
+			if (activeContentSlide.find('.h-top').length) {
+				activeEls.push(activeContentSlide.find('.h-top'));
+			}
+			if (activeContentSlide.find('.h').length) {
+				activeEls.push(activeContentSlide.find('.h'));
+			}
+			if (activeContentSlide.find('.text').length) {
+				activeEls.push(activeContentSlide.find('.text'));
+			}
+			if (activeContentSlide.find('.link-block').length) {
+				activeEls.push(activeContentSlide.find('.link-block'));
+			}
+
+			this.tl.to(prevEls, {
+				y: -30,
+				opacity: 0,
+				onComplete: (elem) => {
+					if(prevContentSlide.find('.h').length) {
+						prevContentSlide.find('.h').removeClass('active')
+					}
+				}
+			}, 0)
+
+			this.tl.fromTo(activeEls, {
+				y: 70,
+				opacity: 0
+			}, {
+				y: 0,
+				opacity: 1,
+				delay: (index) => {
+					return (index+1)*350/1000
+				},
+				onStart: () => {
+					activeContentSlide.addClass('current').siblings().removeClass('current')
+				},
+				onComplete: () => {
+					activeContentSlide.find('.h').addClass('active')
+				}
+			}, 0)
+		}
+
+		this.changeSlide = () => {
+			if(!this.$sliderSwiper || typeof this.mat === 'undefined') return false;
+
+			this.previousIndex = this.currentIndex
+			this.currentIndex = this.$sliderSwiper.realIndex
+
+			if(this.previousIndex > this.currentIndex) {
+				this.direction = true
+			} else {
+				this.direction = false
+			}
+
+			this.tl.to(this.mat.uniforms.dispPower, this.transitionTime, {
+				value: 1,
+				ease: Expo.easeInOut,
+				onUpdate: this.render,
+				onComplete: () => {
+					this.isAnimated = false
+				}
+			}, 0)
+
+			this.changeContent()
+		}
+
+		this.to = (index) => {
+			if (this.isAnimated) return
+
+			this.isAnimated = this.handleChange = true
+
+			this.$sliderSwiper.slideTo(index)
+
+			//this.changeSlide()
+		}
+
+		this.prevSlide = () => {
+			if (this.isAnimated) return
+
+			this.isAnimated = this.handleChange = true
+
+			this.$sliderSwiper.slidePrev()
+
+			//this.changeSlide()
+		}
+
+		this.nextSlide = () => {
+			if (this.isAnimated) return
+
+			this.isAnimated = this.handleChange = true
+
+			this.$sliderSwiper.slideNext()
+			
+			//this.changeSlide()
+		}
+
+		this.init = () => {
+			this.initThree()
+			this.texturesLoader()
+			this.initSwiper()
+			this.initContent()
+
+			jQuery(window).on('resize', () => {
+				this.resize()
+			}).on('load', () => {})
+
+			this.$area.on('click', '.prev', () => {
+				this.prevSlide()
+			}).on('click', '.next', () => {
+				this.nextSlide()
+			}).on('click', '.thumbs .swiper-slide:not(.swiper-slide-thumb-active)', (e) => {
+				if (this.isAnimated) return
+
+				this.to(parseInt(jQuery(e.target).index())+1)
+			})
+		}
+
+		this.init()
+	}
+}

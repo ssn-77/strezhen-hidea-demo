@@ -1,0 +1,15 @@
+class BannerLiquidSliderHandler extends elementorModules.frontend.handlers.Base {
+	onInit() {
+		new ptBannerImageLiquid(this.$element.find('.banner-area'))
+	}
+}
+
+jQuery(window).on('elementor/frontend/init', () => {
+	const addHandler = ($element) => {
+		elementorFrontend.elementsHandler.addHandler(BannerLiquidSliderHandler, {
+			$element,
+		});
+	};
+
+	elementorFrontend.hooks.addAction('frontend/element_ready/yprm_banner_liquid_slider.default', addHandler);
+});

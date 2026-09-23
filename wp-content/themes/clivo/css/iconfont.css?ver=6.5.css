@@ -1,0 +1,1162 @@
+@font-face {
+  font-family: 'base-icon';
+  src: url("../fonts/base-icon.eot?dwj2e9");
+  src: url("../fonts/base-icon.eot?dwj2e9#iefix") format("embedded-opentype"), url("../fonts/base-icon.ttf?dwj2e9") format("truetype"), url("../fonts/base-icon.woff?dwj2e9") format("woff"), url("../fonts/base-icon.svg?dwj2e9#base-icon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="base-icon-"], [class*=" base-icon-"] {
+  font-family: 'base-icon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.base-icon-up:before {
+  content: "\e900";
+}
+
+.base-icon-404:before {
+  content: "\e901";
+}
+
+.base-icon-account:before {
+  content: "\e902";
+}
+
+.base-icon-child:before {
+  content: "\e903";
+}
+
+.base-icon-apple:before {
+  content: "\e904";
+}
+
+.base-icon-app-store:before {
+  content: "\e905";
+}
+
+.base-icon-calendar:before {
+  content: "\e906";
+}
+
+.base-icon-check-symbol:before {
+  content: "\e907";
+}
+
+.base-icon-close-button:before {
+  content: "\e908";
+}
+
+.base-icon-down:before {
+  content: "\e909";
+}
+
+.base-icon-envelope:before {
+  content: "\e90a";
+}
+
+.base-icon-expand:before {
+  content: "\e90b";
+}
+
+.base-icon-expand-2:before {
+  content: "\e90c";
+}
+
+.base-icon-facebook:before {
+  content: "\e90d";
+}
+
+.base-icon-github:before {
+  content: "\e90e";
+}
+
+.base-icon-google-play:before {
+  content: "\e90f";
+}
+
+.base-icon-heart:before {
+  content: "\e910";
+}
+
+.base-icon-heart-filled:before {
+  content: "\e911";
+}
+
+.base-icon-instagram:before {
+  content: "\e912";
+}
+
+.base-icon-keyhole:before {
+  content: "\e913";
+}
+
+.base-icon-link:before {
+  content: "\e914";
+}
+
+.base-icon-login:before {
+  content: "\e915";
+}
+
+.base-icon-mail:before {
+  content: "\e916";
+}
+
+.base-icon-next:before {
+  content: "\e917";
+}
+
+.base-icon-next-2:before {
+  content: "\e918";
+}
+
+.base-icon-padlock:before {
+  content: "\e919";
+}
+
+.base-icon-passion:before {
+  content: "\e91a";
+}
+
+.base-icon-phone:before {
+  content: "\e91b";
+}
+
+.base-icon-phone-call:before {
+  content: "\e91c";
+}
+
+.base-icon-pin:before {
+  content: "\e91d";
+}
+
+.base-icon-play-button:before {
+  content: "\e91e";
+}
+
+.base-icon-plus:before {
+  content: "\e91f";
+}
+
+.base-icon-prev:before {
+  content: "\e920";
+}
+
+.base-icon-prev-2:before {
+  content: "\e921";
+}
+
+.base-icon-quote:before {
+  content: "\e922";
+}
+
+.base-icon-reply:before {
+  content: "\e923";
+}
+
+.base-icon-search:before {
+  content: "\e924";
+}
+
+.base-icon-share:before {
+  content: "\e925";
+}
+
+.base-icon-shopping-bag:before {
+  content: "\e926";
+}
+
+.base-icon-shopping-cart:before {
+  content: "\e927";
+}
+
+.base-icon-speaker:before {
+  content: "\e928";
+}
+
+.base-icon-star:before {
+  content: "\e929";
+}
+
+.base-icon-tag:before {
+  content: "\e92a";
+}
+
+.base-icon-prev-3:before {
+  content: "\e92b";
+}
+
+.base-icon-next-3:before {
+  content: "\e92c";
+}
+
+.base-icon-return-up-back:before {
+  content: "\e92d";
+}
+
+@font-face {
+  font-family: 'clivo-icon';
+  src: url("../fonts/clivo-icon.eot?3vt4on");
+  src: url("../fonts/clivo-icon.eot?3vt4on#iefix") format("embedded-opentype"), url("../fonts/clivo-icon.ttf?3vt4on") format("truetype"), url("../fonts/clivo-icon.woff?3vt4on") format("woff"), url("../fonts/clivo-icon.svg?3vt4on#clivo-icon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="clivo-icon-"],
+[class*=" clivo-icon-"] {
+  font-family: 'clivo-icon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.clivo-icon-refresh-2:before {
+  content: "\e917";
+}
+
+.clivo-icon-account:before {
+  content: "\e900";
+}
+
+.clivo-icon-box:before {
+  content: "\e901";
+}
+
+.clivo-icon-cloud:before {
+  content: "\e902";
+}
+
+.clivo-icon-company-workers:before {
+  content: "\e903";
+}
+
+.clivo-icon-data:before {
+  content: "\e904";
+}
+
+.clivo-icon-digital-marketing:before {
+  content: "\e905";
+}
+
+.clivo-icon-discount:before {
+  content: "\e906";
+}
+
+.clivo-icon-event:before {
+  content: "\e907";
+}
+
+.clivo-icon-feedback:before {
+  content: "\e908";
+}
+
+.clivo-icon-heart:before {
+  content: "\e909";
+}
+
+.clivo-icon-helm:before {
+  content: "\e90a";
+}
+
+.clivo-icon-hr:before {
+  content: "\e90b";
+}
+
+.clivo-icon-machinery:before {
+  content: "\e90c";
+}
+
+.clivo-icon-refresh:before {
+  content: "\e90d";
+}
+
+.clivo-icon-rocket:before {
+  content: "\e90e";
+}
+
+.clivo-icon-sale:before {
+  content: "\e90f";
+}
+
+.clivo-icon-shield:before {
+  content: "\e910";
+}
+
+.clivo-icon-shield-2:before {
+  content: "\e911";
+}
+
+.clivo-icon-shop:before {
+  content: "\e912";
+}
+
+.clivo-icon-shopping-cart:before {
+  content: "\e913";
+}
+
+.clivo-icon-social-media-marketing:before {
+  content: "\e914";
+}
+
+.clivo-icon-support:before {
+  content: "\e915";
+}
+
+.clivo-icon-truck:before {
+  content: "\e916";
+}
+
+@font-face {
+  font-family: "social-icon";
+  src: url("../fonts/social-icon.eot");
+  src: url("../fonts/social-icon.eot?#iefix") format("eot"), url("../fonts/social-icon.woff2") format("woff2"), url("../fonts/social-icon.woff") format("woff"), url("../fonts/social-icon.ttf") format("truetype"), url("../fonts/social-icon.svg#social-icon") format("svg");
+}
+
+[class*="social-icon-"],
+[class^="social-icon-"] {
+  font-family: "social-icon";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 1;
+  /* speak: none; only necessary if not using the private unicode range (firstGlyph option) */
+  text-decoration: none;
+  text-transform: none;
+}
+
+.social-icon-500px-logo-1:before {
+  content: "\E001";
+}
+
+.social-icon-500px-logo:before {
+  content: "\E002";
+}
+
+.social-icon-ads-of-the-world-logo:before {
+  content: "\E003";
+}
+
+.social-icon-ads-scuttlepad-logo:before {
+  content: "\E004";
+}
+
+.social-icon-arte10-logo:before {
+  content: "\E005";
+}
+
+.social-icon-ashley-madison-social-logo:before {
+  content: "\E006";
+}
+
+.social-icon-asmallworld-logo:before {
+  content: "\E007";
+}
+
+.social-icon-badoo-social-logotype:before {
+  content: "\E008";
+}
+
+.social-icon-baidu-logo:before {
+  content: "\E009";
+}
+
+.social-icon-bananity-social-logo:before {
+  content: "\E00A";
+}
+
+.social-icon-bandcamp-logo:before {
+  content: "\E00B";
+}
+
+.social-icon-bebo-social-logotype:before {
+  content: "\E00C";
+}
+
+.social-icon-behance-logo:before {
+  content: "\E00D";
+}
+
+.social-icon-bettercodes-logo:before {
+  content: "\E00E";
+}
+
+.social-icon-bisquits-logo:before {
+  content: "\E00F";
+}
+
+.social-icon-bitacoras-logo:before {
+  content: "\E010";
+}
+
+.social-icon-bitacoras-symbol:before {
+  content: "\E011";
+}
+
+.social-icon-blackplanet-logotype:before {
+  content: "\E012";
+}
+
+.social-icon-blogbus-logo:before {
+  content: "\E013";
+}
+
+.social-icon-blogger-logotype:before {
+  content: "\E014";
+}
+
+.social-icon-bloson-logo:before {
+  content: "\E015";
+}
+
+.social-icon-bola-a-logo:before {
+  content: "\E016";
+}
+
+.social-icon-buzznet-logo:before {
+  content: "\E017";
+}
+
+.social-icon-cafemom-logo:before {
+  content: "\E018";
+}
+
+.social-icon-care2-logo:before {
+  content: "\E019";
+}
+
+.social-icon-caringbridge-logo:before {
+  content: "\E01A";
+}
+
+.social-icon-cellufun-logo:before {
+  content: "\E01B";
+}
+
+.social-icon-citeulike-logo:before {
+  content: "\E01C";
+}
+
+.social-icon-classmates-logotype-symbol:before {
+  content: "\E01D";
+}
+
+.social-icon-club-dante-social-logotype:before {
+  content: "\E01E";
+}
+
+.social-icon-coderwall-logo:before {
+  content: "\E01F";
+}
+
+.social-icon-colourlovers-logo:before {
+  content: "\E020";
+}
+
+.social-icon-coroflot:before {
+  content: "\E021";
+}
+
+.social-icon-couchsurfing-logo:before {
+  content: "\E022";
+}
+
+.social-icon-creattica-logo:before {
+  content: "\E023";
+}
+
+.social-icon-cross-tv-logo:before {
+  content: "\E024";
+}
+
+.social-icon-dailymotion-logo:before {
+  content: "\E025";
+}
+
+.social-icon-deezer-logo:before {
+  content: "\E026";
+}
+
+.social-icon-delicious-logotype-of-squares:before {
+  content: "\E027";
+}
+
+.social-icon-desarrollo-web-or-web-development-logo:before {
+  content: "\E028";
+}
+
+.social-icon-designrelated-logotype:before {
+  content: "\E029";
+}
+
+.social-icon-deviantart-logo:before {
+  content: "\E02A";
+}
+
+.social-icon-digg-logo:before {
+  content: "\E02B";
+}
+
+.social-icon-digg-logotype:before {
+  content: "\E02C";
+}
+
+.social-icon-divoblogger-logo:before {
+  content: "\E02D";
+}
+
+.social-icon-doodle-ly-logotype:before {
+  content: "\E02E";
+}
+
+.social-icon-douban-logo:before {
+  content: "\E02F";
+}
+
+.social-icon-dribbble-logo:before {
+  content: "\E030";
+}
+
+.social-icon-ebay-logo:before {
+  content: "\E031";
+}
+
+.social-icon-etsy-logo:before {
+  content: "\E032";
+}
+
+.social-icon-everloop-logo:before {
+  content: "\E033";
+}
+
+.social-icon-ex-fm-logo:before {
+  content: "\E034";
+}
+
+.social-icon-eyeem-logo:before {
+  content: "\E035";
+}
+
+.social-icon-facebook-logo:before {
+  content: "\E036";
+}
+
+.social-icon-fanlala-logo:before {
+  content: "\E037";
+}
+
+.social-icon-flickr-logo:before {
+  content: "\E038";
+}
+
+.social-icon-flipkart-logo:before {
+  content: "\E039";
+}
+
+.social-icon-flixster-logo:before {
+  content: "\E03A";
+}
+
+.social-icon-fod-social-logo:before {
+  content: "\E03B";
+}
+
+.social-icon-fontli-logo:before {
+  content: "\E03C";
+}
+
+.social-icon-fotki-logo:before {
+  content: "\E03D";
+}
+
+.social-icon-fotolog-social-network-logo:before {
+  content: "\E03E";
+}
+
+.social-icon-foursquare-logo:before {
+  content: "\E03F";
+}
+
+.social-icon-friendster-logo:before {
+  content: "\E040";
+}
+
+.social-icon-funny-or-die-logo:before {
+  content: "\E041";
+}
+
+.social-icon-gaiaonline-logo:before {
+  content: "\E042";
+}
+
+.social-icon-gather-logo:before {
+  content: "\E043";
+}
+
+.social-icon-geni-social-logo:before {
+  content: "\E044";
+}
+
+.social-icon-geonick-logo:before {
+  content: "\E045";
+}
+
+.social-icon-glipho-logo:before {
+  content: "\E046";
+}
+
+.social-icon-glogster-logo:before {
+  content: "\E047";
+}
+
+.social-icon-google-plus-social-logotype:before {
+  content: "\E048";
+}
+
+.social-icon-grooveshark-logotype:before {
+  content: "\E049";
+}
+
+.social-icon-grou-ps-logo:before {
+  content: "\E04A";
+}
+
+.social-icon-habbo-logotype-1:before {
+  content: "\E04B";
+}
+
+.social-icon-habbo-logotype:before {
+  content: "\E04C";
+}
+
+.social-icon-heello-logo:before {
+  content: "\E04D";
+}
+
+.social-icon-hexun-logo:before {
+  content: "\E04E";
+}
+
+.social-icon-hi5-social-logo:before {
+  content: "\E04F";
+}
+
+.social-icon-hipstamatic-logo:before {
+  content: "\E050";
+}
+
+.social-icon-hubbub-logo:before {
+  content: "\E051";
+}
+
+.social-icon-inside-the-hotel-logotype:before {
+  content: "\E052";
+}
+
+.social-icon-instagram-social-network-logo-of-photo-camera:before {
+  content: "\E053";
+}
+
+.social-icon-intellectconnect-logo:before {
+  content: "\E054";
+}
+
+.social-icon-iqyi-logo:before {
+  content: "\E055";
+}
+
+.social-icon-itsmy-logo-1:before {
+  content: "\E056";
+}
+
+.social-icon-itsmy-logo:before {
+  content: "\E057";
+}
+
+.social-icon-jiepang-logotype:before {
+  content: "\E058";
+}
+
+.social-icon-jux-logo:before {
+  content: "\E059";
+}
+
+.social-icon-kaixin101-logotype-of-a-smiling-star:before {
+  content: "\E05A";
+}
+
+.social-icon-kiwibox-logo:before {
+  content: "\E05B";
+}
+
+.social-icon-ku6-logo:before {
+  content: "\E05C";
+}
+
+.social-icon-last-fm-logo:before {
+  content: "\E05D";
+}
+
+.social-icon-linkedin-logo:before {
+  content: "\E05E";
+}
+
+.social-icon-literatura-nova-logo:before {
+  content: "\E05F";
+}
+
+.social-icon-meetic-logo:before {
+  content: "\E060";
+}
+
+.social-icon-meetme-logo:before {
+  content: "\E061";
+}
+
+.social-icon-meetup-logo:before {
+  content: "\E062";
+}
+
+.social-icon-meetyourfriends-logotype:before {
+  content: "\E063";
+}
+
+.social-icon-meneame-social-network-logo-of-an-elephant:before {
+  content: "\E064";
+}
+
+.social-icon-metacafe-logo:before {
+  content: "\E065";
+}
+
+.social-icon-mixi-logo:before {
+  content: "\E066";
+}
+
+.social-icon-mocospace-logo:before {
+  content: "\E067";
+}
+
+.social-icon-my-heritage-logo:before {
+  content: "\E068";
+}
+
+.social-icon-my-life-logo:before {
+  content: "\E069";
+}
+
+.social-icon-my-life-social-logo:before {
+  content: "\E06A";
+}
+
+.social-icon-my-space-logo:before {
+  content: "\E06B";
+}
+
+.social-icon-myfolio-logo:before {
+  content: "\E06C";
+}
+
+.social-icon-myspace-logotype:before {
+  content: "\E06D";
+}
+
+.social-icon-ning-social-logo:before {
+  content: "\E06E";
+}
+
+.social-icon-nk-social-symbol:before {
+  content: "\E06F";
+}
+
+.social-icon-notasweb-logo:before {
+  content: "\E070";
+}
+
+.social-icon-odnoklassniki-logo:before {
+  content: "\E071";
+}
+
+.social-icon-on-social-logo:before {
+  content: "\E072";
+}
+
+.social-icon-orkut-logo:before {
+  content: "\E073";
+}
+
+.social-icon-p1-social-logotype:before {
+  content: "\E074";
+}
+
+.social-icon-panamo-logo:before {
+  content: "\E075";
+}
+
+.social-icon-path-social-logotype:before {
+  content: "\E076";
+}
+
+.social-icon-pengyu-logotype:before {
+  content: "\E077";
+}
+
+.social-icon-pheed-logo:before {
+  content: "\E078";
+}
+
+.social-icon-pictify-logo:before {
+  content: "\E079";
+}
+
+.social-icon-pinspire-logo-symbol:before {
+  content: "\E07A";
+}
+
+.social-icon-pinstagram-logo:before {
+  content: "\E07B";
+}
+
+.social-icon-pinterest-social-logo:before {
+  content: "\E07C";
+}
+
+.social-icon-podio-social-logo:before {
+  content: "\E07D";
+}
+
+.social-icon-qq-social-logo-of-a-penguin:before {
+  content: "\E07E";
+}
+
+.social-icon-questionity-logotype:before {
+  content: "\E07F";
+}
+
+.social-icon-qzone-logo:before {
+  content: "\E080";
+}
+
+.social-icon-ravelry-logo-1:before {
+  content: "\E081";
+}
+
+.social-icon-ravelry-logo:before {
+  content: "\E082";
+}
+
+.social-icon-redalyc-logo:before {
+  content: "\E083";
+}
+
+.social-icon-reddit-logo:before {
+  content: "\E084";
+}
+
+.social-icon-reddit-social-logo-character:before {
+  content: "\E085";
+}
+
+.social-icon-rendezvous-logo:before {
+  content: "\E086";
+}
+
+.social-icon-renren-logo:before {
+  content: "\E087";
+}
+
+.social-icon-researchgate-logo:before {
+  content: "\E088";
+}
+
+.social-icon-reverbnation-logo:before {
+  content: "\E089";
+}
+
+.social-icon-ryze-logo:before {
+  content: "\E08A";
+}
+
+.social-icon-ryze-social-logo:before {
+  content: "\E08B";
+}
+
+.social-icon-scoop-it-logo-1:before {
+  content: "\E08C";
+}
+
+.social-icon-scoop-it-logo:before {
+  content: "\E08D";
+}
+
+.social-icon-scribd-logo:before {
+  content: "\E08E";
+}
+
+.social-icon-sina-logo:before {
+  content: "\E08F";
+}
+
+.social-icon-sina-social-logo-of-an-eye:before {
+  content: "\E090";
+}
+
+.social-icon-skyrock-logo:before {
+  content: "\E091";
+}
+
+.social-icon-slideshare-logo:before {
+  content: "\E092";
+}
+
+.social-icon-social-logo:before {
+  content: "\E093";
+}
+
+.social-icon-socialcam-logo:before {
+  content: "\E094";
+}
+
+.social-icon-sonico-logo:before {
+  content: "\E095";
+}
+
+.social-icon-sonico-social-logo:before {
+  content: "\E096";
+}
+
+.social-icon-soundcloud-logo:before {
+  content: "\E097";
+}
+
+.social-icon-spotbros-logo:before {
+  content: "\E098";
+}
+
+.social-icon-spotify-logo:before {
+  content: "\E099";
+}
+
+.social-icon-studivz-social-logo:before {
+  content: "\E09A";
+}
+
+.social-icon-stumbleupon-logo:before {
+  content: "\E09B";
+}
+
+.social-icon-symbaloo-logotype:before {
+  content: "\E09C";
+}
+
+.social-icon-tadaa-logotype:before {
+  content: "\E09D";
+}
+
+.social-icon-tagged-logotype:before {
+  content: "\E09E";
+}
+
+.social-icon-tagworld-logotype-symbol:before {
+  content: "\E09F";
+}
+
+.social-icon-taringa-logo:before {
+  content: "\E0A0";
+}
+
+.social-icon-telly-social-symbol:before {
+  content: "\E0A1";
+}
+
+.social-icon-tencent-weibo-logo:before {
+  content: "\E0A2";
+}
+
+.social-icon-threadless-logotype:before {
+  content: "\E0A3";
+}
+
+.social-icon-tianji-logotype-symbol:before {
+  content: "\E0A4";
+}
+
+.social-icon-travbuddy-social-logotype:before {
+  content: "\E0A5";
+}
+
+.social-icon-tribe-social-logotype:before {
+  content: "\E0A6";
+}
+
+.social-icon-tripadvisor-logotype:before {
+  content: "\E0A7";
+}
+
+.social-icon-tu-tv-logo:before {
+  content: "\E0A8";
+}
+
+.social-icon-tudou-logo:before {
+  content: "\E0A9";
+}
+
+.social-icon-tuenti-social-logo:before {
+  content: "\E0AA";
+}
+
+.social-icon-tumblr-logo:before {
+  content: "\E0AB";
+}
+
+.social-icon-tv-tag-logotype-symbol:before {
+  content: "\E0AC";
+}
+
+.social-icon-twitpic-symbol:before {
+  content: "\E0AD";
+}
+
+.social-icon-twitter-logo:before {
+  content: "\E0AE";
+}
+
+.social-icon-twitter-social-logotype:before {
+  content: "\E0AF";
+}
+
+.social-icon-twoo-logo:before {
+  content: "\E0B0";
+}
+
+.social-icon-typophile-logo:before {
+  content: "\E0B1";
+}
+
+.social-icon-ushi-logo:before {
+  content: "\E0B2";
+}
+
+.social-icon-vampirefreaks-logo:before {
+  content: "\E0B3";
+}
+
+.social-icon-viadeo-logo:before {
+  content: "\E0B4";
+}
+
+.social-icon-viddy-logotype:before {
+  content: "\E0B5";
+}
+
+.social-icon-vimeo-social-logo:before {
+  content: "\E0B6";
+}
+
+.social-icon-vine-logo-1:before {
+  content: "\E0B7";
+}
+
+.social-icon-vine-logo:before {
+  content: "\E0B8";
+}
+
+.social-icon-vk-social-logotype:before {
+  content: "\E0B9";
+}
+
+.social-icon-wayn-social-network-logo:before {
+  content: "\E0BA";
+}
+
+.social-icon-weeworld-logo:before {
+  content: "\E0BB";
+}
+
+.social-icon-weheartit-logo:before {
+  content: "\E0BC";
+}
+
+.social-icon-weibo-social-logo:before {
+  content: "\E0BD";
+}
+
+.social-icon-widbook-logo:before {
+  content: "\E0BE";
+}
+
+.social-icon-wikiloc-logo:before {
+  content: "\E0BF";
+}
+
+.social-icon-wikipedia-logo:before {
+  content: "\E0C0";
+}
+
+.social-icon-wikipedia-logotype-of-earth-puzzle:before {
+  content: "\E0C1";
+}
+
+.social-icon-wordpress-logo:before {
+  content: "\E0C2";
+}
+
+.social-icon-xanga-logo:before {
+  content: "\E0C3";
+}
+
+.social-icon-xanga-symbol:before {
+  content: "\E0C4";
+}
+
+.social-icon-xiami-social-symbol:before {
+  content: "\E0C5";
+}
+
+.social-icon-xing-social-logotype:before {
+  content: "\E0C6";
+}
+
+.social-icon-yelp-logo:before {
+  content: "\E0C7";
+}
+
+.social-icon-youku-logo:before {
+  content: "\E0C8";
+}
+
+.social-icon-yoursphere-logo:before {
+  content: "\E0C9";
+}
+
+.social-icon-youtube-logotype:before {
+  content: "\E0CA";
+}
+
+.social-icon-youtube-symbol:before {
+  content: "\E0CB";
+}
+
+.social-icon-yupoo-logo:before {
+  content: "\E0CC";
+}
+
+.social-icon-zorpia-logo:before {
+  content: "\E0CD";
+}

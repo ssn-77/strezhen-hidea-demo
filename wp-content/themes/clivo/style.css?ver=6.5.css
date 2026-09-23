@@ -1,0 +1,150 @@
+/*!
+Theme Name: Clivo
+Author: Ya Roman
+Description: Сайт подготовлен по задачам hidea.ru
+Requires at least: WordPress 4.9.6
+Tested up to: 5.6.1
+Version: 1.0.6
+Requires PHP: 7.0
+Text Domain: hidea
+License: GNU General Public License v2 or later
+License URI: LICENSE
+*/
+
+.services_news {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.woocommerce-MyAccount-content .services_news .img {
+    display: none;
+}
+
+.pp-form-container .wpcf7  .pp-form-field {
+    position: relative;
+}
+
+.pp-form-container .wpcf7 .pp-form-submit-button-wrap input[type="submit"] {
+    font-size: 16px;
+    font-weight: bold;
+    background: #000000;
+    color: #ffffff;
+}
+
+.dealers_forms #pp-registration-1-wrap.pp-form-container {
+    max-width: 100% !important;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.pp-registration-form-wrapper .wp-element-button {
+    padding: 10px 20px;
+}
+
+.pp-registration-form-wrapper .form-row-first {
+    width: 48%;
+    float: left;
+}
+
+.pp-registration-form-wrapper .form-row-last {
+    width: 48%;
+    float: right;
+}
+
+.pp-registration-form-wrapper form .form-row textarea {
+    height: 10em;
+}
+
+.woocommerce .product-category img {
+    display: none;
+}
+
+.woocommerce .product-category h2 {
+    color: #666666;
+    margin-right: 35px;
+    line-height: 20px;
+    font-size: 14px;
+    margin-bottom: 15px;
+    padding: 5px 0;
+    font-weight: 500;
+}
+
+.woocommerce .product-category h2 mark {
+    background-color: transparent;
+    color: #666666;
+}
+
+.woocommerce .product-category:hover h2 {
+    color: #fff;
+}
+
+.woocommerce .product-category:hover h2 mark {
+    color: #fff;
+}
+
+.woocommerce .product-category h2::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 0;
+    right: 100%;
+    margin-top: -2px;
+    margin-right: 6px;
+    -webkit-transition: all 400ms ease-in-out;
+    -o-transition: all 400ms ease-in-out;
+    transition: all 400ms ease-in-out;
+    -webkit-box-shadow: inset 0 0 0 40px;
+    box-shadow: inset 0 0 0 40px;
+    height: 2px;
+    z-index: -1;
+}
+
+.woocommerce .product-category:hover h2::before {
+    width: 12px;
+    color: #FF4343;
+    opacity: 1;
+    visibility: visible;
+}
+
+ul.products li.product-category {
+    width: 65%;
+    margin-bottom: 15px;
+}
+
+ul.products li.first {
+    width: auto;
+}
+
+.shop-top .woocommerce-result-count {
+    margin: 1em 0 2em;
+}
+
+.archive-category-wrapper {
+    list-style: none;
+    display: flex;
+    padding: 0 25px;
+    margin: 0;
+}
+
+@media (max-width: 1020px) {
+    .archive-category-wrapper {
+        min-width: 450px;
+        flex-wrap: nowrap;
+    }
+}
+
+@media (max-width: 600px) {
+    .archive-category-wrapper {
+        padding: 0;
+        min-width: 100%;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .woocommerce .archive-category-wrapper h2 {
+        margin-right: 0;
+        margin-bottom: 0;
+    }
+}
+

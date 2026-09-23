@@ -1,119 +1,3760 @@
-<!DOCTYPE html>
-<html lang="ru">
+
+<!doctype html>
+<html lang="ru-RU">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Каталог моторов Hidea</title>
-    <style>
-        body { background-color: #111; font-family: system-ui, sans-serif; margin: 0; padding: 20px; color: #fff; }
-        .navbar { background-color: #1a1a1a; padding: 15px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #333; margin-bottom: 30px; }
-        .navbar a { color: #fff; text-decoration: none; font-weight: bold; }
-        .catalog-title { font-size: 2rem; font-weight: 300; margin-bottom: 40px; text-transform: uppercase; letter-spacing: 2px; }
-        .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 30px; }
-        .page-bucket { display: none; }
-        .page-bucket.active { display: grid; }
-        .product-card { background: #111; display: flex; flex-direction: column; padding: 15px; border-radius: 8px; }
-        .img-container { text-align: center; height: 180px; display: flex; align-items: center; justify-content: center; margin-bottom: 15px; background: #161616; border-radius: 6px; font-size: 3rem; }
-        .motor-title { font-size: 1.1rem; font-weight: bold; margin: 0 0 5px 0; text-transform: uppercase; }
-        .motor-cat { font-size: 0.8rem; color: #888; margin-bottom: 15px; }
-        .btn-watch { background: #fff; color: #000; border: none; padding: 10px 20px; border-radius: 20px; font-weight: bold; font-size: 0.85rem; cursor: pointer; text-transform: uppercase; align-self: flex-start; }
-        .btn-watch:hover { background: #e0e0e0; }
-        .pagination-container { display: flex; justify-content: center; margin: 50px 0; }
-        .pagination-btn { background: #222; border: 1px solid #333; padding: 10px 20px; margin: 0 6px; cursor: pointer; border-radius: 4px; color: #fff; font-weight: bold; }
-        .pagination-btn.active { background: #ffc107; color: #000; border-color: #ffc107; }
-        /* Модальное окно */
-        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); display: none; align-items: center; justify-content: center; z-index: 1000; }
-        .modal-overlay.active { display: flex; }
-        .modal-box { background: #1a1a1a; width: 90%; max-width: 500px; padding: 30px; border-radius: 12px; border: 1px solid #333; position: relative; }
-        .close-modal { position: absolute; top: 15px; right: 20px; font-size: 1.8rem; color: #888; cursor: pointer; background: none; border: none; }
-        .modal-title { font-size: 1.5rem; font-weight: bold; color: #ffc107; text-transform: uppercase; }
-        .modal-price { font-size: 1.3rem; font-weight: bold; color: #dc3545; margin: 10px 0; }
-        .specs-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
-        .specs-table th, .specs-table td { padding: 8px; text-align: left; border-bottom: 1px solid #333; font-size: 0.9rem; }
-        .specs-table th { color: #888; font-weight: normal; width: 50%; }
-    </style>
-</head>
-<body>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+	<meta name="theme-color" content="#000">
 
-    <div class="navbar">
-        <a href="../index.html">← НАЗАД НА САЙТ СТРЕЖЕНЬ</a>
-        <span style="color:#ffc107; font-weight:bold;">⚓ ДЕМО-КАТАЛОГ</span>
-    </div>
+	<title>Магазин &#8212; Hidea</title>
+<meta name='robots' content='max-image-preview:large' />
+<script>window._wca = window._wca || [];</script>
+<link rel='dns-prefetch' href='https://stats.wp.com' />
+<link rel='dns-prefetch' href='https://cdnjs.cloudflare.com' />
+<link rel='dns-prefetch' href='https://fonts.googleapis.com' />
+<link rel="alternate" type="application/rss+xml" title="Hidea &raquo; Лента" href="https://hidea.ru/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Hidea &raquo; Лента комментариев" href="https://hidea.ru/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Hidea &raquo; Лента записей типа &laquo;Товары&raquo;" href="feed/index.html.rss" />
+<script type="text/javascript">
+/* <![CDATA[ */
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15.0.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15.0.3\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/hidea.ru\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.5"}};
+/*! This file is auto-generated */
+!function(i,n){var o,s,e;function c(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function p(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data),r=(e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0),new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data));return t.every(function(e,t){return e===r[t]})}function u(e,t,n){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!n(e,"\ud83d\udc26\u200d\u2b1b","\ud83d\udc26\u200b\u2b1b")}return!1}function f(e,t,n){var r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):i.createElement("canvas"),a=r.getContext("2d",{willReadFrequently:!0}),o=(a.textBaseline="top",a.font="600 32px Arial",{});return e.forEach(function(e){o[e]=t(a,e,n)}),o}function t(e){var t=i.createElement("script");t.src=e,t.defer=!0,i.head.appendChild(t)}"undefined"!=typeof Promise&&(o="wpEmojiSettingsSupports",s=["flag","emoji"],n.supports={everything:!0,everythingExceptFlag:!0},e=new Promise(function(e){i.addEventListener("DOMContentLoaded",e,{once:!0})}),new Promise(function(t){var n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"}),a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=function(e){c(n=e.data),a.terminate(),t(n)})}catch(e){}c(n=f(s,u,p))}t(n)}).then(function(e){for(var t in e)n.supports[t]=e[t],n.supports.everything=n.supports.everything&&n.supports[t],"flag"!==t&&(n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&n.supports[t]);n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&!n.supports.flag,n.DOMReady=!1,n.readyCallback=function(){n.DOMReady=!0}}).then(function(){return e}).then(function(){var e;n.supports.everything||(n.readyCallback(),(e=n.source||{}).concatemoji?t(e.concatemoji):e.wpemoji&&e.twemoji&&(t(e.twemoji),t(e.wpemoji)))}))}((window,document),window._wpemojiSettings);
+/* ]]> */
+</script>
+<link rel='stylesheet' id='wp-color-picker-css' href='https://hidea.ru/wp-admin/css/color-picker.min.css?ver=6.5' type='text/css' media='all' />
+<style id='wp-emoji-styles-inline-css' type='text/css'>
 
-    <div class="container">
-        <div class="catalog-title">Каталог</div>
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+</style>
+<link rel='stylesheet' id='wp-block-library-css' href='../wp-includes/css/dist/block-library/style.min.css%3Fver=6.5.css' type='text/css' media='all' />
+<style id='wp-block-library-inline-css' type='text/css'>
+.has-text-align-justify{text-align:justify;}
+</style>
+<link rel='stylesheet' id='jetpack-videopress-video-block-view-css' href='../wp-content/plugins/jetpack/jetpack_vendor/automattic/jetpack-videopress/build/block-editor/blocks/video/view.css%3Fminify=false&ver=317afd605f368082816f.css' type='text/css' media='all' />
+<link rel='stylesheet' id='mediaelement-css' href='../wp-includes/js/mediaelement/mediaelementplayer-legacy.min.css%3Fver=4.2.17.css' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-mediaelement-css' href='../wp-includes/js/mediaelement/wp-mediaelement.min.css%3Fver=6.5.css' type='text/css' media='all' />
+<link rel='stylesheet' id='wc-blocks-vendors-style-css' href='../wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/wc-blocks-vendors-style.css%3Fver=9.8.5.css' type='text/css' media='all' />
+<link rel='stylesheet' id='wc-blocks-style-css' href='../wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/wc-blocks-style.css%3Fver=9.8.5.css' type='text/css' media='all' />
+<style id='classic-theme-styles-inline-css' type='text/css'>
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<style id='global-styles-inline-css' type='text/css'>
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+</style>
+<link rel='stylesheet' id='redux-extendify-styles-css' href='../wp-content/plugins/redux-framework/redux-core/assets/css/extendify-utilities.css%3Fver=4.4.1.css' type='text/css' media='all' />
+<link rel='stylesheet' id='contact-form-7-css' href='../wp-content/plugins/contact-form-7/includes/css/styles.css%3Fver=5.7.7.css' type='text/css' media='all' />
+<style id='extendify-gutenberg-patterns-and-templates-utilities-inline-css' type='text/css'>
+.ext-absolute {
+  position: absolute !important;
+}
 
-        <!-- СТРАНИЦА 1 -->
-        <div class="products-grid page-bucket active" id="content-page-1">
-            <div class="product-card">
-                <div class="img-container">⚓</div>
-                <h6 class="motor-title">HD 3</h6><div class="motor-cat">2-х тактные моторы</div>
-                <button class="btn-watch" onclick="openSpecs('HD 3', '2-х тактные моторы', 'Цена по запросу', {'Мощность': '3.0 л.с.', 'Тип': '2-х тактный', 'Объем': '50 куб.см', 'Вес': '9.8 кг'})">Смотреть</button>
-            </div>
-            <div class="product-card">
-                <div class="img-container">⚓</div>
-                <h6 class="motor-title">HD 5</h6><div class="motor-cat">2-х тактные моторы</div>
-                <button class="btn-watch" onclick="openSpecs('HD 5', '2-х тактные моторы', 'Цена по запросу', {'Мощность': '5.0 л.с.', 'Тип': '2-х тактный', 'Объем': '102 куб.см', 'Вес': '20 кг'})">Смотреть</button>
-            </div>
-            <div class="product-card">
-                <div class="img-container">⚓</div>
-                <h6 class="motor-title">HD 9.9</h6><div class="motor-cat">2-х тактные моторы</div>
-                <button class="btn-watch" onclick="openSpecs('HD 9.9', '2-х тактные моторы', 'Цена по запросу', {'Мощность': '9.9 л.с.', 'Тип': '2-х тактный', 'Объем': '246 куб.см', 'Вес': '36 кг'})">Смотреть</button>
-            </div>
-        </div>
+.ext-relative {
+  position: relative !important;
+}
 
-        <!-- СТРАНИЦА 2 -->
-        <div class="products-grid page-bucket" id="content-page-2">
-            <div class="product-card">
-                <div class="img-container">⚓</div>
-                <h6 class="motor-title">HDF 3.5</h6><div class="motor-cat">4-х тактные моторы</div>
-                <button class="btn-watch" onclick="openSpecs('HDF 3.5', '4-х тактные моторы', 'Цена по запросу', {'Мощность': '3.5 л.с.', 'Тип': '4-х тактный', 'Объем': '85 куб.см', 'Вес': '17 кг'})">Смотреть</button>
-            </div>
-            <div class="product-card">
-                <div class="img-container">⚓</div>
-                <h6 class="motor-title">HD 30 FES-EFI</h6><div class="motor-cat">Моторы EFI</div>
-                <button class="btn-watch" onclick="openSpecs('HD 30 FES-EFI', 'Моторы EFI', 'Цена по запросу', {'Мощность': '30.0 л.с.', 'Тип': 'Инжекторный EFI', 'Объем': '496 куб.см', 'Вес': '53 кг'})">Смотреть</button>
-            </div>
-        </div>
+.ext-top-base {
+  top: var(--wp--style--block-gap, 1.75rem) !important;
+}
 
-        <div class="pagination-container">
-            <button class="pagination-btn active" id="nav-1" onclick="switchTab(1)">1</button>
-            <button class="pagination-btn" id="nav-2" onclick="switchTab(2)">2</button>
-        </div>
-    </div>
+.ext-top-lg {
+  top: var(--extendify--spacing--large, 3rem) !important;
+}
 
-    <!-- ВСПЛЫВАЮЩЕЕ ОКНО -->
-    <div class="modal-overlay" id="specs-modal" onclick="closeSpecs()">
-        <div class="modal-box" onclick="event.stopPropagation()">
-            <button class="close-modal" onclick="closeSpecs()">&times;</button>
-            <div id="m-category" style="font-size: 0.8rem; color: #888; text-transform: uppercase;"></div>
-            <div class="modal-title" id="m-title"></div>
-            <div class="modal-price" id="m-price"></div>
-            <h5 style="margin: 20px 0 10px 0; border-bottom: 1px solid #333; padding-bottom: 5px;">Характеристики:</h5>
-            <table class="specs-table"><tbody id="m-specs-body"></tbody></table>
-        </div>
-    </div>
+.ext--top-base {
+  top: calc(var(--wp--style--block-gap, 1.75rem) * -1) !important;
+}
 
-    <script>
-        function switchTab(p) {
-            document.querySelectorAll('.page-bucket').forEach(el => el.classList.remove('active'));
-            document.getElementById('content-page-' + p).classList.add('active');
-            document.querySelectorAll('.pagination-btn').forEach(el => el.classList.remove('active'));
-            document.getElementById('nav-' + p).classList.add('active');
-        }
-        function openSpecs(title, category, price, specsObj) {
-            document.getElementById('m-title').innerText = title;
-            document.getElementById('m-category').innerText = category;
-            document.getElementById('m-price').innerText = price;
-            const tbody = document.getElementById('m-specs-body');
-            tbody.innerHTML = '';
-            for (const [key, value] of Object.entries(specsObj)) {
-                tbody.innerHTML += `<tr><th>${key}</th><td>${value}</td></tr>`;
-            }
-            document.getElementById('specs-modal').classList.add('active');
-        }
-        function closeSpecs() {
-            document.getElementById('specs-modal').classList.remove('active');
-        }
-    </script>
+.ext--top-lg {
+  top: calc(var(--extendify--spacing--large, 3rem) * -1) !important;
+}
+
+.ext-right-base {
+  right: var(--wp--style--block-gap, 1.75rem) !important;
+}
+
+.ext-right-lg {
+  right: var(--extendify--spacing--large, 3rem) !important;
+}
+
+.ext--right-base {
+  right: calc(var(--wp--style--block-gap, 1.75rem) * -1) !important;
+}
+
+.ext--right-lg {
+  right: calc(var(--extendify--spacing--large, 3rem) * -1) !important;
+}
+
+.ext-bottom-base {
+  bottom: var(--wp--style--block-gap, 1.75rem) !important;
+}
+
+.ext-bottom-lg {
+  bottom: var(--extendify--spacing--large, 3rem) !important;
+}
+
+.ext--bottom-base {
+  bottom: calc(var(--wp--style--block-gap, 1.75rem) * -1) !important;
+}
+
+.ext--bottom-lg {
+  bottom: calc(var(--extendify--spacing--large, 3rem) * -1) !important;
+}
+
+.ext-left-base {
+  left: var(--wp--style--block-gap, 1.75rem) !important;
+}
+
+.ext-left-lg {
+  left: var(--extendify--spacing--large, 3rem) !important;
+}
+
+.ext--left-base {
+  left: calc(var(--wp--style--block-gap, 1.75rem) * -1) !important;
+}
+
+.ext--left-lg {
+  left: calc(var(--extendify--spacing--large, 3rem) * -1) !important;
+}
+
+.ext-order-1 {
+  order: 1 !important;
+}
+
+.ext-order-2 {
+  order: 2 !important;
+}
+
+.ext-col-auto {
+  grid-column: auto !important;
+}
+
+.ext-col-span-1 {
+  grid-column: span 1 / span 1 !important;
+}
+
+.ext-col-span-2 {
+  grid-column: span 2 / span 2 !important;
+}
+
+.ext-col-span-3 {
+  grid-column: span 3 / span 3 !important;
+}
+
+.ext-col-span-4 {
+  grid-column: span 4 / span 4 !important;
+}
+
+.ext-col-span-5 {
+  grid-column: span 5 / span 5 !important;
+}
+
+.ext-col-span-6 {
+  grid-column: span 6 / span 6 !important;
+}
+
+.ext-col-span-7 {
+  grid-column: span 7 / span 7 !important;
+}
+
+.ext-col-span-8 {
+  grid-column: span 8 / span 8 !important;
+}
+
+.ext-col-span-9 {
+  grid-column: span 9 / span 9 !important;
+}
+
+.ext-col-span-10 {
+  grid-column: span 10 / span 10 !important;
+}
+
+.ext-col-span-11 {
+  grid-column: span 11 / span 11 !important;
+}
+
+.ext-col-span-12 {
+  grid-column: span 12 / span 12 !important;
+}
+
+.ext-col-span-full {
+  grid-column: 1 / -1 !important;
+}
+
+.ext-col-start-1 {
+  grid-column-start: 1 !important;
+}
+
+.ext-col-start-2 {
+  grid-column-start: 2 !important;
+}
+
+.ext-col-start-3 {
+  grid-column-start: 3 !important;
+}
+
+.ext-col-start-4 {
+  grid-column-start: 4 !important;
+}
+
+.ext-col-start-5 {
+  grid-column-start: 5 !important;
+}
+
+.ext-col-start-6 {
+  grid-column-start: 6 !important;
+}
+
+.ext-col-start-7 {
+  grid-column-start: 7 !important;
+}
+
+.ext-col-start-8 {
+  grid-column-start: 8 !important;
+}
+
+.ext-col-start-9 {
+  grid-column-start: 9 !important;
+}
+
+.ext-col-start-10 {
+  grid-column-start: 10 !important;
+}
+
+.ext-col-start-11 {
+  grid-column-start: 11 !important;
+}
+
+.ext-col-start-12 {
+  grid-column-start: 12 !important;
+}
+
+.ext-col-start-13 {
+  grid-column-start: 13 !important;
+}
+
+.ext-col-start-auto {
+  grid-column-start: auto !important;
+}
+
+.ext-col-end-1 {
+  grid-column-end: 1 !important;
+}
+
+.ext-col-end-2 {
+  grid-column-end: 2 !important;
+}
+
+.ext-col-end-3 {
+  grid-column-end: 3 !important;
+}
+
+.ext-col-end-4 {
+  grid-column-end: 4 !important;
+}
+
+.ext-col-end-5 {
+  grid-column-end: 5 !important;
+}
+
+.ext-col-end-6 {
+  grid-column-end: 6 !important;
+}
+
+.ext-col-end-7 {
+  grid-column-end: 7 !important;
+}
+
+.ext-col-end-8 {
+  grid-column-end: 8 !important;
+}
+
+.ext-col-end-9 {
+  grid-column-end: 9 !important;
+}
+
+.ext-col-end-10 {
+  grid-column-end: 10 !important;
+}
+
+.ext-col-end-11 {
+  grid-column-end: 11 !important;
+}
+
+.ext-col-end-12 {
+  grid-column-end: 12 !important;
+}
+
+.ext-col-end-13 {
+  grid-column-end: 13 !important;
+}
+
+.ext-col-end-auto {
+  grid-column-end: auto !important;
+}
+
+.ext-row-auto {
+  grid-row: auto !important;
+}
+
+.ext-row-span-1 {
+  grid-row: span 1 / span 1 !important;
+}
+
+.ext-row-span-2 {
+  grid-row: span 2 / span 2 !important;
+}
+
+.ext-row-span-3 {
+  grid-row: span 3 / span 3 !important;
+}
+
+.ext-row-span-4 {
+  grid-row: span 4 / span 4 !important;
+}
+
+.ext-row-span-5 {
+  grid-row: span 5 / span 5 !important;
+}
+
+.ext-row-span-6 {
+  grid-row: span 6 / span 6 !important;
+}
+
+.ext-row-span-full {
+  grid-row: 1 / -1 !important;
+}
+
+.ext-row-start-1 {
+  grid-row-start: 1 !important;
+}
+
+.ext-row-start-2 {
+  grid-row-start: 2 !important;
+}
+
+.ext-row-start-3 {
+  grid-row-start: 3 !important;
+}
+
+.ext-row-start-4 {
+  grid-row-start: 4 !important;
+}
+
+.ext-row-start-5 {
+  grid-row-start: 5 !important;
+}
+
+.ext-row-start-6 {
+  grid-row-start: 6 !important;
+}
+
+.ext-row-start-7 {
+  grid-row-start: 7 !important;
+}
+
+.ext-row-start-auto {
+  grid-row-start: auto !important;
+}
+
+.ext-row-end-1 {
+  grid-row-end: 1 !important;
+}
+
+.ext-row-end-2 {
+  grid-row-end: 2 !important;
+}
+
+.ext-row-end-3 {
+  grid-row-end: 3 !important;
+}
+
+.ext-row-end-4 {
+  grid-row-end: 4 !important;
+}
+
+.ext-row-end-5 {
+  grid-row-end: 5 !important;
+}
+
+.ext-row-end-6 {
+  grid-row-end: 6 !important;
+}
+
+.ext-row-end-7 {
+  grid-row-end: 7 !important;
+}
+
+.ext-row-end-auto {
+  grid-row-end: auto !important;
+}
+
+.ext-m-0:not([style*="margin"]) {
+  margin: 0 !important;
+}
+
+.ext-m-auto:not([style*="margin"]) {
+  margin: auto !important;
+}
+
+.ext-m-base:not([style*="margin"]) {
+  margin: var(--wp--style--block-gap, 1.75rem) !important;
+}
+
+.ext-m-lg:not([style*="margin"]) {
+  margin: var(--extendify--spacing--large, 3rem) !important;
+}
+
+.ext--m-base:not([style*="margin"]) {
+  margin: calc(var(--wp--style--block-gap, 1.75rem) * -1) !important;
+}
+
+.ext--m-lg:not([style*="margin"]) {
+  margin: calc(var(--extendify--spacing--large, 3rem) * -1) !important;
+}
+
+.ext-mx-0:not([style*="margin"]) {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.ext-mx-auto:not([style*="margin"]) {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.ext-mx-base:not([style*="margin"]) {
+  margin-left: var(--wp--style--block-gap, 1.75rem) !important;
+  margin-right: var(--wp--style--block-gap, 1.75rem) !important;
+}
+
+.ext-mx-lg:not([style*="margin"]) {
+  margin-left: var(--extendify--spacing--large, 3rem) !important;
+  margin-right: var(--extendify--spacing--large, 3rem) !important;
+}
+
+.ext--mx-base:not([style*="margin"]) {
+  margin-left: calc(var(--wp--style--block-gap, 1.75rem) * -1) !important;
+  margin-right: calc(var(--wp--style--block-gap, 1.75rem) * -1) !important;
+}
+
+.ext--mx-lg:not([style*="margin"]) {
+  margin-left: calc(var(--extendify--spacing--large, 3rem) * -1) !important;
+  margin-right: calc(var(--extendify--spacing--large, 3rem) * -1) !important;
+}
+
+.ext-my-0:not([style*="margin"]) {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.ext-my-auto:not([style*="margin"]) {
+  margin-top: auto !important;
+  margin-bottom: auto !important;
+}
+
+.ext-my-base:not([style*="margin"]) {
+  margin-top: var(--wp--style--block-gap, 1.75rem) !important;
+  margin-bottom: var(--wp--style--block-gap, 1.75rem) !important;
+}
+
+.ext-my-lg:not([style*="margin"]) {
+  margin-top: var(--extendify--spacing--large, 3rem) !important;
+  margin-bottom: var(--extendify--spacing--large, 3rem) !important;
+}
+
+.ext--my-base:not([style*="margin"]) {
+  margin-top: calc(var(--wp--style--block-gap, 1.75rem) * -1) !important;
+  margin-bottom: calc(var(--wp--style--block-gap, 1.75rem) * -1) !important;
+}
+
+.ext--my-lg:not([style*="margin"]) {
+  margin-top: calc(var(--extendify--spacing--large, 3rem) * -1) !important;
+  margin-bottom: calc(var(--extendify--spacing--large, 3rem) * -1) !important;
+}
+
+.ext-mt-0:not([style*="margin"]) {
+  margin-top: 0 !important;
+}
+
+.ext-mt-auto:not([style*="margin"]) {
+  margin-top: auto !important;
+}
+
+.ext-mt-base:not([style*="margin"]) {
+  margin-top: var(--wp--style--block-gap, 1.75rem) !important;
+}
+
+.ext-mt-lg:not([style*="margin"]) {
+  margin-top: var(--extendify--spacing--large, 3rem) !important;
+}
+
+.ext--mt-base:not([style*="margin"]) {
+  margin-top: calc(var(--wp--style--block-gap, 1.75rem) * -1) !important;
+}
+
+.ext--mt-lg:not([style*="margin"]) {
+  margin-top: calc(var(--extendify--spacing--large, 3rem) * -1) !important;
+}
+
+.ext-mr-0:not([style*="margin"]) {
+  margin-right: 0 !important;
+}
+
+.ext-mr-auto:not([style*="margin"]) {
+  margin-right: auto !important;
+}
+
+.ext-mr-base:not([style*="margin"]) {
+  margin-right: var(--wp--style--block-gap, 1.75rem) !important;
+}
+
+.ext-mr-lg:not([style*="margin"]) {
+  margin-right: var(--extendify--spacing--large, 3rem) !important;
+}
+
+.ext--mr-base:not([style*="margin"]) {
+  margin-right: calc(var(--wp--style--block-gap, 1.75rem) * -1) !important;
+}
+
+.ext--mr-lg:not([style*="margin"]) {
+  margin-right: calc(var(--extendify--spacing--large, 3rem) * -1) !important;
+}
+
+.ext-mb-0:not([style*="margin"]) {
+  margin-bottom: 0 !important;
+}
+
+.ext-mb-auto:not([style*="margin"]) {
+  margin-bottom: auto !important;
+}
+
+.ext-mb-base:not([style*="margin"]) {
+  margin-bottom: var(--wp--style--block-gap, 1.75rem) !important;
+}
+
+.ext-mb-lg:not([style*="margin"]) {
+  margin-bottom: var(--extendify--spacing--large, 3rem) !important;
+}
+
+.ext--mb-base:not([style*="margin"]) {
+  margin-bottom: calc(var(--wp--style--block-gap, 1.75rem) * -1) !important;
+}
+
+.ext--mb-lg:not([style*="margin"]) {
+  margin-bottom: calc(var(--extendify--spacing--large, 3rem) * -1) !important;
+}
+
+.ext-ml-0:not([style*="margin"]) {
+  margin-left: 0 !important;
+}
+
+.ext-ml-auto:not([style*="margin"]) {
+  margin-left: auto !important;
+}
+
+.ext-ml-base:not([style*="margin"]) {
+  margin-left: var(--wp--style--block-gap, 1.75rem) !important;
+}
+
+.ext-ml-lg:not([style*="margin"]) {
+  margin-left: var(--extendify--spacing--large, 3rem) !important;
+}
+
+.ext--ml-base:not([style*="margin"]) {
+  margin-left: calc(var(--wp--style--block-gap, 1.75rem) * -1) !important;
+}
+
+.ext--ml-lg:not([style*="margin"]) {
+  margin-left: calc(var(--extendify--spacing--large, 3rem) * -1) !important;
+}
+
+.ext-block {
+  display: block !important;
+}
+
+.ext-inline-block {
+  display: inline-block !important;
+}
+
+.ext-inline {
+  display: inline !important;
+}
+
+.ext-flex {
+  display: flex !important;
+}
+
+.ext-inline-flex {
+  display: inline-flex !important;
+}
+
+.ext-grid {
+  display: grid !important;
+}
+
+.ext-inline-grid {
+  display: inline-grid !important;
+}
+
+.ext-hidden {
+  display: none !important;
+}
+
+.ext-w-auto {
+  width: auto !important;
+}
+
+.ext-w-full {
+  width: 100% !important;
+}
+
+.ext-max-w-full {
+  max-width: 100% !important;
+}
+
+.ext-flex-1 {
+  flex: 1 1 0% !important;
+}
+
+.ext-flex-auto {
+  flex: 1 1 auto !important;
+}
+
+.ext-flex-initial {
+  flex: 0 1 auto !important;
+}
+
+.ext-flex-none {
+  flex: none !important;
+}
+
+.ext-flex-shrink-0 {
+  flex-shrink: 0 !important;
+}
+
+.ext-flex-shrink {
+  flex-shrink: 1 !important;
+}
+
+.ext-flex-grow-0 {
+  flex-grow: 0 !important;
+}
+
+.ext-flex-grow {
+  flex-grow: 1 !important;
+}
+
+.ext-list-none {
+  list-style-type: none !important;
+}
+
+.ext-grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+}
+
+.ext-grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+}
+
+.ext-grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+}
+
+.ext-grid-cols-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+}
+
+.ext-grid-cols-5 {
+  grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+}
+
+.ext-grid-cols-6 {
+  grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+}
+
+.ext-grid-cols-7 {
+  grid-template-columns: repeat(7, minmax(0, 1fr)) !important;
+}
+
+.ext-grid-cols-8 {
+  grid-template-columns: repeat(8, minmax(0, 1fr)) !important;
+}
+
+.ext-grid-cols-9 {
+  grid-template-columns: repeat(9, minmax(0, 1fr)) !important;
+}
+
+.ext-grid-cols-10 {
+  grid-template-columns: repeat(10, minmax(0, 1fr)) !important;
+}
+
+.ext-grid-cols-11 {
+  grid-template-columns: repeat(11, minmax(0, 1fr)) !important;
+}
+
+.ext-grid-cols-12 {
+  grid-template-columns: repeat(12, minmax(0, 1fr)) !important;
+}
+
+.ext-grid-cols-none {
+  grid-template-columns: none !important;
+}
+
+.ext-grid-rows-1 {
+  grid-template-rows: repeat(1, minmax(0, 1fr)) !important;
+}
+
+.ext-grid-rows-2 {
+  grid-template-rows: repeat(2, minmax(0, 1fr)) !important;
+}
+
+.ext-grid-rows-3 {
+  grid-template-rows: repeat(3, minmax(0, 1fr)) !important;
+}
+
+.ext-grid-rows-4 {
+  grid-template-rows: repeat(4, minmax(0, 1fr)) !important;
+}
+
+.ext-grid-rows-5 {
+  grid-template-rows: repeat(5, minmax(0, 1fr)) !important;
+}
+
+.ext-grid-rows-6 {
+  grid-template-rows: repeat(6, minmax(0, 1fr)) !important;
+}
+
+.ext-grid-rows-none {
+  grid-template-rows: none !important;
+}
+
+.ext-flex-row {
+  flex-direction: row !important;
+}
+
+.ext-flex-row-reverse {
+  flex-direction: row-reverse !important;
+}
+
+.ext-flex-col {
+  flex-direction: column !important;
+}
+
+.ext-flex-col-reverse {
+  flex-direction: column-reverse !important;
+}
+
+.ext-flex-wrap {
+  flex-wrap: wrap !important;
+}
+
+.ext-flex-wrap-reverse {
+  flex-wrap: wrap-reverse !important;
+}
+
+.ext-flex-nowrap {
+  flex-wrap: nowrap !important;
+}
+
+.ext-items-start {
+  align-items: flex-start !important;
+}
+
+.ext-items-end {
+  align-items: flex-end !important;
+}
+
+.ext-items-center {
+  align-items: center !important;
+}
+
+.ext-items-baseline {
+  align-items: baseline !important;
+}
+
+.ext-items-stretch {
+  align-items: stretch !important;
+}
+
+.ext-justify-start {
+  justify-content: flex-start !important;
+}
+
+.ext-justify-end {
+  justify-content: flex-end !important;
+}
+
+.ext-justify-center {
+  justify-content: center !important;
+}
+
+.ext-justify-between {
+  justify-content: space-between !important;
+}
+
+.ext-justify-around {
+  justify-content: space-around !important;
+}
+
+.ext-justify-evenly {
+  justify-content: space-evenly !important;
+}
+
+.ext-justify-items-start {
+  justify-items: start !important;
+}
+
+.ext-justify-items-end {
+  justify-items: end !important;
+}
+
+.ext-justify-items-center {
+  justify-items: center !important;
+}
+
+.ext-justify-items-stretch {
+  justify-items: stretch !important;
+}
+
+.ext-gap-0 {
+  gap: 0 !important;
+}
+
+.ext-gap-base {
+  gap: var(--wp--style--block-gap, 1.75rem) !important;
+}
+
+.ext-gap-lg {
+  gap: var(--extendify--spacing--large, 3rem) !important;
+}
+
+.ext-gap-x-0 {
+  -moz-column-gap: 0 !important;
+       column-gap: 0 !important;
+}
+
+.ext-gap-x-base {
+  -moz-column-gap: var(--wp--style--block-gap, 1.75rem) !important;
+       column-gap: var(--wp--style--block-gap, 1.75rem) !important;
+}
+
+.ext-gap-x-lg {
+  -moz-column-gap: var(--extendify--spacing--large, 3rem) !important;
+       column-gap: var(--extendify--spacing--large, 3rem) !important;
+}
+
+.ext-gap-y-0 {
+  row-gap: 0 !important;
+}
+
+.ext-gap-y-base {
+  row-gap: var(--wp--style--block-gap, 1.75rem) !important;
+}
+
+.ext-gap-y-lg {
+  row-gap: var(--extendify--spacing--large, 3rem) !important;
+}
+
+.ext-justify-self-auto {
+  justify-self: auto !important;
+}
+
+.ext-justify-self-start {
+  justify-self: start !important;
+}
+
+.ext-justify-self-end {
+  justify-self: end !important;
+}
+
+.ext-justify-self-center {
+  justify-self: center !important;
+}
+
+.ext-justify-self-stretch {
+  justify-self: stretch !important;
+}
+
+.ext-rounded-none {
+  border-radius: 0px !important;
+}
+
+.ext-rounded-full {
+  border-radius: 9999px !important;
+}
+
+.ext-rounded-t-none {
+  border-top-left-radius: 0px !important;
+  border-top-right-radius: 0px !important;
+}
+
+.ext-rounded-t-full {
+  border-top-left-radius: 9999px !important;
+  border-top-right-radius: 9999px !important;
+}
+
+.ext-rounded-r-none {
+  border-top-right-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+}
+
+.ext-rounded-r-full {
+  border-top-right-radius: 9999px !important;
+  border-bottom-right-radius: 9999px !important;
+}
+
+.ext-rounded-b-none {
+  border-bottom-right-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
+}
+
+.ext-rounded-b-full {
+  border-bottom-right-radius: 9999px !important;
+  border-bottom-left-radius: 9999px !important;
+}
+
+.ext-rounded-l-none {
+  border-top-left-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
+}
+
+.ext-rounded-l-full {
+  border-top-left-radius: 9999px !important;
+  border-bottom-left-radius: 9999px !important;
+}
+
+.ext-rounded-tl-none {
+  border-top-left-radius: 0px !important;
+}
+
+.ext-rounded-tl-full {
+  border-top-left-radius: 9999px !important;
+}
+
+.ext-rounded-tr-none {
+  border-top-right-radius: 0px !important;
+}
+
+.ext-rounded-tr-full {
+  border-top-right-radius: 9999px !important;
+}
+
+.ext-rounded-br-none {
+  border-bottom-right-radius: 0px !important;
+}
+
+.ext-rounded-br-full {
+  border-bottom-right-radius: 9999px !important;
+}
+
+.ext-rounded-bl-none {
+  border-bottom-left-radius: 0px !important;
+}
+
+.ext-rounded-bl-full {
+  border-bottom-left-radius: 9999px !important;
+}
+
+.ext-border-0 {
+  border-width: 0px !important;
+}
+
+.ext-border-t-0 {
+  border-top-width: 0px !important;
+}
+
+.ext-border-r-0 {
+  border-right-width: 0px !important;
+}
+
+.ext-border-b-0 {
+  border-bottom-width: 0px !important;
+}
+
+.ext-border-l-0 {
+  border-left-width: 0px !important;
+}
+
+.ext-p-0:not([style*="padding"]) {
+  padding: 0 !important;
+}
+
+.ext-p-base:not([style*="padding"]) {
+  padding: var(--wp--style--block-gap, 1.75rem) !important;
+}
+
+.ext-p-lg:not([style*="padding"]) {
+  padding: var(--extendify--spacing--large, 3rem) !important;
+}
+
+.ext-px-0:not([style*="padding"]) {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.ext-px-base:not([style*="padding"]) {
+  padding-left: var(--wp--style--block-gap, 1.75rem) !important;
+  padding-right: var(--wp--style--block-gap, 1.75rem) !important;
+}
+
+.ext-px-lg:not([style*="padding"]) {
+  padding-left: var(--extendify--spacing--large, 3rem) !important;
+  padding-right: var(--extendify--spacing--large, 3rem) !important;
+}
+
+.ext-py-0:not([style*="padding"]) {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.ext-py-base:not([style*="padding"]) {
+  padding-top: var(--wp--style--block-gap, 1.75rem) !important;
+  padding-bottom: var(--wp--style--block-gap, 1.75rem) !important;
+}
+
+.ext-py-lg:not([style*="padding"]) {
+  padding-top: var(--extendify--spacing--large, 3rem) !important;
+  padding-bottom: var(--extendify--spacing--large, 3rem) !important;
+}
+
+.ext-pt-0:not([style*="padding"]) {
+  padding-top: 0 !important;
+}
+
+.ext-pt-base:not([style*="padding"]) {
+  padding-top: var(--wp--style--block-gap, 1.75rem) !important;
+}
+
+.ext-pt-lg:not([style*="padding"]) {
+  padding-top: var(--extendify--spacing--large, 3rem) !important;
+}
+
+.ext-pr-0:not([style*="padding"]) {
+  padding-right: 0 !important;
+}
+
+.ext-pr-base:not([style*="padding"]) {
+  padding-right: var(--wp--style--block-gap, 1.75rem) !important;
+}
+
+.ext-pr-lg:not([style*="padding"]) {
+  padding-right: var(--extendify--spacing--large, 3rem) !important;
+}
+
+.ext-pb-0:not([style*="padding"]) {
+  padding-bottom: 0 !important;
+}
+
+.ext-pb-base:not([style*="padding"]) {
+  padding-bottom: var(--wp--style--block-gap, 1.75rem) !important;
+}
+
+.ext-pb-lg:not([style*="padding"]) {
+  padding-bottom: var(--extendify--spacing--large, 3rem) !important;
+}
+
+.ext-pl-0:not([style*="padding"]) {
+  padding-left: 0 !important;
+}
+
+.ext-pl-base:not([style*="padding"]) {
+  padding-left: var(--wp--style--block-gap, 1.75rem) !important;
+}
+
+.ext-pl-lg:not([style*="padding"]) {
+  padding-left: var(--extendify--spacing--large, 3rem) !important;
+}
+
+.ext-text-left {
+  text-align: left !important;
+}
+
+.ext-text-center {
+  text-align: center !important;
+}
+
+.ext-text-right {
+  text-align: right !important;
+}
+
+.ext-leading-none {
+  line-height: 1 !important;
+}
+
+.ext-leading-tight {
+  line-height: 1.25 !important;
+}
+
+.ext-leading-snug {
+  line-height: 1.375 !important;
+}
+
+.ext-leading-normal {
+  line-height: 1.5 !important;
+}
+
+.ext-leading-relaxed {
+  line-height: 1.625 !important;
+}
+
+.ext-leading-loose {
+  line-height: 2 !important;
+}
+
+.ext-aspect-square img {
+  aspect-ratio: 1 / 1 !important;
+  -o-object-fit: cover !important;
+     object-fit: cover !important;
+}
+
+.ext-aspect-landscape img {
+  aspect-ratio: 4 / 3 !important;
+  -o-object-fit: cover !important;
+     object-fit: cover !important;
+}
+
+.ext-aspect-landscape-wide img {
+  aspect-ratio: 16 / 9 !important;
+  -o-object-fit: cover !important;
+     object-fit: cover !important;
+}
+
+.ext-aspect-portrait img {
+  aspect-ratio: 3 / 4 !important;
+  -o-object-fit: cover !important;
+     object-fit: cover !important;
+}
+
+.ext-aspect-square .components-resizable-box__container,
+.ext-aspect-landscape .components-resizable-box__container,
+.ext-aspect-landscape-wide .components-resizable-box__container,
+.ext-aspect-portrait .components-resizable-box__container {
+  height: auto !important;
+}
+
+.clip-path--rhombus img {
+  -webkit-clip-path: polygon(15% 6%, 80% 29%, 84% 93%, 23% 69%) !important;
+          clip-path: polygon(15% 6%, 80% 29%, 84% 93%, 23% 69%) !important;
+}
+
+.clip-path--diamond img {
+  -webkit-clip-path: polygon(5% 29%, 60% 2%, 91% 64%, 36% 89%) !important;
+          clip-path: polygon(5% 29%, 60% 2%, 91% 64%, 36% 89%) !important;
+}
+
+.clip-path--rhombus-alt img {
+  -webkit-clip-path: polygon(14% 9%, 85% 24%, 91% 89%, 19% 76%) !important;
+          clip-path: polygon(14% 9%, 85% 24%, 91% 89%, 19% 76%) !important;
+}
+
+/*
+The .ext utility is a top-level class that we use to target contents within our patterns.
+We use it here to ensure columns blocks display well across themes.
+*/
+
+.wp-block-columns[class*="fullwidth-cols"] {
+  /* no suggestion */
+  margin-bottom: unset !important;
+}
+
+.wp-block-column.editor\:pointer-events-none {
+  /* no suggestion */
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.is-root-container.block-editor-block-list__layout
+    > [data-align="full"]:not(:first-of-type)
+    > .wp-block-column.editor\:pointer-events-none,
+.is-root-container.block-editor-block-list__layout
+    > [data-align="wide"]
+    > .wp-block-column.editor\:pointer-events-none {
+  /* no suggestion */
+  margin-top: calc(-1 * var(--wp--style--block-gap, 28px)) !important;
+}
+
+.is-root-container.block-editor-block-list__layout
+    > [data-align="full"]:not(:first-of-type)
+    > .ext-my-0,
+.is-root-container.block-editor-block-list__layout
+    > [data-align="wide"]
+    > .ext-my-0:not([style*="margin"]) {
+  /* no suggestion */
+  margin-top: calc(-1 * var(--wp--style--block-gap, 28px)) !important;
+}
+
+/* Some popular themes use padding instead of core margin for columns; remove it */
+
+.ext .wp-block-columns .wp-block-column[style*="padding"] {
+  /* no suggestion */
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* Some popular themes add double spacing between columns; remove it */
+
+.ext
+    .wp-block-columns
+    + .wp-block-columns:not([class*="mt-"]):not([class*="my-"]):not([style*="margin"]) {
+  /* no suggestion */
+  margin-top: 0 !important;
+}
+
+[class*="fullwidth-cols"] .wp-block-column:first-child,
+[class*="fullwidth-cols"] .wp-block-group:first-child {
+  /* no suggestion */
+}
+
+[class*="fullwidth-cols"] .wp-block-column:first-child, [class*="fullwidth-cols"] .wp-block-group:first-child {
+  margin-top: 0 !important;
+}
+
+[class*="fullwidth-cols"] .wp-block-column:last-child,
+[class*="fullwidth-cols"] .wp-block-group:last-child {
+  /* no suggestion */
+}
+
+[class*="fullwidth-cols"] .wp-block-column:last-child, [class*="fullwidth-cols"] .wp-block-group:last-child {
+  margin-bottom: 0 !important;
+}
+
+[class*="fullwidth-cols"] .wp-block-column:first-child > * {
+  /* no suggestion */
+  margin-top: 0 !important;
+}
+
+[class*="fullwidth-cols"] .wp-block-column > *:first-child {
+  /* no suggestion */
+  margin-top: 0 !important;
+}
+
+[class*="fullwidth-cols"] .wp-block-column > *:last-child {
+  /* no suggestion */
+  margin-bottom: 0 !important;
+}
+
+.ext .is-not-stacked-on-mobile .wp-block-column {
+  /* no suggestion */
+  margin-bottom: 0 !important;
+}
+
+/* Add base margin bottom to all columns */
+
+.wp-block-columns[class*="fullwidth-cols"]:not(.is-not-stacked-on-mobile)
+    > .wp-block-column:not(:last-child) {
+  /* no suggestion */
+  margin-bottom: var(--wp--style--block-gap, 1.75rem) !important;
+}
+
+@media (min-width: 782px) {
+  .wp-block-columns[class*="fullwidth-cols"]:not(.is-not-stacked-on-mobile)
+        > .wp-block-column:not(:last-child) {
+    /* no suggestion */
+    margin-bottom: 0 !important;
+  }
+}
+
+/* Remove margin bottom from "not-stacked" columns */
+
+.wp-block-columns[class*="fullwidth-cols"].is-not-stacked-on-mobile
+    > .wp-block-column {
+  /* no suggestion */
+  margin-bottom: 0 !important;
+}
+
+@media (min-width: 600px) and (max-width: 781px) {
+  .wp-block-columns[class*="fullwidth-cols"]:not(.is-not-stacked-on-mobile)
+        > .wp-block-column:nth-child(even) {
+    /* no suggestion */
+    margin-left: var(--wp--style--block-gap, 2em) !important;
+  }
+}
+
+/*
+    The `tablet:fullwidth-cols` and `desktop:fullwidth-cols` utilities are used
+    to counter the core/columns responsive for at our breakpoints.
+*/
+
+@media (max-width: 781px) {
+  .tablet\:fullwidth-cols.wp-block-columns:not(.is-not-stacked-on-mobile) {
+    flex-wrap: wrap !important;
+  }
+
+  .tablet\:fullwidth-cols.wp-block-columns:not(.is-not-stacked-on-mobile)
+        > .wp-block-column {
+    margin-left: 0 !important;
+  }
+
+  .tablet\:fullwidth-cols.wp-block-columns:not(.is-not-stacked-on-mobile)
+        > .wp-block-column:not([style*="margin"]) {
+    /* no suggestion */
+    margin-left: 0 !important;
+  }
+
+  .tablet\:fullwidth-cols.wp-block-columns:not(.is-not-stacked-on-mobile)
+        > .wp-block-column {
+    flex-basis: 100% !important; /* Required to negate core/columns flex-basis */
+  }
+}
+
+@media (max-width: 1079px) {
+  .desktop\:fullwidth-cols.wp-block-columns:not(.is-not-stacked-on-mobile) {
+    flex-wrap: wrap !important;
+  }
+
+  .desktop\:fullwidth-cols.wp-block-columns:not(.is-not-stacked-on-mobile)
+        > .wp-block-column {
+    margin-left: 0 !important;
+  }
+
+  .desktop\:fullwidth-cols.wp-block-columns:not(.is-not-stacked-on-mobile)
+        > .wp-block-column:not([style*="margin"]) {
+    /* no suggestion */
+    margin-left: 0 !important;
+  }
+
+  .desktop\:fullwidth-cols.wp-block-columns:not(.is-not-stacked-on-mobile)
+        > .wp-block-column {
+    flex-basis: 100% !important; /* Required to negate core/columns flex-basis */
+  }
+
+  .desktop\:fullwidth-cols.wp-block-columns:not(.is-not-stacked-on-mobile)
+        > .wp-block-column:not(:last-child) {
+    margin-bottom: var(--wp--style--block-gap, 1.75rem) !important;
+  }
+}
+
+.direction-rtl {
+  direction: rtl !important;
+}
+
+.direction-ltr {
+  direction: ltr !important;
+}
+
+/* Use "is-style-" prefix to support adding this style to the core/list block */
+
+.is-style-inline-list {
+  padding-left: 0 !important;
+}
+
+.is-style-inline-list li {
+  /* no suggestion */
+  list-style-type: none !important;
+}
+
+@media (min-width: 782px) {
+  .is-style-inline-list li {
+    margin-right: var(--wp--style--block-gap, 1.75rem) !important;
+    display: inline !important;
+  }
+}
+
+.is-style-inline-list li:first-child {
+  /* no suggestion */
+}
+
+@media (min-width: 782px) {
+  .is-style-inline-list li:first-child {
+    margin-left: 0 !important;
+  }
+}
+
+.is-style-inline-list li:last-child {
+  /* no suggestion */
+}
+
+@media (min-width: 782px) {
+  .is-style-inline-list li:last-child {
+    margin-right: 0 !important;
+  }
+}
+
+.bring-to-front {
+  position: relative !important;
+  z-index: 10 !important;
+}
+
+.text-stroke {
+  -webkit-text-stroke-width: var(
+        --wp--custom--typography--text-stroke-width,
+        2px
+    ) !important;
+  -webkit-text-stroke-color: var(--wp--preset--color--background) !important;
+}
+
+.text-stroke--primary {
+  -webkit-text-stroke-width: var(
+        --wp--custom--typography--text-stroke-width,
+        2px
+    ) !important;
+  -webkit-text-stroke-color: var(--wp--preset--color--primary) !important;
+}
+
+.text-stroke--secondary {
+  -webkit-text-stroke-width: var(
+        --wp--custom--typography--text-stroke-width,
+        2px
+    ) !important;
+  -webkit-text-stroke-color: var(--wp--preset--color--secondary) !important;
+}
+
+.editor\:no-caption .block-editor-rich-text__editable {
+  display: none !important;
+}
+
+.editor\:no-inserter > .block-list-appender,
+.editor\:no-inserter .wp-block-group__inner-container > .block-list-appender {
+  display: none !important;
+}
+
+.editor\:no-inserter .wp-block-cover__inner-container > .block-list-appender {
+  display: none !important;
+}
+
+.editor\:no-inserter .wp-block-column:not(.is-selected) > .block-list-appender {
+  display: none !important;
+}
+
+.editor\:no-resize .components-resizable-box__handle::after,
+.editor\:no-resize .components-resizable-box__side-handle::before,
+.editor\:no-resize .components-resizable-box__handle {
+  display: none !important;
+  pointer-events: none !important;
+}
+
+.editor\:no-resize .components-resizable-box__container {
+  display: block !important;
+}
+
+.editor\:pointer-events-none {
+  pointer-events: none !important;
+}
+
+.is-style-angled {
+  /* no suggestion */
+  align-items: center !important;
+  justify-content: flex-end !important;
+}
+
+.ext .is-style-angled > [class*="_inner-container"] {
+  align-items: center !important;
+}
+
+.is-style-angled .wp-block-cover__image-background,
+.is-style-angled .wp-block-cover__video-background {
+  /* no suggestion */
+  -webkit-clip-path: polygon(0 0, 30% 0%, 50% 100%, 0% 100%) !important;
+          clip-path: polygon(0 0, 30% 0%, 50% 100%, 0% 100%) !important;
+  z-index: 1 !important;
+}
+
+@media (min-width: 782px) {
+  .is-style-angled .wp-block-cover__image-background,
+    .is-style-angled .wp-block-cover__video-background {
+    /* no suggestion */
+    -webkit-clip-path: polygon(0 0, 55% 0%, 65% 100%, 0% 100%) !important;
+            clip-path: polygon(0 0, 55% 0%, 65% 100%, 0% 100%) !important;
+  }
+}
+
+.has-foreground-color {
+  /* no suggestion */
+  color: var(--wp--preset--color--foreground, #000) !important;
+}
+
+.has-foreground-background-color {
+  /* no suggestion */
+  background-color: var(--wp--preset--color--foreground, #000) !important;
+}
+
+.has-background-color {
+  /* no suggestion */
+  color: var(--wp--preset--color--background, #fff) !important;
+}
+
+.has-background-background-color {
+  /* no suggestion */
+  background-color: var(--wp--preset--color--background, #fff) !important;
+}
+
+.has-primary-color {
+  /* no suggestion */
+  color: var(--wp--preset--color--primary, #4b5563) !important;
+}
+
+.has-primary-background-color {
+  /* no suggestion */
+  background-color: var(--wp--preset--color--primary, #4b5563) !important;
+}
+
+.has-secondary-color {
+  /* no suggestion */
+  color: var(--wp--preset--color--secondary, #9ca3af) !important;
+}
+
+.has-secondary-background-color {
+  /* no suggestion */
+  background-color: var(--wp--preset--color--secondary, #9ca3af) !important;
+}
+
+/* Ensure themes that target specific elements use the right colors */
+
+.ext.has-text-color p,
+.ext.has-text-color h1,
+.ext.has-text-color h2,
+.ext.has-text-color h3,
+.ext.has-text-color h4,
+.ext.has-text-color h5,
+.ext.has-text-color h6 {
+  /* no suggestion */
+  color: currentColor !important;
+}
+
+.has-white-color {
+  /* no suggestion */
+  color: var(--wp--preset--color--white, #fff) !important;
+}
+
+.has-black-color {
+  /* no suggestion */
+  color: var(--wp--preset--color--black, #000) !important;
+}
+
+.has-ext-foreground-background-color {
+  /* no suggestion */
+  background-color: var(
+        --wp--preset--color--foreground,
+        var(--wp--preset--color--black, #000)
+    ) !important;
+}
+
+.has-ext-primary-background-color {
+  /* no suggestion */
+  background-color: var(
+        --wp--preset--color--primary,
+        var(--wp--preset--color--cyan-bluish-gray, #000)
+    ) !important;
+}
+
+/* Fix button borders with specified background colors */
+
+.wp-block-button__link.has-black-background-color {
+  /* no suggestion */
+  border-color: var(--wp--preset--color--black, #000) !important;
+}
+
+.wp-block-button__link.has-white-background-color {
+  /* no suggestion */
+  border-color: var(--wp--preset--color--white, #fff) !important;
+}
+
+.has-ext-small-font-size {
+  /* no suggestion */
+  font-size: var(--wp--preset--font-size--ext-small) !important;
+}
+
+.has-ext-medium-font-size {
+  /* no suggestion */
+  font-size: var(--wp--preset--font-size--ext-medium) !important;
+}
+
+.has-ext-large-font-size {
+  /* no suggestion */
+  font-size: var(--wp--preset--font-size--ext-large) !important;
+  line-height: 1.2 !important;
+}
+
+.has-ext-x-large-font-size {
+  /* no suggestion */
+  font-size: var(--wp--preset--font-size--ext-x-large) !important;
+  line-height: 1 !important;
+}
+
+.has-ext-xx-large-font-size {
+  /* no suggestion */
+  font-size: var(--wp--preset--font-size--ext-xx-large) !important;
+  line-height: 1 !important;
+}
+
+/* Line height */
+
+.has-ext-x-large-font-size:not([style*="line-height"]) {
+  /* no suggestion */
+  line-height: 1.1 !important;
+}
+
+.has-ext-xx-large-font-size:not([style*="line-height"]) {
+  /* no suggestion */
+  line-height: 1.1 !important;
+}
+
+.ext .wp-block-group > * {
+  /* Line height */
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.ext .wp-block-group > * + * {
+  margin-top: var(--wp--style--block-gap, 1.75rem) !important;
+  margin-bottom: 0 !important;
+}
+
+.ext h2 {
+  margin-top: var(--wp--style--block-gap, 1.75rem) !important;
+  margin-bottom: var(--wp--style--block-gap, 1.75rem) !important;
+}
+
+.has-ext-x-large-font-size + p,
+.has-ext-x-large-font-size + h3 {
+  margin-top: 0.5rem !important;
+}
+
+.ext .wp-block-buttons > .wp-block-button.wp-block-button__width-25 {
+  width: calc(25% - var(--wp--style--block-gap, 0.5em) * 0.75) !important;
+  min-width: 12rem !important;
+}
+
+/* Classic themes use an inner [class*="_inner-container"] that our utilities cannot directly target, so we need to do so with a few */
+
+.ext .ext-grid > [class*="_inner-container"] {
+  /* no suggestion */
+  display: grid !important;
+}
+
+/* Unhinge grid for container blocks in classic themes, and < 5.9 */
+
+.ext > [class*="_inner-container"] > .ext-grid:not([class*="columns"]),
+.ext
+    > [class*="_inner-container"]
+    > .wp-block
+    > .ext-grid:not([class*="columns"]) {
+  /* no suggestion */
+  display: initial !important;
+}
+
+/* Grid Columns */
+
+.ext .ext-grid-cols-1 > [class*="_inner-container"] {
+  /* no suggestion */
+  grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+}
+
+.ext .ext-grid-cols-2 > [class*="_inner-container"] {
+  /* no suggestion */
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+}
+
+.ext .ext-grid-cols-3 > [class*="_inner-container"] {
+  /* no suggestion */
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+}
+
+.ext .ext-grid-cols-4 > [class*="_inner-container"] {
+  /* no suggestion */
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+}
+
+.ext .ext-grid-cols-5 > [class*="_inner-container"] {
+  /* no suggestion */
+  grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+}
+
+.ext .ext-grid-cols-6 > [class*="_inner-container"] {
+  /* no suggestion */
+  grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+}
+
+.ext .ext-grid-cols-7 > [class*="_inner-container"] {
+  /* no suggestion */
+  grid-template-columns: repeat(7, minmax(0, 1fr)) !important;
+}
+
+.ext .ext-grid-cols-8 > [class*="_inner-container"] {
+  /* no suggestion */
+  grid-template-columns: repeat(8, minmax(0, 1fr)) !important;
+}
+
+.ext .ext-grid-cols-9 > [class*="_inner-container"] {
+  /* no suggestion */
+  grid-template-columns: repeat(9, minmax(0, 1fr)) !important;
+}
+
+.ext .ext-grid-cols-10 > [class*="_inner-container"] {
+  /* no suggestion */
+  grid-template-columns: repeat(10, minmax(0, 1fr)) !important;
+}
+
+.ext .ext-grid-cols-11 > [class*="_inner-container"] {
+  /* no suggestion */
+  grid-template-columns: repeat(11, minmax(0, 1fr)) !important;
+}
+
+.ext .ext-grid-cols-12 > [class*="_inner-container"] {
+  /* no suggestion */
+  grid-template-columns: repeat(12, minmax(0, 1fr)) !important;
+}
+
+.ext .ext-grid-cols-13 > [class*="_inner-container"] {
+  /* no suggestion */
+  grid-template-columns: repeat(13, minmax(0, 1fr)) !important;
+}
+
+.ext .ext-grid-cols-none > [class*="_inner-container"] {
+  /* no suggestion */
+  grid-template-columns: none !important;
+}
+
+/* Grid Rows */
+
+.ext .ext-grid-rows-1 > [class*="_inner-container"] {
+  /* no suggestion */
+  grid-template-rows: repeat(1, minmax(0, 1fr)) !important;
+}
+
+.ext .ext-grid-rows-2 > [class*="_inner-container"] {
+  /* no suggestion */
+  grid-template-rows: repeat(2, minmax(0, 1fr)) !important;
+}
+
+.ext .ext-grid-rows-3 > [class*="_inner-container"] {
+  /* no suggestion */
+  grid-template-rows: repeat(3, minmax(0, 1fr)) !important;
+}
+
+.ext .ext-grid-rows-4 > [class*="_inner-container"] {
+  /* no suggestion */
+  grid-template-rows: repeat(4, minmax(0, 1fr)) !important;
+}
+
+.ext .ext-grid-rows-5 > [class*="_inner-container"] {
+  /* no suggestion */
+  grid-template-rows: repeat(5, minmax(0, 1fr)) !important;
+}
+
+.ext .ext-grid-rows-6 > [class*="_inner-container"] {
+  /* no suggestion */
+  grid-template-rows: repeat(6, minmax(0, 1fr)) !important;
+}
+
+.ext .ext-grid-rows-none > [class*="_inner-container"] {
+  /* no suggestion */
+  grid-template-rows: none !important;
+}
+
+/* Align */
+
+.ext .ext-items-start > [class*="_inner-container"] {
+  align-items: flex-start !important;
+}
+
+.ext .ext-items-end > [class*="_inner-container"] {
+  align-items: flex-end !important;
+}
+
+.ext .ext-items-center > [class*="_inner-container"] {
+  align-items: center !important;
+}
+
+.ext .ext-items-baseline > [class*="_inner-container"] {
+  align-items: baseline !important;
+}
+
+.ext .ext-items-stretch > [class*="_inner-container"] {
+  align-items: stretch !important;
+}
+
+.ext.wp-block-group > *:last-child {
+  /* no suggestion */
+  margin-bottom: 0 !important;
+}
+
+/* For <5.9 */
+
+.ext .wp-block-group__inner-container {
+  /* no suggestion */
+  padding: 0 !important;
+}
+
+.ext.has-background {
+  /* no suggestion */
+  padding-left: var(--wp--style--block-gap, 1.75rem) !important;
+  padding-right: var(--wp--style--block-gap, 1.75rem) !important;
+}
+
+/* Fallback for classic theme group blocks */
+
+.ext *[class*="inner-container"] > .alignwide *[class*="inner-container"],
+.ext
+    *[class*="inner-container"]
+    > [data-align="wide"]
+    *[class*="inner-container"] {
+  /* no suggestion */
+  max-width: var(--responsive--alignwide-width, 120rem) !important;
+}
+
+.ext *[class*="inner-container"] > .alignwide *[class*="inner-container"] > *,
+.ext
+    *[class*="inner-container"]
+    > [data-align="wide"]
+    *[class*="inner-container"]
+    > * {
+  /* no suggestion */
+}
+
+.ext *[class*="inner-container"] > .alignwide *[class*="inner-container"] > *, .ext
+    *[class*="inner-container"]
+    > [data-align="wide"]
+    *[class*="inner-container"]
+    > * {
+  max-width: 100% !important;
+}
+
+/* Ensure image block display is standardized */
+
+.ext .wp-block-image {
+  /* no suggestion */
+  position: relative !important;
+  text-align: center !important;
+}
+
+.ext .wp-block-image img {
+  /* no suggestion */
+  display: inline-block !important;
+  vertical-align: middle !important;
+}
+
+body {
+  /* no suggestion */
+  /* We need to abstract this out of tailwind.config because clamp doesnt translate with negative margins */
+  --extendify--spacing--large: var(
+        --wp--custom--spacing--large,
+        clamp(2em, 8vw, 8em)
+    ) !important;
+  /* Add pattern preset font sizes */
+  --wp--preset--font-size--ext-small: 1rem !important;
+  --wp--preset--font-size--ext-medium: 1.125rem !important;
+  --wp--preset--font-size--ext-large: clamp(1.65rem, 3.5vw, 2.15rem) !important;
+  --wp--preset--font-size--ext-x-large: clamp(3rem, 6vw, 4.75rem) !important;
+  --wp--preset--font-size--ext-xx-large: clamp(3.25rem, 7.5vw, 5.75rem) !important;
+  /* Fallbacks for pre 5.9 themes */
+  --wp--preset--color--black: #000 !important;
+  --wp--preset--color--white: #fff !important;
+}
+
+.ext * {
+  box-sizing: border-box !important;
+}
+
+/* Astra: Remove spacer block visuals in the library */
+
+.block-editor-block-preview__content-iframe
+    .ext
+    [data-type="core/spacer"]
+    .components-resizable-box__container {
+  /* no suggestion */
+  background: transparent !important;
+}
+
+.block-editor-block-preview__content-iframe
+    .ext
+    [data-type="core/spacer"]
+    .block-library-spacer__resize-container::before {
+  /* no suggestion */
+  display: none !important;
+}
+
+/* Twenty Twenty adds a lot of margin automatically to blocks. We only want our own margin added to our patterns. */
+
+.ext .wp-block-group__inner-container figure.wp-block-gallery.alignfull {
+  /* no suggestion */
+  margin-top: unset !important;
+  margin-bottom: unset !important;
+}
+
+/* Ensure no funky business is assigned to alignwide */
+
+.ext .alignwide {
+  /* no suggestion */
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Negate blockGap being inappropriately assigned in the editor */
+
+.is-root-container.block-editor-block-list__layout
+    > [data-align="full"]:not(:first-of-type)
+    > .ext-my-0,
+.is-root-container.block-editor-block-list__layout
+    > [data-align="wide"]
+    > .ext-my-0:not([style*="margin"]) {
+  /* no suggestion */
+  margin-top: calc(-1 * var(--wp--style--block-gap, 28px)) !important;
+}
+
+/* Ensure vh content in previews looks taller */
+
+.block-editor-block-preview__content-iframe .preview\:min-h-50 {
+  /* no suggestion */
+  min-height: 50vw !important;
+}
+
+.block-editor-block-preview__content-iframe .preview\:min-h-60 {
+  /* no suggestion */
+  min-height: 60vw !important;
+}
+
+.block-editor-block-preview__content-iframe .preview\:min-h-70 {
+  /* no suggestion */
+  min-height: 70vw !important;
+}
+
+.block-editor-block-preview__content-iframe .preview\:min-h-80 {
+  /* no suggestion */
+  min-height: 80vw !important;
+}
+
+.block-editor-block-preview__content-iframe .preview\:min-h-100 {
+  /* no suggestion */
+  min-height: 100vw !important;
+}
+
+/*  Removes excess margin when applied to the alignfull parent div in Block Themes */
+
+.ext-mr-0.alignfull:not([style*="margin"]):not([style*="margin"]) {
+  /* no suggestion */
+  margin-right: 0 !important;
+}
+
+.ext-ml-0:not([style*="margin"]):not([style*="margin"]) {
+  /* no suggestion */
+  margin-left: 0 !important;
+}
+
+/*  Ensures fullwidth blocks display properly in the editor when margin is zeroed out */
+
+.is-root-container
+    .wp-block[data-align="full"]
+    > .ext-mx-0:not([style*="margin"]):not([style*="margin"]) {
+  /* no suggestion */
+  margin-right: calc(1 * var(--wp--custom--spacing--outer, 0)) !important;
+  margin-left: calc(1 * var(--wp--custom--spacing--outer, 0)) !important;
+  overflow: hidden !important;
+  width: unset !important;
+}
+
+@media (min-width: 782px) {
+  .tablet\:ext-absolute {
+    position: absolute !important;
+  }
+
+  .tablet\:ext-relative {
+    position: relative !important;
+  }
+
+  .tablet\:ext-top-base {
+    top: var(--wp--style--block-gap, 1.75rem) !important;
+  }
+
+  .tablet\:ext-top-lg {
+    top: var(--extendify--spacing--large, 3rem) !important;
+  }
+
+  .tablet\:ext--top-base {
+    top: calc(var(--wp--style--block-gap, 1.75rem) * -1) !important;
+  }
+
+  .tablet\:ext--top-lg {
+    top: calc(var(--extendify--spacing--large, 3rem) * -1) !important;
+  }
+
+  .tablet\:ext-right-base {
+    right: var(--wp--style--block-gap, 1.75rem) !important;
+  }
+
+  .tablet\:ext-right-lg {
+    right: var(--extendify--spacing--large, 3rem) !important;
+  }
+
+  .tablet\:ext--right-base {
+    right: calc(var(--wp--style--block-gap, 1.75rem) * -1) !important;
+  }
+
+  .tablet\:ext--right-lg {
+    right: calc(var(--extendify--spacing--large, 3rem) * -1) !important;
+  }
+
+  .tablet\:ext-bottom-base {
+    bottom: var(--wp--style--block-gap, 1.75rem) !important;
+  }
+
+  .tablet\:ext-bottom-lg {
+    bottom: var(--extendify--spacing--large, 3rem) !important;
+  }
+
+  .tablet\:ext--bottom-base {
+    bottom: calc(var(--wp--style--block-gap, 1.75rem) * -1) !important;
+  }
+
+  .tablet\:ext--bottom-lg {
+    bottom: calc(var(--extendify--spacing--large, 3rem) * -1) !important;
+  }
+
+  .tablet\:ext-left-base {
+    left: var(--wp--style--block-gap, 1.75rem) !important;
+  }
+
+  .tablet\:ext-left-lg {
+    left: var(--extendify--spacing--large, 3rem) !important;
+  }
+
+  .tablet\:ext--left-base {
+    left: calc(var(--wp--style--block-gap, 1.75rem) * -1) !important;
+  }
+
+  .tablet\:ext--left-lg {
+    left: calc(var(--extendify--spacing--large, 3rem) * -1) !important;
+  }
+
+  .tablet\:ext-order-1 {
+    order: 1 !important;
+  }
+
+  .tablet\:ext-order-2 {
+    order: 2 !important;
+  }
+
+  .tablet\:ext-m-0:not([style*="margin"]) {
+    margin: 0 !important;
+  }
+
+  .tablet\:ext-m-auto:not([style*="margin"]) {
+    margin: auto !important;
+  }
+
+  .tablet\:ext-m-base:not([style*="margin"]) {
+    margin: var(--wp--style--block-gap, 1.75rem) !important;
+  }
+
+  .tablet\:ext-m-lg:not([style*="margin"]) {
+    margin: var(--extendify--spacing--large, 3rem) !important;
+  }
+
+  .tablet\:ext--m-base:not([style*="margin"]) {
+    margin: calc(var(--wp--style--block-gap, 1.75rem) * -1) !important;
+  }
+
+  .tablet\:ext--m-lg:not([style*="margin"]) {
+    margin: calc(var(--extendify--spacing--large, 3rem) * -1) !important;
+  }
+
+  .tablet\:ext-mx-0:not([style*="margin"]) {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .tablet\:ext-mx-auto:not([style*="margin"]) {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .tablet\:ext-mx-base:not([style*="margin"]) {
+    margin-left: var(--wp--style--block-gap, 1.75rem) !important;
+    margin-right: var(--wp--style--block-gap, 1.75rem) !important;
+  }
+
+  .tablet\:ext-mx-lg:not([style*="margin"]) {
+    margin-left: var(--extendify--spacing--large, 3rem) !important;
+    margin-right: var(--extendify--spacing--large, 3rem) !important;
+  }
+
+  .tablet\:ext--mx-base:not([style*="margin"]) {
+    margin-left: calc(var(--wp--style--block-gap, 1.75rem) * -1) !important;
+    margin-right: calc(var(--wp--style--block-gap, 1.75rem) * -1) !important;
+  }
+
+  .tablet\:ext--mx-lg:not([style*="margin"]) {
+    margin-left: calc(var(--extendify--spacing--large, 3rem) * -1) !important;
+    margin-right: calc(var(--extendify--spacing--large, 3rem) * -1) !important;
+  }
+
+  .tablet\:ext-my-0:not([style*="margin"]) {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  .tablet\:ext-my-auto:not([style*="margin"]) {
+    margin-top: auto !important;
+    margin-bottom: auto !important;
+  }
+
+  .tablet\:ext-my-base:not([style*="margin"]) {
+    margin-top: var(--wp--style--block-gap, 1.75rem) !important;
+    margin-bottom: var(--wp--style--block-gap, 1.75rem) !important;
+  }
+
+  .tablet\:ext-my-lg:not([style*="margin"]) {
+    margin-top: var(--extendify--spacing--large, 3rem) !important;
+    margin-bottom: var(--extendify--spacing--large, 3rem) !important;
+  }
+
+  .tablet\:ext--my-base:not([style*="margin"]) {
+    margin-top: calc(var(--wp--style--block-gap, 1.75rem) * -1) !important;
+    margin-bottom: calc(var(--wp--style--block-gap, 1.75rem) * -1) !important;
+  }
+
+  .tablet\:ext--my-lg:not([style*="margin"]) {
+    margin-top: calc(var(--extendify--spacing--large, 3rem) * -1) !important;
+    margin-bottom: calc(var(--extendify--spacing--large, 3rem) * -1) !important;
+  }
+
+  .tablet\:ext-mt-0:not([style*="margin"]) {
+    margin-top: 0 !important;
+  }
+
+  .tablet\:ext-mt-auto:not([style*="margin"]) {
+    margin-top: auto !important;
+  }
+
+  .tablet\:ext-mt-base:not([style*="margin"]) {
+    margin-top: var(--wp--style--block-gap, 1.75rem) !important;
+  }
+
+  .tablet\:ext-mt-lg:not([style*="margin"]) {
+    margin-top: var(--extendify--spacing--large, 3rem) !important;
+  }
+
+  .tablet\:ext--mt-base:not([style*="margin"]) {
+    margin-top: calc(var(--wp--style--block-gap, 1.75rem) * -1) !important;
+  }
+
+  .tablet\:ext--mt-lg:not([style*="margin"]) {
+    margin-top: calc(var(--extendify--spacing--large, 3rem) * -1) !important;
+  }
+
+  .tablet\:ext-mr-0:not([style*="margin"]) {
+    margin-right: 0 !important;
+  }
+
+  .tablet\:ext-mr-auto:not([style*="margin"]) {
+    margin-right: auto !important;
+  }
+
+  .tablet\:ext-mr-base:not([style*="margin"]) {
+    margin-right: var(--wp--style--block-gap, 1.75rem) !important;
+  }
+
+  .tablet\:ext-mr-lg:not([style*="margin"]) {
+    margin-right: var(--extendify--spacing--large, 3rem) !important;
+  }
+
+  .tablet\:ext--mr-base:not([style*="margin"]) {
+    margin-right: calc(var(--wp--style--block-gap, 1.75rem) * -1) !important;
+  }
+
+  .tablet\:ext--mr-lg:not([style*="margin"]) {
+    margin-right: calc(var(--extendify--spacing--large, 3rem) * -1) !important;
+  }
+
+  .tablet\:ext-mb-0:not([style*="margin"]) {
+    margin-bottom: 0 !important;
+  }
+
+  .tablet\:ext-mb-auto:not([style*="margin"]) {
+    margin-bottom: auto !important;
+  }
+
+  .tablet\:ext-mb-base:not([style*="margin"]) {
+    margin-bottom: var(--wp--style--block-gap, 1.75rem) !important;
+  }
+
+  .tablet\:ext-mb-lg:not([style*="margin"]) {
+    margin-bottom: var(--extendify--spacing--large, 3rem) !important;
+  }
+
+  .tablet\:ext--mb-base:not([style*="margin"]) {
+    margin-bottom: calc(var(--wp--style--block-gap, 1.75rem) * -1) !important;
+  }
+
+  .tablet\:ext--mb-lg:not([style*="margin"]) {
+    margin-bottom: calc(var(--extendify--spacing--large, 3rem) * -1) !important;
+  }
+
+  .tablet\:ext-ml-0:not([style*="margin"]) {
+    margin-left: 0 !important;
+  }
+
+  .tablet\:ext-ml-auto:not([style*="margin"]) {
+    margin-left: auto !important;
+  }
+
+  .tablet\:ext-ml-base:not([style*="margin"]) {
+    margin-left: var(--wp--style--block-gap, 1.75rem) !important;
+  }
+
+  .tablet\:ext-ml-lg:not([style*="margin"]) {
+    margin-left: var(--extendify--spacing--large, 3rem) !important;
+  }
+
+  .tablet\:ext--ml-base:not([style*="margin"]) {
+    margin-left: calc(var(--wp--style--block-gap, 1.75rem) * -1) !important;
+  }
+
+  .tablet\:ext--ml-lg:not([style*="margin"]) {
+    margin-left: calc(var(--extendify--spacing--large, 3rem) * -1) !important;
+  }
+
+  .tablet\:ext-block {
+    display: block !important;
+  }
+
+  .tablet\:ext-inline-block {
+    display: inline-block !important;
+  }
+
+  .tablet\:ext-inline {
+    display: inline !important;
+  }
+
+  .tablet\:ext-flex {
+    display: flex !important;
+  }
+
+  .tablet\:ext-inline-flex {
+    display: inline-flex !important;
+  }
+
+  .tablet\:ext-grid {
+    display: grid !important;
+  }
+
+  .tablet\:ext-inline-grid {
+    display: inline-grid !important;
+  }
+
+  .tablet\:ext-hidden {
+    display: none !important;
+  }
+
+  .tablet\:ext-w-auto {
+    width: auto !important;
+  }
+
+  .tablet\:ext-w-full {
+    width: 100% !important;
+  }
+
+  .tablet\:ext-max-w-full {
+    max-width: 100% !important;
+  }
+
+  .tablet\:ext-flex-1 {
+    flex: 1 1 0% !important;
+  }
+
+  .tablet\:ext-flex-auto {
+    flex: 1 1 auto !important;
+  }
+
+  .tablet\:ext-flex-initial {
+    flex: 0 1 auto !important;
+  }
+
+  .tablet\:ext-flex-none {
+    flex: none !important;
+  }
+
+  .tablet\:ext-flex-shrink-0 {
+    flex-shrink: 0 !important;
+  }
+
+  .tablet\:ext-flex-shrink {
+    flex-shrink: 1 !important;
+  }
+
+  .tablet\:ext-flex-grow-0 {
+    flex-grow: 0 !important;
+  }
+
+  .tablet\:ext-flex-grow {
+    flex-grow: 1 !important;
+  }
+
+  .tablet\:ext-list-none {
+    list-style-type: none !important;
+  }
+
+  .tablet\:ext-grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+  }
+
+  .tablet\:ext-grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .tablet\:ext-grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+
+  .tablet\:ext-grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  }
+
+  .tablet\:ext-grid-cols-5 {
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+  }
+
+  .tablet\:ext-grid-cols-6 {
+    grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+  }
+
+  .tablet\:ext-grid-cols-7 {
+    grid-template-columns: repeat(7, minmax(0, 1fr)) !important;
+  }
+
+  .tablet\:ext-grid-cols-8 {
+    grid-template-columns: repeat(8, minmax(0, 1fr)) !important;
+  }
+
+  .tablet\:ext-grid-cols-9 {
+    grid-template-columns: repeat(9, minmax(0, 1fr)) !important;
+  }
+
+  .tablet\:ext-grid-cols-10 {
+    grid-template-columns: repeat(10, minmax(0, 1fr)) !important;
+  }
+
+  .tablet\:ext-grid-cols-11 {
+    grid-template-columns: repeat(11, minmax(0, 1fr)) !important;
+  }
+
+  .tablet\:ext-grid-cols-12 {
+    grid-template-columns: repeat(12, minmax(0, 1fr)) !important;
+  }
+
+  .tablet\:ext-grid-cols-none {
+    grid-template-columns: none !important;
+  }
+
+  .tablet\:ext-flex-row {
+    flex-direction: row !important;
+  }
+
+  .tablet\:ext-flex-row-reverse {
+    flex-direction: row-reverse !important;
+  }
+
+  .tablet\:ext-flex-col {
+    flex-direction: column !important;
+  }
+
+  .tablet\:ext-flex-col-reverse {
+    flex-direction: column-reverse !important;
+  }
+
+  .tablet\:ext-flex-wrap {
+    flex-wrap: wrap !important;
+  }
+
+  .tablet\:ext-flex-wrap-reverse {
+    flex-wrap: wrap-reverse !important;
+  }
+
+  .tablet\:ext-flex-nowrap {
+    flex-wrap: nowrap !important;
+  }
+
+  .tablet\:ext-items-start {
+    align-items: flex-start !important;
+  }
+
+  .tablet\:ext-items-end {
+    align-items: flex-end !important;
+  }
+
+  .tablet\:ext-items-center {
+    align-items: center !important;
+  }
+
+  .tablet\:ext-items-baseline {
+    align-items: baseline !important;
+  }
+
+  .tablet\:ext-items-stretch {
+    align-items: stretch !important;
+  }
+
+  .tablet\:ext-justify-start {
+    justify-content: flex-start !important;
+  }
+
+  .tablet\:ext-justify-end {
+    justify-content: flex-end !important;
+  }
+
+  .tablet\:ext-justify-center {
+    justify-content: center !important;
+  }
+
+  .tablet\:ext-justify-between {
+    justify-content: space-between !important;
+  }
+
+  .tablet\:ext-justify-around {
+    justify-content: space-around !important;
+  }
+
+  .tablet\:ext-justify-evenly {
+    justify-content: space-evenly !important;
+  }
+
+  .tablet\:ext-justify-items-start {
+    justify-items: start !important;
+  }
+
+  .tablet\:ext-justify-items-end {
+    justify-items: end !important;
+  }
+
+  .tablet\:ext-justify-items-center {
+    justify-items: center !important;
+  }
+
+  .tablet\:ext-justify-items-stretch {
+    justify-items: stretch !important;
+  }
+
+  .tablet\:ext-justify-self-auto {
+    justify-self: auto !important;
+  }
+
+  .tablet\:ext-justify-self-start {
+    justify-self: start !important;
+  }
+
+  .tablet\:ext-justify-self-end {
+    justify-self: end !important;
+  }
+
+  .tablet\:ext-justify-self-center {
+    justify-self: center !important;
+  }
+
+  .tablet\:ext-justify-self-stretch {
+    justify-self: stretch !important;
+  }
+
+  .tablet\:ext-p-0:not([style*="padding"]) {
+    padding: 0 !important;
+  }
+
+  .tablet\:ext-p-base:not([style*="padding"]) {
+    padding: var(--wp--style--block-gap, 1.75rem) !important;
+  }
+
+  .tablet\:ext-p-lg:not([style*="padding"]) {
+    padding: var(--extendify--spacing--large, 3rem) !important;
+  }
+
+  .tablet\:ext-px-0:not([style*="padding"]) {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .tablet\:ext-px-base:not([style*="padding"]) {
+    padding-left: var(--wp--style--block-gap, 1.75rem) !important;
+    padding-right: var(--wp--style--block-gap, 1.75rem) !important;
+  }
+
+  .tablet\:ext-px-lg:not([style*="padding"]) {
+    padding-left: var(--extendify--spacing--large, 3rem) !important;
+    padding-right: var(--extendify--spacing--large, 3rem) !important;
+  }
+
+  .tablet\:ext-py-0:not([style*="padding"]) {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  .tablet\:ext-py-base:not([style*="padding"]) {
+    padding-top: var(--wp--style--block-gap, 1.75rem) !important;
+    padding-bottom: var(--wp--style--block-gap, 1.75rem) !important;
+  }
+
+  .tablet\:ext-py-lg:not([style*="padding"]) {
+    padding-top: var(--extendify--spacing--large, 3rem) !important;
+    padding-bottom: var(--extendify--spacing--large, 3rem) !important;
+  }
+
+  .tablet\:ext-pt-0:not([style*="padding"]) {
+    padding-top: 0 !important;
+  }
+
+  .tablet\:ext-pt-base:not([style*="padding"]) {
+    padding-top: var(--wp--style--block-gap, 1.75rem) !important;
+  }
+
+  .tablet\:ext-pt-lg:not([style*="padding"]) {
+    padding-top: var(--extendify--spacing--large, 3rem) !important;
+  }
+
+  .tablet\:ext-pr-0:not([style*="padding"]) {
+    padding-right: 0 !important;
+  }
+
+  .tablet\:ext-pr-base:not([style*="padding"]) {
+    padding-right: var(--wp--style--block-gap, 1.75rem) !important;
+  }
+
+  .tablet\:ext-pr-lg:not([style*="padding"]) {
+    padding-right: var(--extendify--spacing--large, 3rem) !important;
+  }
+
+  .tablet\:ext-pb-0:not([style*="padding"]) {
+    padding-bottom: 0 !important;
+  }
+
+  .tablet\:ext-pb-base:not([style*="padding"]) {
+    padding-bottom: var(--wp--style--block-gap, 1.75rem) !important;
+  }
+
+  .tablet\:ext-pb-lg:not([style*="padding"]) {
+    padding-bottom: var(--extendify--spacing--large, 3rem) !important;
+  }
+
+  .tablet\:ext-pl-0:not([style*="padding"]) {
+    padding-left: 0 !important;
+  }
+
+  .tablet\:ext-pl-base:not([style*="padding"]) {
+    padding-left: var(--wp--style--block-gap, 1.75rem) !important;
+  }
+
+  .tablet\:ext-pl-lg:not([style*="padding"]) {
+    padding-left: var(--extendify--spacing--large, 3rem) !important;
+  }
+
+  .tablet\:ext-text-left {
+    text-align: left !important;
+  }
+
+  .tablet\:ext-text-center {
+    text-align: center !important;
+  }
+
+  .tablet\:ext-text-right {
+    text-align: right !important;
+  }
+}
+
+@media (min-width: 1080px) {
+  .desktop\:ext-absolute {
+    position: absolute !important;
+  }
+
+  .desktop\:ext-relative {
+    position: relative !important;
+  }
+
+  .desktop\:ext-top-base {
+    top: var(--wp--style--block-gap, 1.75rem) !important;
+  }
+
+  .desktop\:ext-top-lg {
+    top: var(--extendify--spacing--large, 3rem) !important;
+  }
+
+  .desktop\:ext--top-base {
+    top: calc(var(--wp--style--block-gap, 1.75rem) * -1) !important;
+  }
+
+  .desktop\:ext--top-lg {
+    top: calc(var(--extendify--spacing--large, 3rem) * -1) !important;
+  }
+
+  .desktop\:ext-right-base {
+    right: var(--wp--style--block-gap, 1.75rem) !important;
+  }
+
+  .desktop\:ext-right-lg {
+    right: var(--extendify--spacing--large, 3rem) !important;
+  }
+
+  .desktop\:ext--right-base {
+    right: calc(var(--wp--style--block-gap, 1.75rem) * -1) !important;
+  }
+
+  .desktop\:ext--right-lg {
+    right: calc(var(--extendify--spacing--large, 3rem) * -1) !important;
+  }
+
+  .desktop\:ext-bottom-base {
+    bottom: var(--wp--style--block-gap, 1.75rem) !important;
+  }
+
+  .desktop\:ext-bottom-lg {
+    bottom: var(--extendify--spacing--large, 3rem) !important;
+  }
+
+  .desktop\:ext--bottom-base {
+    bottom: calc(var(--wp--style--block-gap, 1.75rem) * -1) !important;
+  }
+
+  .desktop\:ext--bottom-lg {
+    bottom: calc(var(--extendify--spacing--large, 3rem) * -1) !important;
+  }
+
+  .desktop\:ext-left-base {
+    left: var(--wp--style--block-gap, 1.75rem) !important;
+  }
+
+  .desktop\:ext-left-lg {
+    left: var(--extendify--spacing--large, 3rem) !important;
+  }
+
+  .desktop\:ext--left-base {
+    left: calc(var(--wp--style--block-gap, 1.75rem) * -1) !important;
+  }
+
+  .desktop\:ext--left-lg {
+    left: calc(var(--extendify--spacing--large, 3rem) * -1) !important;
+  }
+
+  .desktop\:ext-order-1 {
+    order: 1 !important;
+  }
+
+  .desktop\:ext-order-2 {
+    order: 2 !important;
+  }
+
+  .desktop\:ext-m-0:not([style*="margin"]) {
+    margin: 0 !important;
+  }
+
+  .desktop\:ext-m-auto:not([style*="margin"]) {
+    margin: auto !important;
+  }
+
+  .desktop\:ext-m-base:not([style*="margin"]) {
+    margin: var(--wp--style--block-gap, 1.75rem) !important;
+  }
+
+  .desktop\:ext-m-lg:not([style*="margin"]) {
+    margin: var(--extendify--spacing--large, 3rem) !important;
+  }
+
+  .desktop\:ext--m-base:not([style*="margin"]) {
+    margin: calc(var(--wp--style--block-gap, 1.75rem) * -1) !important;
+  }
+
+  .desktop\:ext--m-lg:not([style*="margin"]) {
+    margin: calc(var(--extendify--spacing--large, 3rem) * -1) !important;
+  }
+
+  .desktop\:ext-mx-0:not([style*="margin"]) {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .desktop\:ext-mx-auto:not([style*="margin"]) {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .desktop\:ext-mx-base:not([style*="margin"]) {
+    margin-left: var(--wp--style--block-gap, 1.75rem) !important;
+    margin-right: var(--wp--style--block-gap, 1.75rem) !important;
+  }
+
+  .desktop\:ext-mx-lg:not([style*="margin"]) {
+    margin-left: var(--extendify--spacing--large, 3rem) !important;
+    margin-right: var(--extendify--spacing--large, 3rem) !important;
+  }
+
+  .desktop\:ext--mx-base:not([style*="margin"]) {
+    margin-left: calc(var(--wp--style--block-gap, 1.75rem) * -1) !important;
+    margin-right: calc(var(--wp--style--block-gap, 1.75rem) * -1) !important;
+  }
+
+  .desktop\:ext--mx-lg:not([style*="margin"]) {
+    margin-left: calc(var(--extendify--spacing--large, 3rem) * -1) !important;
+    margin-right: calc(var(--extendify--spacing--large, 3rem) * -1) !important;
+  }
+
+  .desktop\:ext-my-0:not([style*="margin"]) {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  .desktop\:ext-my-auto:not([style*="margin"]) {
+    margin-top: auto !important;
+    margin-bottom: auto !important;
+  }
+
+  .desktop\:ext-my-base:not([style*="margin"]) {
+    margin-top: var(--wp--style--block-gap, 1.75rem) !important;
+    margin-bottom: var(--wp--style--block-gap, 1.75rem) !important;
+  }
+
+  .desktop\:ext-my-lg:not([style*="margin"]) {
+    margin-top: var(--extendify--spacing--large, 3rem) !important;
+    margin-bottom: var(--extendify--spacing--large, 3rem) !important;
+  }
+
+  .desktop\:ext--my-base:not([style*="margin"]) {
+    margin-top: calc(var(--wp--style--block-gap, 1.75rem) * -1) !important;
+    margin-bottom: calc(var(--wp--style--block-gap, 1.75rem) * -1) !important;
+  }
+
+  .desktop\:ext--my-lg:not([style*="margin"]) {
+    margin-top: calc(var(--extendify--spacing--large, 3rem) * -1) !important;
+    margin-bottom: calc(var(--extendify--spacing--large, 3rem) * -1) !important;
+  }
+
+  .desktop\:ext-mt-0:not([style*="margin"]) {
+    margin-top: 0 !important;
+  }
+
+  .desktop\:ext-mt-auto:not([style*="margin"]) {
+    margin-top: auto !important;
+  }
+
+  .desktop\:ext-mt-base:not([style*="margin"]) {
+    margin-top: var(--wp--style--block-gap, 1.75rem) !important;
+  }
+
+  .desktop\:ext-mt-lg:not([style*="margin"]) {
+    margin-top: var(--extendify--spacing--large, 3rem) !important;
+  }
+
+  .desktop\:ext--mt-base:not([style*="margin"]) {
+    margin-top: calc(var(--wp--style--block-gap, 1.75rem) * -1) !important;
+  }
+
+  .desktop\:ext--mt-lg:not([style*="margin"]) {
+    margin-top: calc(var(--extendify--spacing--large, 3rem) * -1) !important;
+  }
+
+  .desktop\:ext-mr-0:not([style*="margin"]) {
+    margin-right: 0 !important;
+  }
+
+  .desktop\:ext-mr-auto:not([style*="margin"]) {
+    margin-right: auto !important;
+  }
+
+  .desktop\:ext-mr-base:not([style*="margin"]) {
+    margin-right: var(--wp--style--block-gap, 1.75rem) !important;
+  }
+
+  .desktop\:ext-mr-lg:not([style*="margin"]) {
+    margin-right: var(--extendify--spacing--large, 3rem) !important;
+  }
+
+  .desktop\:ext--mr-base:not([style*="margin"]) {
+    margin-right: calc(var(--wp--style--block-gap, 1.75rem) * -1) !important;
+  }
+
+  .desktop\:ext--mr-lg:not([style*="margin"]) {
+    margin-right: calc(var(--extendify--spacing--large, 3rem) * -1) !important;
+  }
+
+  .desktop\:ext-mb-0:not([style*="margin"]) {
+    margin-bottom: 0 !important;
+  }
+
+  .desktop\:ext-mb-auto:not([style*="margin"]) {
+    margin-bottom: auto !important;
+  }
+
+  .desktop\:ext-mb-base:not([style*="margin"]) {
+    margin-bottom: var(--wp--style--block-gap, 1.75rem) !important;
+  }
+
+  .desktop\:ext-mb-lg:not([style*="margin"]) {
+    margin-bottom: var(--extendify--spacing--large, 3rem) !important;
+  }
+
+  .desktop\:ext--mb-base:not([style*="margin"]) {
+    margin-bottom: calc(var(--wp--style--block-gap, 1.75rem) * -1) !important;
+  }
+
+  .desktop\:ext--mb-lg:not([style*="margin"]) {
+    margin-bottom: calc(var(--extendify--spacing--large, 3rem) * -1) !important;
+  }
+
+  .desktop\:ext-ml-0:not([style*="margin"]) {
+    margin-left: 0 !important;
+  }
+
+  .desktop\:ext-ml-auto:not([style*="margin"]) {
+    margin-left: auto !important;
+  }
+
+  .desktop\:ext-ml-base:not([style*="margin"]) {
+    margin-left: var(--wp--style--block-gap, 1.75rem) !important;
+  }
+
+  .desktop\:ext-ml-lg:not([style*="margin"]) {
+    margin-left: var(--extendify--spacing--large, 3rem) !important;
+  }
+
+  .desktop\:ext--ml-base:not([style*="margin"]) {
+    margin-left: calc(var(--wp--style--block-gap, 1.75rem) * -1) !important;
+  }
+
+  .desktop\:ext--ml-lg:not([style*="margin"]) {
+    margin-left: calc(var(--extendify--spacing--large, 3rem) * -1) !important;
+  }
+
+  .desktop\:ext-block {
+    display: block !important;
+  }
+
+  .desktop\:ext-inline-block {
+    display: inline-block !important;
+  }
+
+  .desktop\:ext-inline {
+    display: inline !important;
+  }
+
+  .desktop\:ext-flex {
+    display: flex !important;
+  }
+
+  .desktop\:ext-inline-flex {
+    display: inline-flex !important;
+  }
+
+  .desktop\:ext-grid {
+    display: grid !important;
+  }
+
+  .desktop\:ext-inline-grid {
+    display: inline-grid !important;
+  }
+
+  .desktop\:ext-hidden {
+    display: none !important;
+  }
+
+  .desktop\:ext-w-auto {
+    width: auto !important;
+  }
+
+  .desktop\:ext-w-full {
+    width: 100% !important;
+  }
+
+  .desktop\:ext-max-w-full {
+    max-width: 100% !important;
+  }
+
+  .desktop\:ext-flex-1 {
+    flex: 1 1 0% !important;
+  }
+
+  .desktop\:ext-flex-auto {
+    flex: 1 1 auto !important;
+  }
+
+  .desktop\:ext-flex-initial {
+    flex: 0 1 auto !important;
+  }
+
+  .desktop\:ext-flex-none {
+    flex: none !important;
+  }
+
+  .desktop\:ext-flex-shrink-0 {
+    flex-shrink: 0 !important;
+  }
+
+  .desktop\:ext-flex-shrink {
+    flex-shrink: 1 !important;
+  }
+
+  .desktop\:ext-flex-grow-0 {
+    flex-grow: 0 !important;
+  }
+
+  .desktop\:ext-flex-grow {
+    flex-grow: 1 !important;
+  }
+
+  .desktop\:ext-list-none {
+    list-style-type: none !important;
+  }
+
+  .desktop\:ext-grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+  }
+
+  .desktop\:ext-grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .desktop\:ext-grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+
+  .desktop\:ext-grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  }
+
+  .desktop\:ext-grid-cols-5 {
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+  }
+
+  .desktop\:ext-grid-cols-6 {
+    grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+  }
+
+  .desktop\:ext-grid-cols-7 {
+    grid-template-columns: repeat(7, minmax(0, 1fr)) !important;
+  }
+
+  .desktop\:ext-grid-cols-8 {
+    grid-template-columns: repeat(8, minmax(0, 1fr)) !important;
+  }
+
+  .desktop\:ext-grid-cols-9 {
+    grid-template-columns: repeat(9, minmax(0, 1fr)) !important;
+  }
+
+  .desktop\:ext-grid-cols-10 {
+    grid-template-columns: repeat(10, minmax(0, 1fr)) !important;
+  }
+
+  .desktop\:ext-grid-cols-11 {
+    grid-template-columns: repeat(11, minmax(0, 1fr)) !important;
+  }
+
+  .desktop\:ext-grid-cols-12 {
+    grid-template-columns: repeat(12, minmax(0, 1fr)) !important;
+  }
+
+  .desktop\:ext-grid-cols-none {
+    grid-template-columns: none !important;
+  }
+
+  .desktop\:ext-flex-row {
+    flex-direction: row !important;
+  }
+
+  .desktop\:ext-flex-row-reverse {
+    flex-direction: row-reverse !important;
+  }
+
+  .desktop\:ext-flex-col {
+    flex-direction: column !important;
+  }
+
+  .desktop\:ext-flex-col-reverse {
+    flex-direction: column-reverse !important;
+  }
+
+  .desktop\:ext-flex-wrap {
+    flex-wrap: wrap !important;
+  }
+
+  .desktop\:ext-flex-wrap-reverse {
+    flex-wrap: wrap-reverse !important;
+  }
+
+  .desktop\:ext-flex-nowrap {
+    flex-wrap: nowrap !important;
+  }
+
+  .desktop\:ext-items-start {
+    align-items: flex-start !important;
+  }
+
+  .desktop\:ext-items-end {
+    align-items: flex-end !important;
+  }
+
+  .desktop\:ext-items-center {
+    align-items: center !important;
+  }
+
+  .desktop\:ext-items-baseline {
+    align-items: baseline !important;
+  }
+
+  .desktop\:ext-items-stretch {
+    align-items: stretch !important;
+  }
+
+  .desktop\:ext-justify-start {
+    justify-content: flex-start !important;
+  }
+
+  .desktop\:ext-justify-end {
+    justify-content: flex-end !important;
+  }
+
+  .desktop\:ext-justify-center {
+    justify-content: center !important;
+  }
+
+  .desktop\:ext-justify-between {
+    justify-content: space-between !important;
+  }
+
+  .desktop\:ext-justify-around {
+    justify-content: space-around !important;
+  }
+
+  .desktop\:ext-justify-evenly {
+    justify-content: space-evenly !important;
+  }
+
+  .desktop\:ext-justify-items-start {
+    justify-items: start !important;
+  }
+
+  .desktop\:ext-justify-items-end {
+    justify-items: end !important;
+  }
+
+  .desktop\:ext-justify-items-center {
+    justify-items: center !important;
+  }
+
+  .desktop\:ext-justify-items-stretch {
+    justify-items: stretch !important;
+  }
+
+  .desktop\:ext-justify-self-auto {
+    justify-self: auto !important;
+  }
+
+  .desktop\:ext-justify-self-start {
+    justify-self: start !important;
+  }
+
+  .desktop\:ext-justify-self-end {
+    justify-self: end !important;
+  }
+
+  .desktop\:ext-justify-self-center {
+    justify-self: center !important;
+  }
+
+  .desktop\:ext-justify-self-stretch {
+    justify-self: stretch !important;
+  }
+
+  .desktop\:ext-p-0:not([style*="padding"]) {
+    padding: 0 !important;
+  }
+
+  .desktop\:ext-p-base:not([style*="padding"]) {
+    padding: var(--wp--style--block-gap, 1.75rem) !important;
+  }
+
+  .desktop\:ext-p-lg:not([style*="padding"]) {
+    padding: var(--extendify--spacing--large, 3rem) !important;
+  }
+
+  .desktop\:ext-px-0:not([style*="padding"]) {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .desktop\:ext-px-base:not([style*="padding"]) {
+    padding-left: var(--wp--style--block-gap, 1.75rem) !important;
+    padding-right: var(--wp--style--block-gap, 1.75rem) !important;
+  }
+
+  .desktop\:ext-px-lg:not([style*="padding"]) {
+    padding-left: var(--extendify--spacing--large, 3rem) !important;
+    padding-right: var(--extendify--spacing--large, 3rem) !important;
+  }
+
+  .desktop\:ext-py-0:not([style*="padding"]) {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  .desktop\:ext-py-base:not([style*="padding"]) {
+    padding-top: var(--wp--style--block-gap, 1.75rem) !important;
+    padding-bottom: var(--wp--style--block-gap, 1.75rem) !important;
+  }
+
+  .desktop\:ext-py-lg:not([style*="padding"]) {
+    padding-top: var(--extendify--spacing--large, 3rem) !important;
+    padding-bottom: var(--extendify--spacing--large, 3rem) !important;
+  }
+
+  .desktop\:ext-pt-0:not([style*="padding"]) {
+    padding-top: 0 !important;
+  }
+
+  .desktop\:ext-pt-base:not([style*="padding"]) {
+    padding-top: var(--wp--style--block-gap, 1.75rem) !important;
+  }
+
+  .desktop\:ext-pt-lg:not([style*="padding"]) {
+    padding-top: var(--extendify--spacing--large, 3rem) !important;
+  }
+
+  .desktop\:ext-pr-0:not([style*="padding"]) {
+    padding-right: 0 !important;
+  }
+
+  .desktop\:ext-pr-base:not([style*="padding"]) {
+    padding-right: var(--wp--style--block-gap, 1.75rem) !important;
+  }
+
+  .desktop\:ext-pr-lg:not([style*="padding"]) {
+    padding-right: var(--extendify--spacing--large, 3rem) !important;
+  }
+
+  .desktop\:ext-pb-0:not([style*="padding"]) {
+    padding-bottom: 0 !important;
+  }
+
+  .desktop\:ext-pb-base:not([style*="padding"]) {
+    padding-bottom: var(--wp--style--block-gap, 1.75rem) !important;
+  }
+
+  .desktop\:ext-pb-lg:not([style*="padding"]) {
+    padding-bottom: var(--extendify--spacing--large, 3rem) !important;
+  }
+
+  .desktop\:ext-pl-0:not([style*="padding"]) {
+    padding-left: 0 !important;
+  }
+
+  .desktop\:ext-pl-base:not([style*="padding"]) {
+    padding-left: var(--wp--style--block-gap, 1.75rem) !important;
+  }
+
+  .desktop\:ext-pl-lg:not([style*="padding"]) {
+    padding-left: var(--extendify--spacing--large, 3rem) !important;
+  }
+
+  .desktop\:ext-text-left {
+    text-align: left !important;
+  }
+
+  .desktop\:ext-text-center {
+    text-align: center !important;
+  }
+
+  .desktop\:ext-text-right {
+    text-align: right !important;
+  }
+}
+
+</style>
+<style id='woocommerce-inline-inline-css' type='text/css'>
+.woocommerce form .form-row .required { visibility: visible; }
+</style>
+<link rel='stylesheet' id='ppress-frontend-css' href='../wp-content/plugins/wp-user-avatar/assets/css/frontend.min.css%3Fver=4.10.1.css' type='text/css' media='all' />
+<link rel='stylesheet' id='ppress-flatpickr-css' href='../wp-content/plugins/wp-user-avatar/assets/flatpickr/flatpickr.min.css%3Fver=4.10.1.css' type='text/css' media='all' />
+<link rel='stylesheet' id='ppress-select2-css' href='../wp-content/plugins/wp-user-avatar/assets/select2/select2.min.css%3Fver=6.5.css' type='text/css' media='all' />
+<link rel='preload' as='font' type='font/woff2' crossorigin='anonymous' id='tinvwl-webfont-font-css' href='../wp-content/plugins/ti-woocommerce-wishlist/assets/fonts/tinvwl-webfont.woff2%3Fver=xu2uyi'  media='all' />
+<link rel='stylesheet' id='tinvwl-webfont-css' href='../wp-content/plugins/ti-woocommerce-wishlist/assets/css/webfont.min.css%3Fver=2.4.2.css' type='text/css' media='all' />
+<link rel='stylesheet' id='tinvwl-css' href='../wp-content/plugins/ti-woocommerce-wishlist/assets/css/public.min.css%3Fver=2.4.2.css' type='text/css' media='all' />
+<link rel='stylesheet' id='clivo-icons-css' href='../wp-content/themes/clivo/css/iconfont.css%3Fver=6.5.css' type='text/css' media='all' />
+<link rel='stylesheet' id='ionicons-css' href='../wp-content/plugins/pt-clivo-addons/assets/css/ionicons.css%3Fver=5.7.1.css' type='text/css' media='all' />
+<link rel='stylesheet' id='fontawesome-css' href='../wp-content/themes/clivo/css/fontawesome.min.css%3Fver=6.5.css' type='text/css' media='all' />
+<link rel='stylesheet' id='clivo-style-css' href='../wp-content/themes/clivo/style.css%3Fver=6.5.css' type='text/css' media='all' />
+<link rel='stylesheet' id='swiper-css' href='../wp-content/plugins/pt-clivo-addons/assets/css/swiper.css%3Fver=4.5.0.css' type='text/css' media='all' />
+<link rel='stylesheet' id='clivo-main-style-css' href='../wp-content/themes/clivo/css/main.css%3Fver=6.5.css' type='text/css' media='all' />
+<link rel='stylesheet' id='woocommerce-general-css' href='../wp-content/themes/clivo/css/woocommerce.css%3Fver=6.5.css' type='text/css' media='all' />
+<link rel='stylesheet' id='woocommerce-layout-css' href='../wp-content/themes/clivo/css/woocommerce-layout.css%3Fver=6.5.css' type='text/css' media='all' />
+<link rel='stylesheet' id='select2-css' href='../wp-content/themes/clivo/css/select2.css%3Fver=6.5.css' type='text/css' media='all' />
+<link rel='stylesheet' id='clivo-hkgrotesk-css' href='http://hidea.ru/wp-content/themes/clivo/fonts/hk-grotesk/style.css?ver=1' type='text/css' media='all' />
+<link rel='stylesheet' id='clivo-morganite-css' href='http://hidea.ru/wp-content/themes/clivo/fonts/morganite/style.css?ver=1' type='text/css' media='all' />
+<link rel='stylesheet' id='clivo-roboto-css' href='https://fonts.googleapis.com/css?family=Roboto%3A100,100italic,300,300italic,regular,italic,500,500italic,700,700italic,900,900italic&display=swap&subset=cyrillic&ver=1' type='text/css' media='all' />
+<link rel='stylesheet' id='clivo-roboto-condensed-css' href='https://fonts.googleapis.com/css?family=Roboto+Condensed%3A300,300italic,regular,italic,700,700italic&display=swap&subset=cyrillic&ver=1' type='text/css' media='all' />
+<link rel='stylesheet' id='photoswipe-css' href='../wp-content/plugins/pt-clivo-addons/assets/css/photoswipe.css' type='text/css' media='all' />
+<link rel='stylesheet' id='pt-addons-css' href='../wp-content/plugins/pt-clivo-addons/assets/css/pt-addons.css%3Fver=6.5.css' type='text/css' media='all' />
+<link rel='stylesheet' id='jetpack_css-css' href='../wp-content/plugins/jetpack/css/jetpack.css%3Fver=12.1.1.css' type='text/css' media='all' />
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js?ver=1.12.4" id="jquery-core-js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/1.4.1/jquery-migrate.min.js?ver=1.4.1" id="jquery-migrate-js"></script>
+<script type="text/javascript" src="../wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min.js%3Fver=2.7.0-wc.7.6.1" id="jquery-blockui-js"></script>
+<script type="text/javascript" id="wc-add-to-cart-js-extra">
+/* <![CDATA[ */
+var wc_add_to_cart_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%","i18n_view_cart":"\u041f\u0440\u043e\u0441\u043c\u043e\u0442\u0440 \u043a\u043e\u0440\u0437\u0438\u043d\u044b","cart_url":"https:\/\/hidea.ru\/cart\/","is_cart":"","cart_redirect_after_add":"no"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="../wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart.min.js%3Fver=7.6.1" id="wc-add-to-cart-js"></script>
+<script type="text/javascript" src="../wp-content/plugins/wp-user-avatar/assets/flatpickr/flatpickr.min.js%3Fver=4.10.1" id="ppress-flatpickr-js"></script>
+<script type="text/javascript" src="../wp-content/plugins/wp-user-avatar/assets/select2/select2.min.js%3Fver=4.10.1" id="ppress-select2-js"></script>
+<script type="text/javascript" src="../wp-content/plugins/js_composer/assets/js/vendors/woocommerce-add-to-cart.js%3Fver=6.11.0" id="vc_woocommerce-add-to-cart-js-js"></script>
+<script type="text/javascript" id="zilla-likes-js-extra">
+/* <![CDATA[ */
+var zilla_likes = {"ajaxurl":"https:\/\/hidea.ru\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="../wp-content/plugins/pt-clivo-addons/assets/js/zilla-likes.js%3Fver=6.5" id="zilla-likes-js"></script>
+<script defer type="text/javascript" src="https://stats.wp.com/s-202639.js" id="woocommerce-analytics-js"></script>
+<link rel="https://api.w.org/" href="https://hidea.ru/wp-json/" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://hidea.ru/xmlrpc.php?rsd" />
+<meta name="generator" content="WordPress 6.5" />
+<meta name="generator" content="WooCommerce 7.6.1" />
+<meta name="generator" content="Redux 4.4.1" />	<style>img#wpstats{display:none}</style>
+			<noscript><style>.woocommerce-product-gallery{ opacity: 1 !important; }</style></noscript>
+	<meta name="generator" content="Elementor 3.12.2; features: e_dom_optimization, e_optimized_assets_loading, e_optimized_css_loading, a11y_improvements, additional_custom_breakpoints; settings: css_print_method-external, google_font-enabled, font_display-swap">
+<meta name="generator" content="Powered by WPBakery Page Builder - drag and drop page builder for WordPress."/>
+<link rel="icon" href="../wp-content/uploads/2020/12/cropped-logo400-32x32.png" sizes="32x32" />
+<link rel="icon" href="../wp-content/uploads/2020/12/cropped-logo400-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="../wp-content/uploads/2020/12/cropped-logo400-180x180.png" />
+<meta name="msapplication-TileImage" content="https://hidea.ru/wp-content/uploads/2020/12/cropped-logo400-270x270.png" />
+		<style type="text/css" id="wp-custom-css">
+			.woocommerce .woocommerce-ordering, .woocommerce-page .woocommerce-ordering, .woocommerce .woocommerce-result-count, .woocommerce-page .woocommerce-result-count, .woocommerce .product-category h2 mark {
+    display: none;
+}
+.woocommerce .product-category h2 {font-size: 16px;}
+div.product .woocommerce-tabs .panel {color: #9B9B9B;padding: 25px 20px 27px;line-height: 1.62;}
+div.product .woocommerce-tabs .panel h2 {
+    display: none;
+}		</style>
+		<style id="clivo_theme-dynamic-css" title="dynamic-css" class="redux-options-output">body{font-family: Roboto,Arial, Helvetica, sans-serif;font-weight: 400;font-size: 16px;}h1, .h1{font-family: Roboto,Arial, Helvetica, sans-serif;font-weight: 100;font-size: 82px;}h2, .h2{font-family: Roboto,Arial, Helvetica, sans-serif;font-weight: 100;font-size: 54px;}h3, .h3{font-family: Roboto,Arial, Helvetica, sans-serif;font-weight: 700;font-size: 36px;}h4, .h4{font-family: Roboto,Arial, Helvetica, sans-serif;font-weight: 700;font-size: 28px;}h5, .h5{font-family: Roboto,Arial, Helvetica, sans-serif;font-weight: 700;font-size: 24px;}h6, .h6{font-family: HKGrotesk,Arial, Helvetica, sans-serif;font-weight: 800;font-size: 20px;}</style><noscript><style> .wpb_animate_when_almost_visible { opacity: 1; }</style></noscript></head>
+
+<body class="archive post-type-archive post-type-archive-product theme-clivo woocommerce-shop woocommerce woocommerce-page woocommerce-no-js tinvwl-theme-style dark-scheme preloader-false preloader-changed_words header-default header-dark header-4635 header-space-true right-click-disable-false popup-download-link-true mobile-images-false project-image-download-show custom-cursor-false chrome windows wpb-js-composer js-comp-ver-6.11.0 vc_responsive elementor-default elementor-kit-7906">
+<div style="display:none">ВК61930</div>
+				<div id="page">
+		<div class="page-overlay22 show"></div>
+						<header class="site-header header-4635 light-header fixed-header">
+									<div class="header-main-block">
+								<div class="container">
+						<div class="row">
+										<div class="desktop-main-bar-left col-auto">
+								<div class="logo-block">
+					<div class="site-logo site-logo-6ab388e5b30cd">
+						<a href="../index.html" data-magic-cursor="link">
+															<img class="light" src="../wp-content/uploads/2020/12/logo400.png" alt="Hidea">
+															<img class="dark" src="../wp-content/uploads/2020/12/logo400.png" alt="Hidea">
+													</a>
+					</div>
+				</div>
+						</div>
+						<div class="desktop-main-bar-right col justify-content-end">
+								<nav class="navigation navigation-6ab388e5b33d2 visible_menu hover-type1">
+					<ul id="menu-%d0%bc%d0%b5%d0%bd%d1%8e" class="menu"><li class=' menu-item menu-item-type-post_type menu-item-object-page' data-id='8503' data-post-id='8498'><a href="https://hidea.ru/about-the-company/"><span>О компании</span></a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom current-menu-item menu-item-has-children' data-id='7994' data-post-id='0'><a href="index.html"><span>Моторы</span></a>
+<ul class="sub-menu">
+<li class=' menu-item menu-item-type-custom menu-item-object-custom col megamenu-col' data-id='10313' data-post-id='0'><a href="https://hidea.ru/products/two-stroke_engines/"><span>2-х тактные моторы</span></a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom col megamenu-col' data-id='10314' data-post-id='0'><a href="https://hidea.ru/products/four-stroke_engines/"><span>4-х тактные моторы</span></a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom col megamenu-col' data-id='10315' data-post-id='0'><a href="https://hidea.ru/products/jet/"><span>Водометные</span></a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom col megamenu-col' data-id='10316' data-post-id='0'><a href="https://hidea.ru/products/efi/"><span>Моторы EFI</span></a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom col megamenu-col' data-id='10317' data-post-id='0'><a href="https://hidea.ru/products/electric_motors/"><span>Электромоторы</span></a></li>
+</ul>
+</li>
+<li class=' menu-item menu-item-type-post_type menu-item-object-page' data-id='8509' data-post-id='8507'><a href="https://hidea.ru/warranty-and-service/"><span>Гарантия и Сервис</span></a></li>
+<li class=' menu-item menu-item-type-post_type menu-item-object-page' data-id='8497' data-post-id='8479'><a href="https://hidea.ru/where-to-buy/"><span>Где купить</span></a></li>
+<li class=' menu-item menu-item-type-post_type menu-item-object-page' data-id='8538' data-post-id='4608'><a href="https://hidea.ru/blogger/"><span>Новости</span></a></li>
+<li class=' menu-item menu-item-type-post_type menu-item-object-page' data-id='10294' data-post-id='10289'><a href="https://hidea.ru/contacts/"><span>КОНТАКТЫ</span></a></li>
+</ul>				</nav>
+				<div class="nav-butter visible_menu" data-type=".navigation-6ab388e5b33d2"><span></span><span></span><span></span></div>
+							<div class="header-h-space header-h-space-custom header-h-space-6ab388e5b8a7a"></div>
+							<div class="header-fullscreen-button header-fullscreen-button-6ab388e5b8a89"><i class="base-icon-expand"></i></div>
+							<div class="header-h-space header-h-space-custom header-h-space-6ab388e5b8a8f"></div>
+							<a class="header-login-button header-login-6ab388e5b8a9a" href="https://hidea.ru/my-account/">
+					<i class="base-icon-login"></i>
+					<span>Аккаунт</span>
+				</a>
+						</div>
+									</div>
+					</div>
+							</div>
+												</header>
+      							<div class="site-header mobile-type header-4635 light-header fixed-header">
+									<div class="header-main-block">
+								<div class="container">
+						<div class="row">
+										<div class="mobile-main-bar-left col-auto">
+								<div class="logo-block">
+					<div class="site-logo site-logo-6ab388e5b8e2f">
+						<a href="../index.html" data-magic-cursor="link">
+															<img class="light" src="../wp-content/uploads/2020/12/logo400.png" alt="Hidea">
+															<img class="dark" src="../wp-content/uploads/2020/12/logo400.png" alt="Hidea">
+													</a>
+					</div>
+				</div>
+						</div>
+						<div class="mobile-main-bar-right col">
+								<nav class="navigation navigation-6ab388e5b902b visible_menu hover-type1">
+					<ul id="menu-%d0%bc%d0%b5%d0%bd%d1%8e-1" class="menu"><li class=' menu-item menu-item-type-post_type menu-item-object-page' data-id='8503' data-post-id='8498'><a href="https://hidea.ru/about-the-company/"><span>О компании</span></a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom current-menu-item menu-item-has-children' data-id='7994' data-post-id='0'><a href="index.html"><span>Моторы</span></a>
+<ul class="sub-menu">
+<li class=' menu-item menu-item-type-custom menu-item-object-custom col megamenu-col' data-id='10313' data-post-id='0'><a href="https://hidea.ru/products/two-stroke_engines/"><span>2-х тактные моторы</span></a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom col megamenu-col' data-id='10314' data-post-id='0'><a href="https://hidea.ru/products/four-stroke_engines/"><span>4-х тактные моторы</span></a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom col megamenu-col' data-id='10315' data-post-id='0'><a href="https://hidea.ru/products/jet/"><span>Водометные</span></a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom col megamenu-col' data-id='10316' data-post-id='0'><a href="https://hidea.ru/products/efi/"><span>Моторы EFI</span></a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom col megamenu-col' data-id='10317' data-post-id='0'><a href="https://hidea.ru/products/electric_motors/"><span>Электромоторы</span></a></li>
+</ul>
+</li>
+<li class=' menu-item menu-item-type-post_type menu-item-object-page' data-id='8509' data-post-id='8507'><a href="https://hidea.ru/warranty-and-service/"><span>Гарантия и Сервис</span></a></li>
+<li class=' menu-item menu-item-type-post_type menu-item-object-page' data-id='8497' data-post-id='8479'><a href="https://hidea.ru/where-to-buy/"><span>Где купить</span></a></li>
+<li class=' menu-item menu-item-type-post_type menu-item-object-page' data-id='8538' data-post-id='4608'><a href="https://hidea.ru/blogger/"><span>Новости</span></a></li>
+<li class=' menu-item menu-item-type-post_type menu-item-object-page' data-id='10294' data-post-id='10289'><a href="https://hidea.ru/contacts/"><span>КОНТАКТЫ</span></a></li>
+</ul>				</nav>
+				<div class="nav-butter visible_menu" data-type=".navigation-6ab388e5b902b"><span></span><span></span><span></span></div>
+						</div>
+									</div>
+					</div>
+							</div>
+							</div>
+              <div class="mobile-navigation-block header-4635 light-header fixed-header">
+          <nav class="mobile-navigation">
+            <ul id="menu-%d0%bc%d0%b5%d0%bd%d1%8e-2" class="menu container"><li class=' menu-item menu-item-type-post_type menu-item-object-page' data-id='8503' data-post-id='8498'><a href="https://hidea.ru/about-the-company/"><span>О компании</span></a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom current-menu-item menu-item-has-children' data-id='7994' data-post-id='0'><a href="index.html"><span>Моторы</span></a>
+<ul class="sub-menu">
+<li class=' menu-item menu-item-type-custom menu-item-object-custom col megamenu-col' data-id='10313' data-post-id='0'><a href="https://hidea.ru/products/two-stroke_engines/"><span>2-х тактные моторы</span></a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom col megamenu-col' data-id='10314' data-post-id='0'><a href="https://hidea.ru/products/four-stroke_engines/"><span>4-х тактные моторы</span></a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom col megamenu-col' data-id='10315' data-post-id='0'><a href="https://hidea.ru/products/jet/"><span>Водометные</span></a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom col megamenu-col' data-id='10316' data-post-id='0'><a href="https://hidea.ru/products/efi/"><span>Моторы EFI</span></a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom col megamenu-col' data-id='10317' data-post-id='0'><a href="https://hidea.ru/products/electric_motors/"><span>Электромоторы</span></a></li>
+</ul>
+</li>
+<li class=' menu-item menu-item-type-post_type menu-item-object-page' data-id='8509' data-post-id='8507'><a href="https://hidea.ru/warranty-and-service/"><span>Гарантия и Сервис</span></a></li>
+<li class=' menu-item menu-item-type-post_type menu-item-object-page' data-id='8497' data-post-id='8479'><a href="https://hidea.ru/where-to-buy/"><span>Где купить</span></a></li>
+<li class=' menu-item menu-item-type-post_type menu-item-object-page' data-id='8538' data-post-id='4608'><a href="https://hidea.ru/blogger/"><span>Новости</span></a></li>
+<li class=' menu-item menu-item-type-post_type menu-item-object-page' data-id='10294' data-post-id='10289'><a href="https://hidea.ru/contacts/"><span>КОНТАКТЫ</span></a></li>
+</ul>          </nav>
+          				<div class="header-bottom-block">
+								<div class="container">
+						<div class="row">
+										<div class="mobile-bottom-bar-left col-auto">
+								<div class="header-social-links social-links-6ab388e5bf075"></div>
+						</div>
+									</div>
+					</div>
+							</div>
+			        </div>
+			      				<div class="search-popup light-color">
+					<div class="form-block">
+						<div class="title">What are you looking for?</div>
+						<form role="search" method="get" class="searchform" action="../index.html" >
+  <div><input type="text" value="" placeholder="Search" name="s" class="input" autocomplete="off" /></div>
+  <button type="submit" class="searchsubmit" value=""><i class="base-icon-search"></i></button>
+</form>					</div>
+				</div>
+						
+		<div class="header-space"></div>
+			<div class="page-top-block type-type1" style="">
+						<div class="container">
+				<div class="heading-block">
+					<h1 class="h h2">Каталог</h1>
+																		<div class="left-image" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/08/катал-scaled.jpg);"></div>
+													<div class="right-image" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/08/катал-scaled.jpg);"></div>
+															</div>
+			</div>
+		</div>
+		
+<main class="main-container">
+  <div class="container"><div class="shop-top row"><div class="col"><div class="woocommerce-notices-wrapper"></div><p class="woocommerce-result-count">
+	Отображение 1&ndash;16 из 47</p>
+<form class="woocommerce-ordering" method="get">
+	<select name="orderby" class="orderby" aria-label="Заказ в магазине">
+					<option value="menu_order"  selected='selected'>Исходная сортировка</option>
+					<option value="popularity" >По популярности</option>
+					<option value="date" >По новизне</option>
+					<option value="price" >Цены: по возрастанию</option>
+					<option value="price-desc" >Цены: по убыванию</option>
+			</select>
+	<input type="hidden" name="paged" value="1" />
+	</form>
+<ul class="archive-category-wrapper">            <li class="product-category product first">
+                <a href="https://hidea.ru/products/two-stroke_engines/" data-magic-cursor="link-small">
+                    <h2 class="woocommerce-loop-category__title">
+                        2-х тактные моторы <mark class="count">(15)</mark>
+                    </h2>
+                </a>
+            </li>
+                       <li class="product-category product first">
+                <a href="https://hidea.ru/products/four-stroke_engines/" data-magic-cursor="link-small">
+                    <h2 class="woocommerce-loop-category__title">
+                        4-х тактные моторы <mark class="count">(8)</mark>
+                    </h2>
+                </a>
+            </li>
+                       <li class="product-category product first">
+                <a href="https://hidea.ru/products/jet/" data-magic-cursor="link-small">
+                    <h2 class="woocommerce-loop-category__title">
+                        Водометные <mark class="count">(6)</mark>
+                    </h2>
+                </a>
+            </li>
+                       <li class="product-category product first">
+                <a href="https://hidea.ru/products/efi/" data-magic-cursor="link-small">
+                    <h2 class="woocommerce-loop-category__title">
+                        Моторы EFI <mark class="count">(14)</mark>
+                    </h2>
+                </a>
+            </li>
+                       <li class="product-category product first">
+                <a href="https://hidea.ru/products/electric_motors/" data-magic-cursor="link-small">
+                    <h2 class="woocommerce-loop-category__title">
+                        Электромоторы <mark class="count">(4)</mark>
+                    </h2>
+                </a>
+            </li>
+           </ul></div></div>
+<ul class="products row">
+  <li class="col-12 col-sm-6 col-lg-4 col-xl-3 product type-product post-8787 status-publish first outofstock product_cat-two-stroke_engines has-post-thumbnail shipping-taxable product-type-simple">
+    <div class="product-wrap">
+      <div class="image"><div class="product-thumb-slider"><div class="swiper-container"><div class="swiper-wrapper"><div class="swiper-slide"><a href="https://hidea.ru/product/hd3fhs/" class="img" style="background-image: url(../wp-content/uploads/2023/07/HD3FHS-723x1024.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd3fhs/" class="img" style="background-image: url(../wp-content/uploads/2023/07/IMG_2512-768x1024.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd3fhs/" class="img" style="background-image: url(../wp-content/uploads/2023/06/512-768x1024.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd3fhs/" class="img" style="background-image: url(../wp-content/uploads/2023/06/412-768x1024.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd3fhs/" class="img" style="background-image: url(../wp-content/uploads/2023/06/3-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd3fhs/" class="img" style="background-image: url(../wp-content/uploads/2023/06/2-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd3fhs/" class="img" style="background-image: url(../wp-content/uploads/2023/06/1-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd3fhs/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/06/Чека-безопасности-везде-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd3fhs/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/06/Набор-инструментов-везде-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd3fhs/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/06/Зип-набор-2-тактный-1024x768.jpg);"></a></div></div></div></div><div class="buttons"><a rel="nofollow" href="https://hidea.ru/product/hd3fhs/" data-quantity="1" data-product_id="8787" data-product_sku="" class="add_to_cart_button product_type_simple out_of_stock" data-magic-cursor="link"><i class="ionicons-cart"></i><span>Смотреть</span></a><div class="nav-arrows"><div class="prev base-icon-prev" data-magic-cursor="link"></div><div class="next base-icon-next" data-magic-cursor="link"></div></div></div></div><div class="bottom"><div class="categories"><a href="https://hidea.ru/products/two-stroke_engines/" rel="tag">2-х тактные моторы</a></div><h6 class="h"><a href="https://hidea.ru/product/hd3fhs/">HD 3</a></h6></div>    </div>
+  </li>
+  <li class="col-12 col-sm-6 col-lg-4 col-xl-3 product type-product post-8798 status-publish outofstock product_cat-two-stroke_engines has-post-thumbnail shipping-taxable product-type-simple">
+    <div class="product-wrap">
+      <div class="image"><div class="product-thumb-slider"><div class="swiper-container"><div class="swiper-wrapper"><div class="swiper-slide"><a href="https://hidea.ru/product/hd4fhws/" class="img" style="background-image: url(../wp-content/uploads/2023/07/42%D0%A21-724x1024.png);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd4fhws/" class="img" style="background-image: url(../wp-content/uploads/2023/06/612-1-768x1024.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd4fhws/" class="img" style="background-image: url(../wp-content/uploads/2023/06/412-1-768x1024.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd4fhws/" class="img" style="background-image: url(../wp-content/uploads/2023/06/512-1-768x1024.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd4fhws/" class="img" style="background-image: url(../wp-content/uploads/2023/06/1-1-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd4fhws/" class="img" style="background-image: url(../wp-content/uploads/2023/06/2-1-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd4fhws/" class="img" style="background-image: url(../wp-content/uploads/2023/06/csdfcsd-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd4fhws/" class="img" style="background-image: url(../wp-content/uploads/2023/06/dcfsdf-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd4fhws/" class="img" style="background-image: url(../wp-content/uploads/2023/06/scfsdf-1024x768.jpg);"></a></div></div></div></div><div class="buttons"><a rel="nofollow" href="https://hidea.ru/product/hd4fhws/" data-quantity="1" data-product_id="8798" data-product_sku="" class="add_to_cart_button product_type_simple out_of_stock" data-magic-cursor="link"><i class="ionicons-cart"></i><span>Смотреть</span></a><div class="nav-arrows"><div class="prev base-icon-prev" data-magic-cursor="link"></div><div class="next base-icon-next" data-magic-cursor="link"></div></div></div></div><div class="bottom"><div class="categories"><a href="https://hidea.ru/products/two-stroke_engines/" rel="tag">2-х тактные моторы</a></div><h6 class="h"><a href="https://hidea.ru/product/hd4fhws/">HD 4</a></h6></div>    </div>
+  </li>
+  <li class="col-12 col-sm-6 col-lg-4 col-xl-3 product type-product post-9855 status-publish outofstock product_cat-two-stroke_engines has-post-thumbnail shipping-taxable product-type-simple">
+    <div class="product-wrap">
+      <div class="image"><div class="product-thumb-slider"><div class="swiper-container"><div class="swiper-wrapper"><div class="swiper-slide"><a href="https://hidea.ru/product/hd5fhs/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/08/5-2т-ч-gotovo-723x1024.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd5fhs/" class="img" style="background-image: url(../wp-content/uploads/2023/08/6212121-768x1024.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd5fhs/" class="img" style="background-image: url(../wp-content/uploads/2023/08/3333333-768x1024.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd5fhs/" class="img" style="background-image: url(../wp-content/uploads/2023/08/55545454-768x1024.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd5fhs/" class="img" style="background-image: url(../wp-content/uploads/2023/08/1-2-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd5fhs/" class="img" style="background-image: url(../wp-content/uploads/2023/08/2-2-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd5fhs/" class="img" style="background-image: url(../wp-content/uploads/2023/08/3-2-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd5fhs/" class="img" style="background-image: url(../wp-content/uploads/2023/06/csdfcsd-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd5fhs/" class="img" style="background-image: url(../wp-content/uploads/2023/06/dcfsdf-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd5fhs/" class="img" style="background-image: url(../wp-content/uploads/2023/06/scfsdf-1024x768.jpg);"></a></div></div></div></div><div class="buttons"><a rel="nofollow" href="https://hidea.ru/product/hd5fhs/" data-quantity="1" data-product_id="9855" data-product_sku="" class="add_to_cart_button product_type_simple out_of_stock" data-magic-cursor="link"><i class="ionicons-cart"></i><span>Смотреть</span></a><div class="nav-arrows"><div class="prev base-icon-prev" data-magic-cursor="link"></div><div class="next base-icon-next" data-magic-cursor="link"></div></div></div></div><div class="bottom"><div class="categories"><a href="https://hidea.ru/products/two-stroke_engines/" rel="tag">2-х тактные моторы</a></div><h6 class="h"><a href="https://hidea.ru/product/hd5fhs/">HD 5</a></h6></div>    </div>
+  </li>
+  <li class="col-12 col-sm-6 col-lg-4 col-xl-3 product type-product post-8808 status-publish last outofstock product_cat-two-stroke_engines has-post-thumbnail shipping-taxable product-type-simple">
+    <div class="product-wrap">
+      <div class="image"><div class="product-thumb-slider"><div class="swiper-container"><div class="swiper-wrapper"><div class="swiper-slide"><a href="https://hidea.ru/product/hd9-8fhs/" class="img" style="background-image: url(../wp-content/uploads/2023/07/9.82%D0%A21-724x1024.png);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd9-8fhs/" class="img" style="background-image: url(../wp-content/uploads/2023/06/IMG_6444-2-768x1024.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd9-8fhs/" class="img" style="background-image: url(../wp-content/uploads/2023/07/IMG_6442-768x1024.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd9-8fhs/" class="img" style="background-image: url(../wp-content/uploads/2023/06/IMG_6440-2-768x1024.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd9-8fhs/" class="img" style="background-image: url(../wp-content/uploads/2023/06/IMG_6452-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd9-8fhs/" class="img" style="background-image: url(../wp-content/uploads/2023/06/IMG_6447-2-1024x683.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd9-8fhs/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/06/Набор-инструментов-везде-2-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd9-8fhs/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/06/Зип-набор-2-тактный-2-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd9-8fhs/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/06/Бак-12л-от-5-до-9.8EFI9.9pro-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd9-8fhs/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/06/Чека-безопасности-везде-4-1024x768.jpg);"></a></div></div></div></div><div class="buttons"><a rel="nofollow" href="https://hidea.ru/product/hd9-8fhs/" data-quantity="1" data-product_id="8808" data-product_sku="" class="add_to_cart_button product_type_simple out_of_stock" data-magic-cursor="link"><i class="ionicons-cart"></i><span>Смотреть</span></a><div class="nav-arrows"><div class="prev base-icon-prev" data-magic-cursor="link"></div><div class="next base-icon-next" data-magic-cursor="link"></div></div></div></div><div class="bottom"><div class="categories"><a href="https://hidea.ru/products/two-stroke_engines/" rel="tag">2-х тактные моторы</a></div><h6 class="h"><a href="https://hidea.ru/product/hd9-8fhs/">HD 9.8</a></h6></div>    </div>
+  </li>
+  <li class="col-12 col-sm-6 col-lg-4 col-xl-3 product type-product post-9849 status-publish first outofstock product_cat-two-stroke_engines has-post-thumbnail shipping-taxable product-type-simple">
+    <div class="product-wrap">
+      <div class="image"><div class="product-thumb-slider"><div class="swiper-container"><div class="swiper-wrapper"><div class="swiper-slide"><a href="https://hidea.ru/product/hd9-9fhs/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/08/99-2т-ч-gotovo-723x1024.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd9-9fhs/" class="img" style="background-image: url(../wp-content/uploads/2023/08/612-2-768x1024.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd9-9fhs/" class="img" style="background-image: url(../wp-content/uploads/2023/08/512-768x1024.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd9-9fhs/" class="img" style="background-image: url(../wp-content/uploads/2023/08/412-768x1024.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd9-9fhs/" class="img" style="background-image: url(../wp-content/uploads/2023/08/2-1-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd9-9fhs/" class="img" style="background-image: url(../wp-content/uploads/2023/08/3-1-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd9-9fhs/" class="img" style="background-image: url(../wp-content/uploads/2023/08/1-1-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd9-9fhs/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/06/Зип-набор-2-тактный-3-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd9-9fhs/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/06/Бак-24л-от-9.9-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd9-9fhs/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/06/Шланг-груша-везде-от-5кроме-115130-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd9-9fhs/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/06/Чека-безопасности-везде-2-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd9-9fhs/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/06/Набор-инструментов-везде-3-1024x768.jpg);"></a></div></div></div></div><div class="buttons"><a rel="nofollow" href="https://hidea.ru/product/hd9-9fhs/" data-quantity="1" data-product_id="9849" data-product_sku="" class="add_to_cart_button product_type_simple out_of_stock" data-magic-cursor="link"><i class="ionicons-cart"></i><span>Смотреть</span></a><div class="nav-arrows"><div class="prev base-icon-prev" data-magic-cursor="link"></div><div class="next base-icon-next" data-magic-cursor="link"></div></div></div></div><div class="bottom"><div class="categories"><a href="https://hidea.ru/products/two-stroke_engines/" rel="tag">2-х тактные моторы</a></div><h6 class="h"><a href="https://hidea.ru/product/hd9-9fhs/">HD 9.9</a></h6></div>    </div>
+  </li>
+  <li class="col-12 col-sm-6 col-lg-4 col-xl-3 product type-product post-10149 status-publish outofstock product_cat-two-stroke_engines has-post-thumbnail shipping-taxable product-type-simple">
+    <div class="product-wrap">
+      <div class="image"><div class="product-thumb-slider"><div class="swiper-container"><div class="swiper-wrapper"><div class="swiper-slide"><a href="https://hidea.ru/product/hdd9-9fhs-enduro/" class="img" style="background-image: url(../wp-content/uploads/2024/07/HIDEA99Endura_glow-1-707x1024.png);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hdd9-9fhs-enduro/" class="img" style="background-image: url(../wp-content/uploads/2024/07/IMG_8643-683x1024.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hdd9-9fhs-enduro/" class="img" style="background-image: url(../wp-content/uploads/2024/07/IMG_8648-683x1024.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hdd9-9fhs-enduro/" class="img" style="background-image: url(../wp-content/uploads/2024/07/IMG_8651-1024x683.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hdd9-9fhs-enduro/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/06/Бак-24л-от-9.9-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hdd9-9fhs-enduro/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/06/Шланг-груша-везде-от-5кроме-115130-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hdd9-9fhs-enduro/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/06/Чека-безопасности-везде-2-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hdd9-9fhs-enduro/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/06/Зип-набор-2-тактный-3-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hdd9-9fhs-enduro/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/06/Набор-инструментов-везде-3-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hdd9-9fhs-enduro/" class="img" style="background-image: url(../wp-content/uploads/2024/07/HIDEA99Endura_glow-1-707x1024.png);"></a></div></div></div></div><div class="buttons"><a rel="nofollow" href="https://hidea.ru/product/hdd9-9fhs-enduro/" data-quantity="1" data-product_id="10149" data-product_sku="" class="add_to_cart_button product_type_simple out_of_stock" data-magic-cursor="link"><i class="ionicons-cart"></i><span>Смотреть</span></a><div class="nav-arrows"><div class="prev base-icon-prev" data-magic-cursor="link"></div><div class="next base-icon-next" data-magic-cursor="link"></div></div></div></div><div class="bottom"><div class="categories"><a href="https://hidea.ru/products/two-stroke_engines/" rel="tag">2-х тактные моторы</a></div><h6 class="h"><a href="https://hidea.ru/product/hdd9-9fhs-enduro/">HDD 9.9 ENDURO</a></h6></div>    </div>
+  </li>
+  <li class="col-12 col-sm-6 col-lg-4 col-xl-3 product type-product post-8832 status-publish outofstock product_cat-two-stroke_engines has-post-thumbnail shipping-taxable product-type-simple">
+    <div class="product-wrap">
+      <div class="image"><div class="product-thumb-slider"><div class="swiper-container"><div class="swiper-wrapper"><div class="swiper-slide"><a href="https://hidea.ru/product/hd9-9-fhs-pro/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/07/9.92ТПРО1-724x1024.png);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd9-9-fhs-pro/" class="img" style="background-image: url(../wp-content/uploads/2023/07/IMG_6374-768x1024.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd9-9-fhs-pro/" class="img" style="background-image: url(../wp-content/uploads/2023/06/IMG_6366-1-768x1024.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd9-9-fhs-pro/" class="img" style="background-image: url(../wp-content/uploads/2023/06/IMG_6363-768x1024.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd9-9-fhs-pro/" class="img" style="background-image: url(../wp-content/uploads/2023/06/IMG_6376-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd9-9-fhs-pro/" class="img" style="background-image: url(../wp-content/uploads/2023/06/IMG_6380-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd9-9-fhs-pro/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/06/Зип-набор-2-тактный-3-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd9-9-fhs-pro/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/06/Бак-24л-от-9.9-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd9-9-fhs-pro/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/06/Шланг-груша-везде-от-5кроме-115130-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd9-9-fhs-pro/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/06/Чека-безопасности-везде-2-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd9-9-fhs-pro/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/06/Набор-инструментов-везде-3-1024x768.jpg);"></a></div></div></div></div><div class="buttons"><a rel="nofollow" href="https://hidea.ru/product/hd9-9-fhs-pro/" data-quantity="1" data-product_id="8832" data-product_sku="" class="add_to_cart_button product_type_simple out_of_stock" data-magic-cursor="link"><i class="ionicons-cart"></i><span>Смотреть</span></a><div class="nav-arrows"><div class="prev base-icon-prev" data-magic-cursor="link"></div><div class="next base-icon-next" data-magic-cursor="link"></div></div></div></div><div class="bottom"><div class="categories"><a href="https://hidea.ru/products/two-stroke_engines/" rel="tag">2-х тактные моторы</a></div><h6 class="h"><a href="https://hidea.ru/product/hd9-9-fhs-pro/">HD 9.9 PRO</a></h6></div>    </div>
+  </li>
+  <li class="col-12 col-sm-6 col-lg-4 col-xl-3 product type-product post-9990 status-publish last outofstock product_cat-two-stroke_engines has-post-thumbnail shipping-taxable product-type-simple">
+    <div class="product-wrap">
+      <div class="image"><div class="product-thumb-slider"><div class="swiper-container"><div class="swiper-wrapper"><div class="swiper-slide"><a href="https://hidea.ru/product/hd9-9-fes-pro/" class="img" style="background-image: url(../wp-content/uploads/2023/12/1-723x1024.png);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd9-9-fes-pro/" class="img" style="background-image: url(../wp-content/uploads/2023/12/IMG_2744-768x1024.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd9-9-fes-pro/" class="img" style="background-image: url(../wp-content/uploads/2023/12/IMG_2742-768x1024.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd9-9-fes-pro/" class="img" style="background-image: url(../wp-content/uploads/2023/12/IMG_2747-768x1024.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd9-9-fes-pro/" class="img" style="background-image: url(../wp-content/uploads/2023/12/IMG_2748-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd9-9-fes-pro/" class="img" style="background-image: url(../wp-content/uploads/2023/12/IMG_2749-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd9-9-fes-pro/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/06/Бак-24л-от-9.9-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd9-9-fes-pro/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/06/Шланг-груша-везде-от-5кроме-115130-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd9-9-fes-pro/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/06/Чека-безопасности-везде-2-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd9-9-fes-pro/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/06/Зип-набор-2-тактный-3-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd9-9-fes-pro/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/06/Набор-инструментов-везде-3-1024x768.jpg);"></a></div></div></div></div><div class="buttons"><a rel="nofollow" href="https://hidea.ru/product/hd9-9-fes-pro/" data-quantity="1" data-product_id="9990" data-product_sku="" class="add_to_cart_button product_type_simple out_of_stock" data-magic-cursor="link"><i class="ionicons-cart"></i><span>Смотреть</span></a><div class="nav-arrows"><div class="prev base-icon-prev" data-magic-cursor="link"></div><div class="next base-icon-next" data-magic-cursor="link"></div></div></div></div><div class="bottom"><div class="categories"><a href="https://hidea.ru/products/two-stroke_engines/" rel="tag">2-х тактные моторы</a></div><h6 class="h"><a href="https://hidea.ru/product/hd9-9-fes-pro/">HD 9.9 PRO (дист.)</a></h6></div>    </div>
+  </li>
+  <li class="col-12 col-sm-6 col-lg-4 col-xl-3 product type-product post-8936 status-publish first outofstock product_cat-two-stroke_engines has-post-thumbnail shipping-taxable product-type-simple">
+    <div class="product-wrap">
+      <div class="image"><div class="product-thumb-slider"><div class="swiper-container"><div class="swiper-wrapper"><div class="swiper-slide"><a href="https://hidea.ru/product/hd30fhs/" class="img" style="background-image: url(../wp-content/uploads/2023/07/302%D0%A2%D0%A51-724x1024.png);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd30fhs/" class="img" style="background-image: url(../wp-content/uploads/2023/06/IMG_6421-768x1024.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd30fhs/" class="img" style="background-image: url(../wp-content/uploads/2023/06/IMG_6415-768x1024.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd30fhs/" class="img" style="background-image: url(../wp-content/uploads/2023/06/IMG_6413-768x1024.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd30fhs/" class="img" style="background-image: url(../wp-content/uploads/2023/06/IMG_6423-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd30fhs/" class="img" style="background-image: url(../wp-content/uploads/2023/06/IMG_6426-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd30fhs/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/06/Бак-24л-от-9.9-1-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd30fhs/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/06/Набор-инструментов-везде-4.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd30fhs/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/06/Зип-набор-2-тактный-4.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd30fhs/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/06/Шланг-груша-везде-от-5кроме-115130-1-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd30fhs/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/06/Чека-безопасности-везде-3.jpg);"></a></div></div></div></div><div class="buttons"><a rel="nofollow" href="https://hidea.ru/product/hd30fhs/" data-quantity="1" data-product_id="8936" data-product_sku="" class="add_to_cart_button product_type_simple out_of_stock" data-magic-cursor="link"><i class="ionicons-cart"></i><span>Смотреть</span></a><div class="nav-arrows"><div class="prev base-icon-prev" data-magic-cursor="link"></div><div class="next base-icon-next" data-magic-cursor="link"></div></div></div></div><div class="bottom"><div class="categories"><a href="https://hidea.ru/products/two-stroke_engines/" rel="tag">2-х тактные моторы</a></div><h6 class="h"><a href="https://hidea.ru/product/hd30fhs/">HD 30</a></h6></div>    </div>
+  </li>
+  <li class="col-12 col-sm-6 col-lg-4 col-xl-3 product type-product post-8849 status-publish outofstock product_cat-two-stroke_engines has-post-thumbnail shipping-taxable product-type-simple">
+    <div class="product-wrap">
+      <div class="image"><div class="product-thumb-slider"><div class="swiper-container"><div class="swiper-wrapper"><div class="swiper-slide"><a href="https://hidea.ru/product/hd30ffes/" class="img" style="background-image: url(../wp-content/uploads/2023/07/302%D0%A2%D0%A41-724x1024.png);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd30ffes/" class="img" style="background-image: url(../wp-content/uploads/2023/07/612-768x1024.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd30ffes/" class="img" style="background-image: url(../wp-content/uploads/2023/06/512-2-768x1024.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd30ffes/" class="img" style="background-image: url(../wp-content/uploads/2023/06/1-2-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd30ffes/" class="img" style="background-image: url(../wp-content/uploads/2023/06/2-2.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd30ffes/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/06/Бак-24л-от-9.9-1-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd30ffes/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/06/Шланг-груша-везде-от-5кроме-115130-1-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd30ffes/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/06/Зип-набор-2-тактный-3-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd30ffes/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/06/Набор-инструментов-везде-3-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd30ffes/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/06/Чека-безопасности-везде-2-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd30ffes/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/06/Рулевая-тяга-во-всех-дистанционных-моторах-1-1024x767.jpg);"></a></div></div></div></div><div class="buttons"><a rel="nofollow" href="https://hidea.ru/product/hd30ffes/" data-quantity="1" data-product_id="8849" data-product_sku="" class="add_to_cart_button product_type_simple out_of_stock" data-magic-cursor="link"><i class="ionicons-cart"></i><span>Смотреть</span></a><div class="nav-arrows"><div class="prev base-icon-prev" data-magic-cursor="link"></div><div class="next base-icon-next" data-magic-cursor="link"></div></div></div></div><div class="bottom"><div class="categories"><a href="https://hidea.ru/products/two-stroke_engines/" rel="tag">2-х тактные моторы</a></div><h6 class="h"><a href="https://hidea.ru/product/hd30ffes/">HD 30 (дист.)</a></h6></div>    </div>
+  </li>
+  <li class="col-12 col-sm-6 col-lg-4 col-xl-3 product type-product post-10141 status-publish outofstock product_cat-two-stroke_engines has-post-thumbnail shipping-taxable product-type-simple">
+    <div class="product-wrap">
+      <div class="image"><div class="product-thumb-slider"><div class="swiper-container"><div class="swiper-wrapper"><div class="swiper-slide"><a href="https://hidea.ru/product/hd40fhs/" class="img" style="background-image: url(../wp-content/uploads/2024/02/5-723x1024.png);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd40fhs/" class="img" style="background-image: url(../wp-content/uploads/2024/02/IMG_2756-768x1024.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd40fhs/" class="img" style="background-image: url(../wp-content/uploads/2024/02/IMG_2760-768x1024.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd40fhs/" class="img" style="background-image: url(../wp-content/uploads/2024/02/IMG_2761-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd40fhs/" class="img" style="background-image: url(../wp-content/uploads/2024/02/IMG_2762-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd40fhs/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/06/Бак-24л-от-9.9-1-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd40fhs/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/06/Набор-инструментов-везде-4.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd40fhs/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/06/Зип-набор-2-тактный-4.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd40fhs/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/06/Шланг-груша-везде-от-5кроме-115130-1-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd40fhs/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/06/Чека-безопасности-везде-3.jpg);"></a></div></div></div></div><div class="buttons"><a rel="nofollow" href="https://hidea.ru/product/hd40fhs/" data-quantity="1" data-product_id="10141" data-product_sku="" class="add_to_cart_button product_type_simple out_of_stock" data-magic-cursor="link"><i class="ionicons-cart"></i><span>Смотреть</span></a><div class="nav-arrows"><div class="prev base-icon-prev" data-magic-cursor="link"></div><div class="next base-icon-next" data-magic-cursor="link"></div></div></div></div><div class="bottom"><div class="categories"><a href="https://hidea.ru/products/two-stroke_engines/" rel="tag">2-х тактные моторы</a></div><h6 class="h"><a href="https://hidea.ru/product/hd40fhs/">HD 40</a></h6></div>    </div>
+  </li>
+  <li class="col-12 col-sm-6 col-lg-4 col-xl-3 product type-product post-8986 status-publish last outofstock product_cat-two-stroke_engines has-post-thumbnail shipping-taxable product-type-simple">
+    <div class="product-wrap">
+      <div class="image"><div class="product-thumb-slider"><div class="swiper-container"><div class="swiper-wrapper"><div class="swiper-slide"><a href="https://hidea.ru/product/hd40ffes/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/12/40-2т-ч-gotovo-723x1024.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd40ffes/" class="img" style="background-image: url(../wp-content/uploads/2023/07/IMG_2574-768x1024.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd40ffes/" class="img" style="background-image: url(../wp-content/uploads/2023/06/412-9-768x1024.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd40ffes/" class="img" style="background-image: url(../wp-content/uploads/2023/06/512-9-768x1024.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd40ffes/" class="img" style="background-image: url(../wp-content/uploads/2023/06/3-8-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd40ffes/" class="img" style="background-image: url(../wp-content/uploads/2023/06/2-10-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd40ffes/" class="img" style="background-image: url(../wp-content/uploads/2023/06/1-10-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd40ffes/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/06/Бак-24л-от-9.9-1-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd40ffes/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/06/Зип-набор-2-тактный-4.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd40ffes/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/06/Набор-инструментов-везде-4.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd40ffes/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/06/Чека-безопасности-везде-2-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd40ffes/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/06/Рулевая-тяга-во-всех-дистанционных-моторах.jpg);"></a></div></div></div></div><div class="buttons"><a rel="nofollow" href="https://hidea.ru/product/hd40ffes/" data-quantity="1" data-product_id="8986" data-product_sku="" class="add_to_cart_button product_type_simple out_of_stock" data-magic-cursor="link"><i class="ionicons-cart"></i><span>Смотреть</span></a><div class="nav-arrows"><div class="prev base-icon-prev" data-magic-cursor="link"></div><div class="next base-icon-next" data-magic-cursor="link"></div></div></div></div><div class="bottom"><div class="categories"><a href="https://hidea.ru/products/two-stroke_engines/" rel="tag">2-х тактные моторы</a></div><h6 class="h"><a href="https://hidea.ru/product/hd40ffes/">HD 40 (дист.)</a></h6></div>    </div>
+  </li>
+  <li class="col-12 col-sm-6 col-lg-4 col-xl-3 product type-product post-9994 status-publish first outofstock product_cat-two-stroke_engines has-post-thumbnail shipping-taxable product-type-simple">
+    <div class="product-wrap">
+      <div class="image"><div class="product-thumb-slider"><div class="swiper-container"><div class="swiper-wrapper"><div class="swiper-slide"><a href="https://hidea.ru/product/hd40ffes-т/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/12/40-2т-ч-gotovo-723x1024.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd40ffes-т/" class="img" style="background-image: url(../wp-content/uploads/2023/07/IMG_2574-768x1024.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd40ffes-т/" class="img" style="background-image: url(../wp-content/uploads/2023/06/412-9-768x1024.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd40ffes-т/" class="img" style="background-image: url(../wp-content/uploads/2023/06/512-9-768x1024.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd40ffes-т/" class="img" style="background-image: url(../wp-content/uploads/2023/06/3-8-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd40ffes-т/" class="img" style="background-image: url(../wp-content/uploads/2023/06/2-10-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd40ffes-т/" class="img" style="background-image: url(../wp-content/uploads/2023/06/1-10-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd40ffes-т/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/06/Бак-24л-от-9.9-1-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd40ffes-т/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/06/Зип-набор-2-тактный-4.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd40ffes-т/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/06/Набор-инструментов-везде-4.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd40ffes-т/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/06/Чека-безопасности-везде-2-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd40ffes-т/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/06/Рулевая-тяга-во-всех-дистанционных-моторах.jpg);"></a></div></div></div></div><div class="buttons"><a rel="nofollow" href="https://hidea.ru/product/hd40ffes-т/" data-quantity="1" data-product_id="9994" data-product_sku="" class="add_to_cart_button product_type_simple out_of_stock" data-magic-cursor="link"><i class="ionicons-cart"></i><span>Смотреть</span></a><div class="nav-arrows"><div class="prev base-icon-prev" data-magic-cursor="link"></div><div class="next base-icon-next" data-magic-cursor="link"></div></div></div></div><div class="bottom"><div class="categories"><a href="https://hidea.ru/products/two-stroke_engines/" rel="tag">2-х тактные моторы</a></div><h6 class="h"><a href="https://hidea.ru/product/hd40ffes-т/">HD 40 (дист. + трим)</a></h6></div>    </div>
+  </li>
+  <li class="col-12 col-sm-6 col-lg-4 col-xl-3 product type-product post-9926 status-publish outofstock product_cat-two-stroke_engines has-post-thumbnail shipping-taxable product-type-simple">
+    <div class="product-wrap">
+      <div class="image"><div class="product-thumb-slider"><div class="swiper-container"><div class="swiper-wrapper"><div class="swiper-slide"><a href="https://hidea.ru/product/hd60fel/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/08/Дизайн-без-названия-724x1024.png);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd60fel/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/08/60-профиль-598x1024.png);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd60fel/" class="img" style="background-image: url(../wp-content/uploads/2023/08/60-45-485x1024.png);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd60fel/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/08/60фронт-765x1024.png);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd60fel/" class="img" style="background-image: url(../wp-content/uploads/2023/08/image-3-1024x708.webp);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd60fel/" class="img" style="background-image: url(../wp-content/uploads/2023/08/image-2-1024x729.webp);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd60fel/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/06/Зип-набор-2-тактный-4.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd60fel/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/06/Набор-инструментов-везде-4.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd60fel/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/06/Чека-безопасности-везде-2-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd60fel/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/06/Рулевая-тяга-во-всех-дистанционных-моторах.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd60fel/" class="img" style="background-image: url(../wp-content/uploads/2023/08/image-6-1024x529.webp);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd60fel/" class="img" style="background-image: url(../wp-content/uploads/2023/08/image-7-987x1024.webp);"></a></div></div></div></div><div class="buttons"><a rel="nofollow" href="https://hidea.ru/product/hd60fel/" data-quantity="1" data-product_id="9926" data-product_sku="" class="add_to_cart_button product_type_simple out_of_stock" data-magic-cursor="link"><i class="ionicons-cart"></i><span>Смотреть</span></a><div class="nav-arrows"><div class="prev base-icon-prev" data-magic-cursor="link"></div><div class="next base-icon-next" data-magic-cursor="link"></div></div></div></div><div class="bottom"><div class="categories"><a href="https://hidea.ru/products/two-stroke_engines/" rel="tag">2-х тактные моторы</a></div><h6 class="h"><a href="https://hidea.ru/product/hd60fel/">HD 60</a></h6></div>    </div>
+  </li>
+  <li class="col-12 col-sm-6 col-lg-4 col-xl-3 product type-product post-8476 status-publish outofstock product_cat-two-stroke_engines product_tag-31 has-post-thumbnail shipping-taxable product-type-simple">
+    <div class="product-wrap">
+      <div class="image"><div class="product-thumb-slider"><div class="swiper-container"><div class="swiper-wrapper"><div class="swiper-slide"><a href="https://hidea.ru/product/hd-90-fel-t/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/07/90-2т-ч-gotovo-723x1024.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd-90-fel-t/" class="img" style="background-image: url(../wp-content/uploads/2023/07/IMG_0972-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd-90-fel-t/" class="img" style="background-image: url(../wp-content/uploads/2023/05/IMG_0964.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd-90-fel-t/" class="img" style="background-image: url(../wp-content/uploads/2023/05/IMG_0969-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd-90-fel-t/" class="img" style="background-image: url(../wp-content/uploads/2023/05/IMG_0956-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd-90-fel-t/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/05/Мультиприборкоса-подключения-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd-90-fel-t/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/05/Шланг-груша-везде-от-5кроме-115130-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd-90-fel-t/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/05/Прибор-тримкоса-подклчения-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd-90-fel-t/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/05/Машинка-дистанционного-управления-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd-90-fel-t/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/05/Топливный-сепаратор-от-efi40-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd-90-fel-t/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/05/Чека-безопасности-везде-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd-90-fel-t/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/05/Прибор-трим-от-efi4090-2-х-такт-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd-90-fel-t/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/05/Мультиприбор-везде-от-efi4090-2-х-такт.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd-90-fel-t/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/05/Набор-инструментов-везде-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hd-90-fel-t/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/08/Рулевая-тяга-во-всех-дистанционных-моторах-1024x768.jpg);"></a></div></div></div></div><div class="buttons"><a rel="nofollow" href="https://hidea.ru/product/hd-90-fel-t/" data-quantity="1" data-product_id="8476" data-product_sku="" class="add_to_cart_button product_type_simple out_of_stock" data-magic-cursor="link"><i class="ionicons-cart"></i><span>Смотреть</span></a><div class="nav-arrows"><div class="prev base-icon-prev" data-magic-cursor="link"></div><div class="next base-icon-next" data-magic-cursor="link"></div></div></div></div><div class="bottom"><div class="categories"><a href="https://hidea.ru/products/two-stroke_engines/" rel="tag">2-х тактные моторы</a></div><h6 class="h"><a href="https://hidea.ru/product/hd-90-fel-t/">HD 90</a></h6></div>    </div>
+  </li>
+  <li class="col-12 col-sm-6 col-lg-4 col-xl-3 product type-product post-10191 status-publish last outofstock product_cat-four-stroke_engines has-post-thumbnail shipping-taxable product-type-simple">
+    <div class="product-wrap">
+      <div class="image"><div class="product-thumb-slider"><div class="swiper-container"><div class="swiper-wrapper"><div class="swiper-slide"><a href="https://hidea.ru/product/hdf3-5/" class="img" style="background-image: url(../wp-content/uploads/2024/07/4-723x1024.png);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hdf3-5/" class="img" style="background-image: url(../wp-content/uploads/2024/07/IMG_2719-768x1024.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hdf3-5/" class="img" style="background-image: url(../wp-content/uploads/2024/07/IMG_2733-768x1024.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hdf3-5/" class="img" style="background-image: url(../wp-content/uploads/2024/07/IMG_2732-768x1024.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hdf3-5/" class="img" style="background-image: url(../wp-content/uploads/2024/07/IMG_2736-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hdf3-5/" class="img" style="background-image: url(../wp-content/uploads/2024/07/IMG_2737-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hdf3-5/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/06/Чека-безопасности-везде-4-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hdf3-5/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/06/Зип-набор-2-тактный-5-1024x768.jpg);"></a></div><div class="swiper-slide"><a href="https://hidea.ru/product/hdf3-5/" class="img" style="background-image: url(https://hidea.ru/wp-content/uploads/2023/06/Набор-инструментов-везде-5-1024x768.jpg);"></a></div></div></div></div><div class="buttons"><a rel="nofollow" href="https://hidea.ru/product/hdf3-5/" data-quantity="1" data-product_id="10191" data-product_sku="" class="add_to_cart_button product_type_simple out_of_stock" data-magic-cursor="link"><i class="ionicons-cart"></i><span>Смотреть</span></a><div class="nav-arrows"><div class="prev base-icon-prev" data-magic-cursor="link"></div><div class="next base-icon-next" data-magic-cursor="link"></div></div></div></div><div class="bottom"><div class="categories"><a href="https://hidea.ru/products/four-stroke_engines/" rel="tag">4-х тактные моторы</a></div><h6 class="h"><a href="https://hidea.ru/product/hdf3-5/">HDF 3.5</a></h6></div>    </div>
+  </li>
+</ul>
+<nav class="woocommerce-pagination">
+	<ul class='page-numbers'>
+	<li><span aria-current="page" class="page-numbers current">1</span></li>
+	<li><a class="page-numbers" href="page/2/index.html">2</a></li>
+	<li><a class="page-numbers" href="page/3/index.html">3</a></li>
+	<li><a class="next page-numbers" href="page/2/index.html"><span>Следующая страница</span><i class="base-icon-next-2"></i></a></li>
+</ul>
+</nav>
+
+  </div>
+</main>	
+		<div class="menu-overlay"></div>
+					<footer class="site-footer footer-5000">
+					            <div class="container"><div class="vc_row wpb_row vc_row-fluid vc_row-5fec2322e0d54 dark-scheme"><div class="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-3 vc_col-md-12 vc_column_container-600fc2d682df0"><div class="vc_column-inner "><div class="wpb_wrapper">
+	<div class="wpb_text_column wpb_content_element  wpb_text_column-5feb20001a395" >
+		<div class="wpb_wrapper">
+			<p><img class="alignnone wp-image-9524 size-full" src="../wp-content/uploads/2023/07/logo_white.png" alt="logo" width="150" height="114" /></p>
+
+		</div>
+	</div>
+</div></div></div><div class="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-3 vc_col-md-4 vc_column_container-600fc2df31fff"><div class="vc_column-inner "><div class="wpb_wrapper">			<div class="heading-block heading-5feaffe29936c tal h-h6 with-sub-h-bg">
+									<h6 class="h">
+						<span class="div">Контакты</span>
+					</h6>
+							</div>
+					<div class="contacts-row contacts-row-5feb001074548">
+				<div class="title">Контакт-центр</div>
+				<div class="text">8 (800) 100-3290</div>
+			</div>
+					<div class="contacts-row contacts-row-5feb001fd3932">
+				<div class="title">Запчасти</div>
+				<div class="text">+7 (985) 857-8586</div>
+			</div>
+		</div></div></div><div class="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-3 vc_col-md-4 vc_column_container-600fc2ee9ff4e"><div class="vc_column-inner "><div class="wpb_wrapper">			<div class="heading-block heading-5feb206fc091f tal h-h6 with-sub-h-bg">
+									<h6 class="h">
+						<span class="div">Социальные сети</span>
+					</h6>
+							</div>
+		
+	<div class="wpb_text_column wpb_content_element  wpb_text_column-649adb91809b6" >
+		<div class="wpb_wrapper">
+			<p><a href="https://vk.com/hidea_ru" target="_blank" rel="noopener">Вконтакте</a></p>
+
+		</div>
+	</div>
+</div></div></div><div class="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-3 vc_col-md-4 vc_column_container-600fc2f799bc4"><div class="vc_column-inner "><div class="wpb_wrapper">			<div class="heading-block heading-5feb207640ed9 tal h-h6 with-sub-h-bg">
+									<h6 class="h">
+						<span class="div">Новости</span>
+					</h6>
+							</div>
+						<div class="blog-block filter-block blog-64ad3e1767dcd">
+										<div class="blog-items row isotope blog-classic">
+						<div class="grid-sizer col-1"></div>
+									<article class="blog-item category-34  col-12 istp-item">
+				<div class="wrap">
+											<div class="categories">Moscow</div>
+											<a class="title" href="https://hidea.ru/привет-мир/">"Moscow Boat Show 2023"</a>
+											<div class="desc">Бренд HIDEA принимал участие в ежегодной выставке в Москве ""Moscow Boat Show"!</div>
+									</div>
+			</article>
+							</div>
+									</div>
+			</div></div></div></div><div data-vc-full-width="true" data-vc-full-width-init="false" class="vc_row wpb_row vc_row-fluid vc_row-5feb252fe6057 dark-scheme"><div class="bg-overlay bg-overlay-5feb252fe6057">					</div><div class="wpb_column vc_column_container vc_col-sm-12 vc_col-md-6 vc_column_container-600fc30a2a256"><div class="vc_column-inner "><div class="wpb_wrapper">
+	<div class="wpb_text_column wpb_content_element  wpb_text_column-5feb25866fc81" >
+		<div class="wpb_wrapper">
+			<p>© 2023, hidea.ru</p>
+
+		</div>
+	</div>
+</div></div></div><div class="wpb_column vc_column_container vc_col-sm-12 vc_col-md-6 vc_column_container-600fc31fee56c"><div class="vc_column-inner "><div class="wpb_wrapper">
+	<div class="wpb_text_column wpb_content_element  wpb_text_column-5feb25e75f148" >
+		<div class="wpb_wrapper">
+			<p>Политика конфиденциальности</p>
+
+		</div>
+	</div>
+</div></div></div></div><div class="vc_row-full-width vc_clearfix"></div></div>
+          				</footer>
+			</div>
+
+<script>function yprmPreloader() {
+				let $words = document.querySelectorAll('.preloader .word'),
+				time = 60,
+				timeOut = 0,
+				tl = gsap.timeline({
+					delay: .5
+				})
+
+				Array.prototype.forEach.call($words, function(el, i){
+					tl.fromTo(el.querySelectorAll('span span'), .4, {
+						opacity: 0,
+						y: 30
+					}, {
+						opacity: 1,
+						y: 0,
+						delay: (index) => {
+							return .03*index
+						}
+					})
+					
+					if(i != $words.length-1) {
+						tl.to(el.querySelectorAll('span span'), .4, {
+							opacity: 0,
+							y: -30,
+							delay: (index) => {
+								return .03*index
+							}
+						})
+					}
+				})
+			}
+
+			document.addEventListener('DOMContentLoaded', function() {
+				yprmPreloader()
+			});
+			</script><script type="text/html" id="wpb-modifications"> window.wpbCustomElement = 1; </script>	<script type="text/javascript">
+		(function () {
+			var c = document.body.className;
+			c = c.replace(/woocommerce-no-js/, 'woocommerce-js');
+			document.body.className = c;
+		})();
+	</script>
+	<link rel='stylesheet' id='pt-inline-css' href='../wp-content/plugins/pt-clivo-addons/assets/css/pt-inline.css%3Fver=6.5.css' type='text/css' media='all' />
+<style id='pt-inline-inline-css' type='text/css'>
+.header-4635.fixed .header-main-block{min-height:80px !important}
+body .header-4635:not(.mobile-type) .header-main-block{min-height:130px}
+.header-4635 .site-logo-6ab388e5b30cd img{width:120px !important}
+.header-4635 .desktop-main-bar-right{justify-content:flex-end}
+.header-4635 .navigation-6ab388e5b33d2 > .menu > li.current-menu-item > a, .header-4635 .navigation-6ab388e5b33d2 > .menu > li.current-menu-ancestor > a, .header-4635 .navigation-6ab388e5b33d2 > .menu > li.current_page_item > a, .header-4635 .navigation-6ab388e5b33d2 > .menu > li.current_page_parent > a, .header-4635 .navigation-6ab388e5b33d2 > .menu > li.current-menu-ancestor > a, .header-4635 .navigation-6ab388e5b33d2 > .menu > li:hover > a{color:#0ca6c9 !important}
+.header-4635 .header-h-space-6ab388e5b8a7a{flex:0 0 38px !important;max-width:38px !important}
+.header-4635 .header-h-space-6ab388e5b8a8f{flex:0 0 7px !important;max-width:7px !important}
+.header-4635 .site-logo-6ab388e5b8e2f img{width:100px !important}
+.vc_row-5fec2322e0d54{padding-top:30px !important;padding-bottom:30px !important}
+.heading-5feaffe29936c .h{font-size:16px !important}
+.heading-5feaffe29936c .h{text-transform:uppercase !important}
+.contacts-row-5feb001074548 .title{color:#a5a5a5 !important}
+.contacts-row-5feb001fd3932 .title{color:#a5a5a5 !important}
+.heading-5feb206fc091f .h{font-size:16px !important}
+.heading-5feb206fc091f .h{text-transform:uppercase !important}
+.heading-5feb207640ed9 .h{font-size:16px !important}
+.heading-5feb207640ed9 .h{text-transform:uppercase !important}
+.blog-64ad3e1767dcd .blog-item .wrap{color:#ffffff !important}
+.blog-64ad3e1767dcd .blog-item .title:not(:hover){color:#ffffff !important}
+.blog-64ad3e1767dcd .blog-item .title:hover{color:#ffffff !important}
+.blog-64ad3e1767dcd .blog-item .desc{color:#ffffff !important}
+.bg-overlay-5feb252fe6057{background-color:#071b50 !important}
+.wpb_text_column-5feb25866fc81{margin-bottom:0px !important}
+.wpb_text_column-5feb25e75f148{margin-top:15px !important;margin-bottom:15px !important}
+</style>
+<link rel='stylesheet' id='js_composer_front-css' href='../wp-content/plugins/js_composer/assets/css/js_composer.min.css%3Fver=6.11.0.css' type='text/css' media='all' />
+<script type="text/javascript" src="../wp-content/plugins/contact-form-7/includes/swv/js/index.js%3Fver=5.7.7" id="swv-js"></script>
+<script type="text/javascript" id="contact-form-7-js-extra">
+/* <![CDATA[ */
+var wpcf7 = {"api":{"root":"https:\/\/hidea.ru\/wp-json\/","namespace":"contact-form-7\/v1"},"cached":"1"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="../wp-content/plugins/contact-form-7/includes/js/index.js%3Fver=5.7.7" id="contact-form-7-js"></script>
+<script type="text/javascript" src="../wp-content/plugins/woocommerce/assets/js/js-cookie/js.cookie.min.js%3Fver=2.1.4-wc.7.6.1" id="js-cookie-js"></script>
+<script type="text/javascript" id="woocommerce-js-extra">
+/* <![CDATA[ */
+var woocommerce_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="../wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min.js%3Fver=7.6.1" id="woocommerce-js"></script>
+<script type="text/javascript" id="wc-cart-fragments-js-extra">
+/* <![CDATA[ */
+var wc_cart_fragments_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%","cart_hash_key":"wc_cart_hash_992b7e2e36e16ee48d588b6e282766bb","fragment_name":"wc_fragments_992b7e2e36e16ee48d588b6e282766bb","request_timeout":"5000"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="../wp-content/plugins/woocommerce/assets/js/frontend/cart-fragments.min.js%3Fver=7.6.1" id="wc-cart-fragments-js"></script>
+<script type="text/javascript" id="wc-cart-fragments-js-after">
+/* <![CDATA[ */
+		jQuery( 'body' ).bind( 'wc_fragments_refreshed', function() {
+			var jetpackLazyImagesLoadEvent;
+			try {
+				jetpackLazyImagesLoadEvent = new Event( 'jetpack-lazy-images-load', {
+					bubbles: true,
+					cancelable: true
+				} );
+			} catch ( e ) {
+				jetpackLazyImagesLoadEvent = document.createEvent( 'Event' )
+				jetpackLazyImagesLoadEvent.initEvent( 'jetpack-lazy-images-load', true, true );
+			}
+			jQuery( 'body' ).get( 0 ).dispatchEvent( jetpackLazyImagesLoadEvent );
+		} );
+		
+/* ]]> */
+</script>
+<script type="text/javascript" id="ppress-frontend-script-js-extra">
+/* <![CDATA[ */
+var pp_ajax_form = {"ajaxurl":"https:\/\/hidea.ru\/wp-admin\/admin-ajax.php","confirm_delete":"\u0412\u044b \u0443\u0432\u0435\u0440\u0435\u043d\u044b?","deleting_text":"\u0423\u0434\u0430\u043b\u0435\u043d\u0438\u0435...","deleting_error":"\u041f\u0440\u043e\u0438\u0437\u043e\u0448\u043b\u0430 \u043e\u0448\u0438\u0431\u043a\u0430. \u041f\u043e\u0436\u0430\u043b\u0443\u0439\u0441\u0442\u0430, \u043f\u043e\u043f\u0440\u043e\u0431\u0443\u0439\u0442\u0435 \u0435\u0449\u0435 \u0440\u0430\u0437.","nonce":"3332b118dc","disable_ajax_form":"false","is_checkout":"0","is_checkout_tax_enabled":"0"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="../wp-content/plugins/wp-user-avatar/assets/js/frontend.min.js%3Fver=4.10.1" id="ppress-frontend-script-js"></script>
+<script type="text/javascript" id="tinvwl-js-extra">
+/* <![CDATA[ */
+var tinvwl_add_to_wishlist = {"text_create":"\u0421\u043e\u0437\u0434\u0430\u0442\u044c \u043d\u043e\u0432\u044b\u0439","text_already_in":"{product_name} \u0443\u0436\u0435 \u0432 \u0441\u043f\u0438\u0441\u043a\u0435 \u0436\u0435\u043b\u0430\u043d\u0438\u0439","simple_flow":"","hide_zero_counter":"","i18n_make_a_selection_text":"\u041f\u043e\u0436\u0430\u043b\u0443\u0439\u0441\u0442\u0430, \u0432\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440\u044b \u0442\u043e\u0432\u0430\u0440\u0430 \u043f\u0440\u0435\u0436\u0434\u0435, \u0447\u0435\u043c \u0434\u043e\u0431\u0430\u0432\u0438\u0442\u044c \u0435\u0433\u043e \u0432 \u0441\u0432\u043e\u0439 \u0441\u043f\u0438\u0441\u043e\u043a \u0436\u0435\u043b\u0430\u043d\u0438\u0439.","tinvwl_break_submit":"\u0422\u043e\u0432\u0430\u0440\u044b \u0438\u043b\u0438 \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u044f \u043d\u0435 \u0432\u044b\u0431\u0440\u0430\u043d\u044b.","tinvwl_clipboard":"\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e!","allow_parent_variable":"","block_ajax_wishlists_data":"","update_wishlists_data":"","hash_key":"ti_wishlist_data_992b7e2e36e16ee48d588b6e282766bb","nonce":"7db8499caa","rest_root":"https:\/\/hidea.ru\/wp-json\/","plugin_url":"https:\/\/hidea.ru\/wp-content\/plugins\/ti-woocommerce-wishlist\/","wc_ajax_url":"\/?wc-ajax=tinvwl","stats":"","popup_timer":"6000"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="../wp-content/plugins/ti-woocommerce-wishlist/assets/js/public.min.js%3Fver=2.4.2" id="tinvwl-js"></script>
+<script defer type="text/javascript" src="https://stats.wp.com/e-202639.js" id="jetpack-stats-js"></script>
+<script type="text/javascript" id="jetpack-stats-js-after">
+/* <![CDATA[ */
+_stq = window._stq || [];
+_stq.push([ "view", {v:'ext',blog:'219685376',post:'0',tz:'3',srv:'hidea.ru',j:'1:12.1.1'} ]);
+_stq.push([ "clickTrackerInit", "219685376", "0" ]);
+/* ]]> */
+</script>
+<script type="text/javascript" src="../wp-content/themes/clivo/js/magic-cursor.js%3Fver=1.0.0" id="magic-cursor-js"></script>
+<script type="text/javascript" src="../wp-content/plugins/pt-clivo-addons/assets/js/swiper.min.js%3Fver=5.3.6" id="swiper-js"></script>
+<script type="text/javascript" src="../wp-content/plugins/pt-clivo-addons/assets/js/isotope.pkgd.min.js%3Fver=3.0.6" id="isotope-js"></script>
+<script type="text/javascript" src="../wp-content/plugins/pt-clivo-addons/assets/js/jquery.scrollbar.min.js%3Fver=0.2.10" id="scrollbar-js"></script>
+<script type="text/javascript" src="../wp-content/themes/clivo/js/scripts.js" id="clivo-scripts-js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/gsap.min.js?ver=3.4.2" id="gsap-js"></script>
+<script type="text/javascript" src="../wp-content/plugins/pt-clivo-addons/assets/js/js_composer_front.min.js%3Fver=1.0.0" id="wpb_composer_front_js-js"></script>
+<script type="text/javascript" src="../wp-content/plugins/pt-clivo-addons/assets/js/parallax.min.js" id="parallax-js"></script>
+<script type="text/javascript" src="../wp-content/plugins/pt-clivo-addons/assets/js/photoswipe.min.js%3Fver=4.1.1" id="photoswipe-js"></script>
+<script type="text/javascript" src="../wp-content/plugins/pt-clivo-addons/assets/js/photoswipe-ui-default.min.js%3Fver=4.1.1" id="photoswipe-ui-js"></script>
+<script type="text/javascript" src="../wp-includes/js/imagesloaded.min.js%3Fver=5.0.0" id="imagesloaded-js"></script>
+<script type="text/javascript" src="../wp-content/plugins/pt-clivo-addons/assets/js/load-posts.js%3Fver=1.0.0" id="pt-load-posts-js"></script>
+<script type="text/javascript" id="pt-scripts-js-extra">
+/* <![CDATA[ */
+var yprm_ajax = {"url":"https:\/\/hidea.ru\/wp-admin\/admin-ajax.php","home_url":"https:\/\/hidea.ru\/"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="../wp-content/plugins/pt-clivo-addons/assets/js/pt-scripts.js%3Fver=1.0.0" id="pt-scripts-js"></script>
+<script type='text/javascript'>
+(function() {
+				var expirationDate = new Date();
+				expirationDate.setTime( expirationDate.getTime() + 31536000 * 1000 );
+				document.cookie = "pll_language=ru; expires=" + expirationDate.toUTCString() + "; path=/; secure; SameSite=Lax";
+			}());
+</script>
+
+<!-- Chatra {literal} -->
+<script>
+    (function(d, w, c) {
+        w.ChatraID = 'CAQjPHHBPxMka2mi9';
+        var s = d.createElement('script');
+        w[c] = w[c] || function() {
+            (w[c].q = w[c].q || []).push(arguments);
+        };
+        s.async = true;
+        s.src = 'https://call.chatra.io/chatra.js';
+        if (d.head) d.head.appendChild(s);
+    })(document, window, 'Chatra');
+</script>
+<!-- /Chatra {/literal} -->
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();
+   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(94293630, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/94293630" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<div style="display:none">ВК61930</div>
+
 </body>
 </html>
+
+<!-- Dynamic page generated in 0.520 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2026-09-23 11:08:05 -->
+
+<!-- super cache -->
