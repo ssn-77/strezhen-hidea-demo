@@ -26,13 +26,16 @@
     <div class="container">
         <h3 class="fw-bold text-dark mb-4" id="catalog-title">Загрузка каталога моторов...</h3>
 
+        <!-- Спиннер загрузки -->
         <div id="loader">
             <div class="spinner-border text-primary mb-3" style="width: 3rem; height: 3rem;" role="status"></div>
             <h5 class="text-secondary">Браузер считывает актуальные данные с hidea.ru...</h5>
         </div>
 
+        <!-- Сетка товаров -->
         <div class="row row-cols-1 row-cols-md-4 g-3" id="products-grid" style="display: none;"></div>
 
+        <!-- Пагинация -->
         <nav class="my-5" id="pagination-nav" style="display: none;">
             <ul class="pagination justify-content-center">
                 <li class="page-item" id="page-1"><button class="page-link" onclick="loadLivePage(1)">1</button></li>
@@ -44,28 +47,36 @@
 
     <script>
         async function loadLivePage(pageNumber) {
+            // Показываем лоадер
             document.getElementById('loader').style.display = 'flex';
             document.getElementById('products-grid').style.display = 'none';
             document.getElementById('pagination-nav').style.display = 'none';
             document.getElementById('catalog-title').innerText = `Загрузка страницы ${pageNumber}...`;
 
-            [1, 2, 3].forEach(p => document.getElementById(`page-${p}`).classList.remove('active'));
-            document.getElementById(`page-${pageNumber}`).classList.add('active');
+            // ФИКС ОШИБКИ: явно перебираем массив страниц для переключения активной кнопки
+            const pages = [1, 2, 3];
+            pages.forEach(p => {
+                const btn = document.getElementById(`page-${p}`);
+                if(btn) btn.classList.remove('active');
+            });
+            const activeBtn = document.getElementById(`page-${pageNumber}`);
+            if(activeBtn) activeBtn.classList.add('active');
 
             const targetUrl = pageNumber === 1 ? 'https://hidea.ru' : `https://hidea.rupage/${pageNumber}/`;
             
-            // Используем всемирный открытый CORS-прокси для живого считывания кода
-            const proxyUrl = 'https://allorigins.win' + encodeURIComponent(targetUrl);
+            // НОВЫЙ БЫСТРЫЙ ПРОКСИ СЕРВЕР (corsproxy.io)
+            const proxyUrl = 'https://corsproxy.io/?' + encodeURIComponent(targetUrl);
 
             try {
                 const response = await fetch(proxyUrl);
-                if (!response.ok) throw new Error('Ошибка прокси');
+                if (!response.ok) throw new Error('Ошибка связи с прокси-сервером');
                 
-                const rawData = await response.json();
-                const htmlText = rawData.contents;
+                const htmlText = await response.text();
 
                 const parser = new DOMParser();
                 const doc = parser.parseFromString(htmlText, 'text/html');
+                
+                // Ищем карточки моторов
                 const products = doc.querySelectorAll('li.product');
                 const grid = document.getElementById('products-grid');
                 grid.innerHTML = '';
@@ -77,6 +88,7 @@
                     if (!titleElem) return;
                     const title = titleElem.innerText.trim();
 
+                    // Фильтр от мусорных ссылок
                     if (!title.toLowerCase().includes('hd') && !title.toLowerCase().includes('hdf') && !title.toLowerCase().includes('hdd')) {
                         return;
                     }
@@ -99,7 +111,7 @@
                         <div class="col">
                             <div class="product-card shadow-sm">
                                 <div class="img-container">
-                                    <img src="${imgUrl}" class="product-img" alt="Мотор Hidea" onerror="this.src='https://placeholder.com?text=Hidea';">
+                                    <img src="${imgUrl}" class="product-img" alt="Мотор Hidea" onerror="this.onerror=null;this.src='https://placeholder.com?text=Hidea';">
                                 </div>
                                 <div class="card-body d-flex flex-column p-3">
                                     <span class="badge bg-secondary mb-2 align-self-start" style="font-size: 10px;">${category}</span>
@@ -115,17 +127,18 @@
                     count++;
                 });
 
+                // Выводим результат на экран
                 document.getElementById('loader').style.display = 'none';
                 grid.style.display = 'flex';
                 document.getElementById('pagination-nav').style.display = 'block';
-                document.getElementById('catalog-title').innerText = `Каталог моторов Hidea (Показано товаров: ${count})`;
+                document.getElementById('catalog-title').innerText = `Каталог моторов Hidea (Считано вживую товаров: ${count})`;
 
             } catch (error) {
                 console.error(error);
                 document.getElementById('loader').innerHTML = `
-                    <div class="alert alert-danger" role="alert">
-                        <h5>⚠️ Не удалось загрузить данные в реальном времени</h5>
-                        <p class="mb-0">Сервер авторизации перегружен. Пожалуйста, обновите страницу.</p>
+                    <div class="alert alert-danger" role="alert" style="max-width: 500px; margin: 0 auto;">
+                        <h5>⚠️ Ошибка загрузки живого контента</h5>
+                        <p class="small mb-0">Публичный шлюз CORS сейчас перегружен. Пожалуйста, подождите 5 секунд и обновите страницу кнопкой Ctrl+F5.</p>
                     </div>
                 `;
             }
