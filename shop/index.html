@@ -3236,59 +3236,53 @@ div.product .woocommerce-tabs .panel h2 {
 }		</style>
 		<style id="clivo_theme-dynamic-css" title="dynamic-css" class="redux-options-output">body{font-family: Roboto,Arial, Helvetica, sans-serif;font-weight: 400;font-size: 16px;}h1, .h1{font-family: Roboto,Arial, Helvetica, sans-serif;font-weight: 100;font-size: 82px;}h2, .h2{font-family: Roboto,Arial, Helvetica, sans-serif;font-weight: 100;font-size: 54px;}h3, .h3{font-family: Roboto,Arial, Helvetica, sans-serif;font-weight: 700;font-size: 36px;}h4, .h4{font-family: Roboto,Arial, Helvetica, sans-serif;font-weight: 700;font-size: 28px;}h5, .h5{font-family: Roboto,Arial, Helvetica, sans-serif;font-weight: 700;font-size: 24px;}h6, .h6{font-family: HKGrotesk,Arial, Helvetica, sans-serif;font-weight: 800;font-size: 20px;}</style><noscript><style> .wpb_animate_when_almost_visible { opacity: 1; }</style></noscript><style id="clivo_theme-dynamic-css" title="dynamic-css" class="redux-options-output">body{font-family: Roboto,Arial, Helvetica, sans-serif;font-weight: 400;font-size: 16px;}h1, .h1{font-family: Roboto,Arial, Helvetica, sans-serif;font-weight: 100;font-size: 82px;}h2, .h2{font-family: Roboto,Arial, Helvetica, sans-serif;font-weight: 100;font-size: 54px;}h3, .h3{font-family: Roboto,Arial, Helvetica, sans-serif;font-weight: 700;font-size: 36px;}h4, .h4{font-family: Roboto,Arial, Helvetica, sans-serif;font-weight: 700;font-size: 28px;}h5, .h5{font-family: Roboto,Arial, Helvetica, sans-serif;font-weight: 700;font-size: 24px;}h6, .h6{font-family: HKGrotesk,Arial, Helvetica, sans-serif;font-weight: 800;font-size: 20px;}</style><noscript><style> .wpb_animate_when_almost_visible { opacity: 1; }</style></noscript>
 
-<!-- НАЧАЛО СТИЛЕЙ СТРЕЖНЯ -->
+<!-- НАЧАЛО СКРИПТА И СТИЛЕЙ СТРЕЖНЯ -->
 <style>
-  /* 1. Вычищаем черный цвет из абсолютно всех внутренних блоков, секций и колонок Elementor */
-  body, .site, #page, .site-content, #main, .content-area, .site-main,
-  header, .site-header, .ast-primary-header-bar, .main-header-bar,
-  .elementor-section, .elementor-container, .page-header, .entry-content,
-  div[data-elementor-type="wp-page"], div[data-elementor-type="header"],
-  .elementor-column, .elementor-column-wrap, .elementor-widget-wrap, .elementor-row,
-  div[class*="elementor-"] {
-    background-color: #eae4dc !important; 
-    background: #eae4dc !important;
-    color: #333333 !important;
+  /* Жестко скрываем черные фоны на уровне приложения */
+  .elementor-section, .elementor-column, .elementor-widget-wrap, .elementor-background-overlay {
+    background-image: none !important;
   }
-
-  /* 2. Делаем подложки карточек товаров и вкладки категорий чисто-белыми */
-  .ast-woocommerce-container ul.products li.product, 
-  .product, .card, ul.products li.product,
-  .elementor-tabs-wrapper, .elementor-tab-title {
-    background-color: #ffffff !important;
-    background: #ffffff !important;
-    border: none !important;
-    border-radius: 4px !important;
-  }
-
-  /* 3. Убираем черный фон вокруг самих картинок лодочных моторов */
-  .woocommerce-loop-product__link, .wp-post-image, .attachment-woocommerce_thumbnail {
-    background-color: #ffffff !important;
-    background: #ffffff !important;
-  }
-
-  /* 4. Перекрашиваем весь текст, ссылки верхнего меню и заголовки в темный цвет */
+  /* Названия моторов и текст делаем темными, чтобы они не слились при перекраске */
   h1, h2, h3, h4, h5, h6, .entry-title, .product-title, .woocommerce-loop-product__title,
-  .price, .amount, .price ins, .main-navigation a, .nav-menu a, .site-header a, .menu-link,
-  .elementor-tab-title a, .elementor-heading-title, .catalog-title {
+  .price, .amount, .price ins, .elementor-heading-title {
     color: #333333 !important;
-  }
-
-  /* 5. Кнопки «Купить» / «Подробнее» — фирменный зеленый цвет Стрежня */
-  .button, .button.product_type_simple, .woocommerce-button, .alt, .wp-block-button__link {
-    background-color: #4a6747 !important; 
-    color: #ffffff !important;
-    border-radius: 4px !important;
-    text-transform: uppercase !important;
-    font-weight: 500 !important;
-    border: none !important;
-  }
-  .button:hover, .button.product_type_simple:hover, .alt:hover {
-    background-color: #385036 !important;
   }
 </style>
-<!-- КОНЕЦ СТИЛЕЙ СТРЕЖНЯ -->
 
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    // Функция, которая находит черные блоки и перекрашивает их
+    function cleanBlackBackgrounds() {
+      // Ищем абсолютно все элементы на странице
+      const allElements = document.querySelectorAll('*');
+      
+      allElements.forEach(el => {
+        const computedStyle = window.getComputedStyle(el);
+        const bg = computedStyle.backgroundColor;
+        
+        // Если у элемента черный фон (rgb(0,0,0) или #000000)
+        if (bg === 'rgb(0, 0, 0)' || bg === '#000000' || bg === 'black' || bg.includes('rgba(0, 0, 0')) {
+          
+          // Проверяем, если это карточка товара или вкладка фильтра — делаем белой
+          if (el.classList.contains('product') || el.classList.contains('elementor-tab-title') || el.tagName === 'LI') {
+            el.style.setProperty('background-color', '#ffffff', 'important');
+            el.style.setProperty('background', '#ffffff', 'important');
+          } else {
+            // Все остальные глобальные секции красим в бежевый цвет Стрежня
+            el.style.setProperty('background-color', '#eae4dc', 'important');
+            el.style.setProperty('background', '#eae4dc', 'important');
+          }
+        }
+      });
+    }
 
+    // Запускаем перекраску сразу и повторно через 1-2 секунды, когда догрузится Elementor
+    cleanBlackBackgrounds();
+    setTimeout(cleanBlackBackgrounds, 500);
+    setTimeout(cleanBlackBackgrounds, 1500);
+  });
+</script>
+<!-- КОНЕЦ СКРИПТА И СТИЛЕЙ СТРЕЖНЯ -->
 
  </head>
 
