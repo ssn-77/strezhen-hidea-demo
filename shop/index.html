@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Живой каталог моторов Hidea</title>
+    <title>Каталог моторов Hidea</title>
     <link href="https://jsdelivr.net" rel="stylesheet">
     <style>
         body { background-color: #f8f9fa; font-family: sans-serif; }
@@ -11,7 +11,8 @@
         .img-container { background: #111; text-align: center; height: 160px; display: flex; align-items: center; justify-content: center; overflow: hidden; border-top-left-radius: 7px; border-top-right-radius: 7px; }
         .product-img { max-height: 140px; max-width: 90%; object-fit: contain; }
         .price-text { font-size: 1.15rem; font-weight: bold; color: #dc3545; }
-        #loader { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 300px; }
+        .page-bucket { display: none; }
+        .page-bucket.active { display: flex; }
     </style>
 </head>
 <body>
@@ -19,134 +20,64 @@
     <nav class="navbar navbar-dark mb-4">
         <div class="container">
             <a class="navbar-brand fw-bold" href="../index.html">← НАЗАД НА САЙТ СТРЕЖЕНЬ</a>
-            <span class="navbar-text text-warning fw-bold">🟢 LIVE ОБНОВЛЕНИЕ ИЗ ПЕРВОИСТОЧНИКА</span>
+            <span class="navbar-text text-success fw-bold">⚓ АВТОНОМНЫЙ КАТАЛОГ HIDEA</span>
         </div>
     </nav>
 
     <div class="container">
-        <h3 class="fw-bold text-dark mb-4" id="catalog-title">Загрузка каталога моторов...</h3>
+        <h3 class="fw-bold text-dark mb-4">Каталог лодочных моторов Hidea</h3>
 
-        <!-- Спиннер загрузки -->
-        <div id="loader">
-            <div class="spinner-border text-primary mb-3" style="width: 3rem; height: 3rem;" role="status"></div>
-            <h5 class="text-secondary">Браузер считывает актуальные данные с hidea.ru...</h5>
+        <!-- СТРАНИЦА 1 -->
+        <div class="row row-cols-1 row-cols-md-4 g-3 page-bucket active" id="content-page-1">
+            <div class="col"><div class="product-card shadow-sm"><div class="img-container"><img src="https://hidea.ru" class="product-img"></div><div class="card-body p-3"><h6>HD 3 (2-х тактный)</h6><span class="price-text">Цена по запросу</span></div></div></div>
+            <div class="col"><div class="product-card shadow-sm"><div class="img-container"><img src="https://hidea.ru" class="product-img"></div><div class="card-body p-3"><h6>HD 4 (2-х тактный)</h6><span class="price-text">Цена по запросу</span></div></div></div>
+            <div class="col"><div class="product-card shadow-sm"><div class="img-container"><img src="https://hidea.ru" class="product-img"></div><div class="card-body p-3"><h6>HD 5 (2-х тактный)</h6><span class="price-text">Цена по запросу</span></div></div></div>
+            <div class="col"><div class="product-card shadow-sm"><div class="img-container"><img src="https://hidea.ru" class="product-img"></div><div class="card-body p-3"><h6>HD 9.8 (2-х тактный)</h6><span class="price-text">Цена по запросу</span></div></div></div>
+            <div class="col"><div class="product-card shadow-sm"><div class="img-container"><img src="https://hidea.ru" class="product-img"></div><div class="card-body p-3"><h6>HD 9.9 (2-х тактный)</h6><span class="price-text">Цена по запросу</span></div></div></div>
+            <div class="col"><div class="product-card shadow-sm"><div class="img-container"><img src="https://hidea.ru" class="product-img"></div><div class="card-body p-3"><h6>HDD 9.9 ENDURO</h6><span class="price-text">Цена по запросу</span></div></div></div>
+            <div class="col"><div class="product-card shadow-sm"><div class="img-container"><img src="https://hidea.ru" class="product-img"></div><div class="card-body p-3"><h6>HD 9.9 PRO</h6><span class="price-text">Цена по запросу</span></div></div></div>
+            <div class="col"><div class="product-card shadow-sm"><div class="img-container"><img src="https://hidea.ru" class="product-img"></div><div class="card-body p-3"><h6>HD 9.9 PRO (дист.)</h6><span class="price-text">Цена по запросу</span></div></div></div>
         </div>
 
-        <!-- Сетка товаров -->
-        <div class="row row-cols-1 row-cols-md-4 g-3" id="products-grid" style="display: none;"></div>
+        <!-- СТРАНИЦА 2 -->
+        <div class="row row-cols-1 row-cols-md-4 g-3 page-bucket" id="content-page-2">
+            <div class="col"><div class="product-card shadow-sm"><div class="img-container"><img src="https://hidea.ru" class="product-img"></div><div class="card-body p-3"><h6>HD 30 (2-х тактный)</h6><span class="price-text">Цена по запросу</span></div></div></div>
+            <div class="col"><div class="product-card shadow-sm"><div class="img-container"><img src="https://hidea.ru" class="product-img"></div><div class="card-body p-3"><h6>HD 30 (дист.)</h6><span class="price-text">Цена по запросу</span></div></div></div>
+            <div class="col"><div class="product-card shadow-sm"><div class="img-container"><img src="https://hidea.ru" class="product-img"></div><div class="card-body p-3"><h6>HD 40 (2-х тактный)</h6><span class="price-text">Цена по запросу</span></div></div></div>
+            <div class="col"><div class="product-card shadow-sm"><div class="img-container"><img src="https://hidea.ru" class="product-img"></div><div class="card-body p-3"><h6>HD 40 (дист.)</h6><span class="price-text">Цена по запросу</span></div></div></div>
+            <div class="col"><div class="product-card shadow-sm"><div class="img-container"><img src="https://hidea.ru" class="product-img"></div><div class="card-body p-3"><h6>HD 40 (дист. + трим)</h6><span class="price-text">Цена по запросу</span></div></div></div>
+            <div class="col"><div class="product-card shadow-sm"><div class="img-container"><img src="https://hidea.ru" class="product-img"></div><div class="card-body p-3"><h6>HD 60 (2-х тактный)</h6><span class="price-text">Цена по запросу</span></div></div></div>
+        </div>
 
-        <!-- Пагинация -->
-        <nav class="my-5" id="pagination-nav" style="display: none;">
+        <!-- СТРАНИЦА 3 -->
+        <div class="row row-cols-1 row-cols-md-4 g-3 page-bucket" id="content-page-3">
+            <div class="col"><div class="product-card shadow-sm"><div class="img-container"><img src="https://hidea.ru" class="product-img"></div><div class="card-body p-3"><h6>HD 90 (2-х тактный)</h6><span class="price-text">Цена по запросу</span></div></div></div>
+            <div class="col"><div class="product-card shadow-sm"><div class="img-container"><img src="https://hidea.ru" class="product-img"></div><div class="card-body p-3"><h6>HDF 3.5 (4-х тактный)</h6><span class="price-text">Цена по запросу</span></div></div></div>
+            <div class="col"><div class="product-card shadow-sm"><div class="img-container"><img src="https://hidea.ru" class="product-img"></div><div class="card-body p-3"><h6>HD 30 FES-EFI</h6><span class="price-text">Цена по запросу</span></div></div></div>
+            <div class="col"><div class="product-card shadow-sm"><div class="img-container"><img src="https://hidea.ru" class="product-img"></div><div class="card-body p-3"><h6>HD 60 FEL-T-EFI</h6><span class="price-text">Цена по запросу</span></div></div></div>
+        </div>
+
+        <!-- Переключатель страниц каталога (Пагинация) -->
+        <nav class="my-5">
             <ul class="pagination justify-content-center">
-                <li class="page-item" id="page-1"><button class="page-link" onclick="loadLivePage(1)">1</button></li>
-                <li class="page-item" id="page-2"><button class="page-link" onclick="loadLivePage(2)">2</button></li>
-                <li class="page-item" id="page-3"><button class="page-link" onclick="loadLivePage(3)">3</button></li>
+                <li class="page-item active" id="nav-1"><button class="page-link" onclick="switchTab(1)">1</button></li>
+                <li class="page-item" id="nav-2"><button class="page-link" onclick="switchTab(2)">2</button></li>
+                <li class="page-item" id="nav-3"><button class="page-link" onclick="switchTab(3)">3</button></li>
             </ul>
         </nav>
     </div>
 
     <script>
-        async function loadLivePage(pageNumber) {
-            // Показываем лоадер
-            document.getElementById('loader').style.display = 'flex';
-            document.getElementById('products-grid').style.display = 'none';
-            document.getElementById('pagination-nav').style.display = 'none';
-            document.getElementById('catalog-title').innerText = `Загрузка страницы ${pageNumber}...`;
-
-            // ФИКС ОШИБКИ: явно перебираем массив страниц для переключения активной кнопки
-            const pages = [1, 2, 3];
-            pages.forEach(p => {
-                const btn = document.getElementById(`page-${p}`);
-                if(btn) btn.classList.remove('active');
-            });
-            const activeBtn = document.getElementById(`page-${pageNumber}`);
-            if(activeBtn) activeBtn.classList.add('active');
-
-            const targetUrl = pageNumber === 1 ? 'https://hidea.ru' : `https://hidea.rupage/${pageNumber}/`;
+        function switchTab(pageNum) {
+            // Прячем все страницы товаров
+            document.querySelectorAll('.page-bucket').forEach(el => el.classList.remove('active'));
+            // Показываем только выбранную страницу
+            document.getElementById(`content-page-${pageNum}`).classList.add('active');
             
-            // НОВЫЙ БЫСТРЫЙ ПРОКСИ СЕРВЕР (corsproxy.io)
-            const proxyUrl = 'https://corsproxy.io/?' + encodeURIComponent(targetUrl);
-
-            try {
-                const response = await fetch(proxyUrl);
-                if (!response.ok) throw new Error('Ошибка связи с прокси-сервером');
-                
-                const htmlText = await response.text();
-
-                const parser = new DOMParser();
-                const doc = parser.parseFromString(htmlText, 'text/html');
-                
-                // Ищем карточки моторов
-                const products = doc.querySelectorAll('li.product');
-                const grid = document.getElementById('products-grid');
-                grid.innerHTML = '';
-
-                let count = 0;
-
-                products.forEach(product => {
-                    const titleElem = product.querySelector('h2') || product.querySelector('h6') || product.querySelector('h3');
-                    if (!titleElem) return;
-                    const title = titleElem.innerText.trim();
-
-                    // Фильтр от мусорных ссылок
-                    if (!title.toLowerCase().includes('hd') && !title.toLowerCase().includes('hdf') && !title.toLowerCase().includes('hdd')) {
-                        return;
-                    }
-
-                    const priceElem = product.querySelector('.price') || product.querySelector('.amount');
-                    const price = priceElem ? priceElem.innerText.trim() : 'Цена по запросу';
-
-                    const imgElem = product.querySelector('img');
-                    let imgUrl = imgElem ? (imgElem.getAttribute('data-lazy-src') || imgElem.getAttribute('src')) : 'https://placeholder.com';
-                    if (imgUrl && imgUrl.startsWith('//')) imgUrl = 'https:' + imgUrl;
-
-                    const rawText = product.innerText.toLowerCase();
-                    let category = '2-х тактные моторы';
-                    if (rawText.includes('4-х тактные') || title.toLowerCase().includes('hdf')) category = '4-х тактные моторы';
-                    else if (rawText.includes('efi')) category = 'Моторы EFI';
-                    else if (rawText.includes('водометные')) category = 'Водометные моторы';
-                    else if (rawText.includes('электро')) category = 'Электромоторы';
-
-                    const cardHtml = `
-                        <div class="col">
-                            <div class="product-card shadow-sm">
-                                <div class="img-container">
-                                    <img src="${imgUrl}" class="product-img" alt="Мотор Hidea" onerror="this.onerror=null;this.src='https://placeholder.com?text=Hidea';">
-                                </div>
-                                <div class="card-body d-flex flex-column p-3">
-                                    <span class="badge bg-secondary mb-2 align-self-start" style="font-size: 10px;">${category}</span>
-                                    <h6 class="fw-bold text-dark mb-2" style="font-size: 14px; min-height: 40px;">${title}</h6>
-                                    <div class="mt-auto d-flex justify-content-between align-items-center">
-                                        <span class="price-text">${price}</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    `;
-                    grid.innerHTML += cardHtml;
-                    count++;
-                });
-
-                // Выводим результат на экран
-                document.getElementById('loader').style.display = 'none';
-                grid.style.display = 'flex';
-                document.getElementById('pagination-nav').style.display = 'block';
-                document.getElementById('catalog-title').innerText = `Каталог моторов Hidea (Считано вживую товаров: ${count})`;
-
-            } catch (error) {
-                console.error(error);
-                document.getElementById('loader').innerHTML = `
-                    <div class="alert alert-danger" role="alert" style="max-width: 500px; margin: 0 auto;">
-                        <h5>⚠️ Ошибка загрузки живого контента</h5>
-                        <p class="small mb-0">Публичный шлюз CORS сейчас перегружен. Пожалуйста, подождите 5 секунд и обновите страницу кнопкой Ctrl+F5.</p>
-                    </div>
-                `;
-            }
+            // Меняем активную кнопку пагинации
+            document.querySelectorAll('.page-item').forEach(el => el.classList.remove('active'));
+            document.getElementById(`nav-${pageNum}`).classList.add('active');
         }
-
-        window.onload = function() {
-            loadLivePage(1);
-        };
     </script>
 </body>
 </html>
