@@ -3238,42 +3238,38 @@ div.product .woocommerce-tabs .panel h2 {
 
 <!-- НАЧАЛО СТИЛЕЙ СТРЕЖНЯ -->
 <style>
-  /* 1. Перекрашиваем ВСЕ возможные блоки фона в цвет Стрежня */
+  /* 1. Вычищаем черный цвет из абсолютно всех внутренних блоков, секций и колонок Elementor */
   body, .site, #page, .site-content, #main, .content-area, .site-main,
   header, .site-header, .ast-primary-header-bar, .main-header-bar,
   .elementor-section, .elementor-container, .page-header, .entry-content,
-  div[data-elementor-type="wp-page"], div[data-elementor-type="header"] {
+  div[data-elementor-type="wp-page"], div[data-elementor-type="header"],
+  .elementor-column, .elementor-column-wrap, .elementor-widget-wrap, .elementor-row,
+  div[class*="elementor-"] {
     background-color: #eae4dc !important; 
     background: #eae4dc !important;
     color: #333333 !important;
   }
 
-  /* 2. Заголовки, названия моторов, верхнее меню и цены — темно-графитовые */
-  h1, h2, h3, h4, h5, h6, 
-  .entry-title, .product-title, .woocommerce-loop-product__title,
-  .price, .amount, .price ins,
-  .main-navigation a, .nav-menu a, .site-header a, .menu-link {
-    color: #333333 !important;
-  }
-
-  /* 3. Делаем подложку под фильтрами моторов и самими карточками белоснежной */
+  /* 2. Делаем подложки карточек товаров и вкладки категорий чисто-белыми */
   .ast-woocommerce-container ul.products li.product, 
-  .product, .card, 
-  .elementor-widget-container, 
-  ul.products li.product {
+  .product, .card, ul.products li.product,
+  .elementor-tabs-wrapper, .elementor-tab-title {
     background-color: #ffffff !important;
     background: #ffffff !important;
     border: none !important;
     border-radius: 4px !important;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important;
   }
 
-  /* 4. Кнопки переключения категорий («2-х тактные моторы» и т.д.) */
-  .elementor-tabs-wrapper, .elementor-tab-title {
+  /* 3. Убираем черный фон вокруг самих картинок лодочных моторов */
+  .woocommerce-loop-product__link, .wp-post-image, .attachment-woocommerce_thumbnail {
     background-color: #ffffff !important;
-    border-color: #d1c9be !important;
+    background: #ffffff !important;
   }
-  .elementor-tab-title a {
+
+  /* 4. Перекрашиваем весь текст, ссылки верхнего меню и заголовки в темный цвет */
+  h1, h2, h3, h4, h5, h6, .entry-title, .product-title, .woocommerce-loop-product__title,
+  .price, .amount, .price ins, .main-navigation a, .nav-menu a, .site-header a, .menu-link,
+  .elementor-tab-title a, .elementor-heading-title, .catalog-title {
     color: #333333 !important;
   }
 
@@ -3291,6 +3287,7 @@ div.product .woocommerce-tabs .panel h2 {
   }
 </style>
 <!-- КОНЕЦ СТИЛЕЙ СТРЕЖНЯ -->
+
 
 
  </head>
