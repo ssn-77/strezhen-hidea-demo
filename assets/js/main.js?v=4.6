@@ -1,0 +1,1176 @@
+/**
+ * СТРЕЖЕНЬ - Моторные лодки из полипропилена
+ * Main JavaScript
+ */
+
+// Глобальный базовый путь для API запросов
+const BASE_PATH = document.querySelector('meta[name="base-path"]')?.content || '/';
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Гарантируем, что при загрузке страница прокручивается (сброс блокировки от меню/лайтбокса)
+    function ensureBodyScrollable() {
+        var nav = document.getElementById('nav');
+        if (!nav || !nav.classList.contains('active')) {
+            document.body.style.overflow = '';
+            document.body.style.position = '';
+            document.body.style.width = '';
+            document.body.style.top = '';
+        }
+    }
+    ensureBodyScrollable();
+    window.addEventListener('load', ensureBodyScrollable);
+    window.addEventListener('resize', ensureBodyScrollable);
+
+    // Инициализация
+    initPreloader();
+    initHeader();
+    initMobileMenu();
+    initScrollReveal();
+    initGallery();
+    initVideoPlayer();
+    initProductCards();
+    initFilters();
+    initCart();
+    initComparison();
+    initSiteCarousels();
+});
+
+/**
+ * Горизонтальные карусели: кнопки влево/вправо + свайп
+ */
+function initSiteCarousels() {
+    document.querySelectorAll('.site-carousel').forEach(function(root) {
+        var viewport = root.querySelector('.site-carousel__viewport');
+        var track = root.querySelector('.site-carousel__track');
+        var prev = root.querySelector('.site-carousel__btn--prev');
+        var next = root.querySelector('.site-carousel__btn--next');
+        if (!viewport) return;
+
+        function getStep() {
+            if (!track || !track.children.length) {
+                return Math.max(240, viewport.clientWidth * 0.85);
+            }
+            var first = track.children[0];
+            var gap = parseFloat(getComputedStyle(track).gap) || 16;
+            return first.offsetWidth + gap;
+        }
+
+        function updateButtons() {
+            var maxScroll = viewport.scrollWidth - viewport.clientWidth - 2;
+            if (prev) prev.disabled = viewport.scrollLeft <= 2;
+            if (next) next.disabled = viewport.scrollLeft >= maxScroll;
+        }
+
+        function scrollByDir(dir) {
+            viewport.scrollBy({ left: dir * getStep(), behavior: 'smooth' });
+        }
+
+        if (prev) prev.addEventListener('click', function() { scrollByDir(-1); });
+        if (next) next.addEventListener('click', function() { scrollByDir(1); });
+        viewport.addEventListener('scroll', updateButtons, { passive: true });
+        window.addEventListener('resize', updateButtons);
+        updateButtons();
+    });
+}
+
+/**
+ * Прелоадер
+ */
+function initPreloader() {
+    const preloader = document.getElementById('preloader');
+    if (!preloader) return;
+
+    let hidden = false;
+    function hidePreloader() {
+        if (hidden) return;
+        hidden = true;
+        preloader.classList.add('hidden');
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(hidePreloader, 200);
+        });
+    } else {
+        setTimeout(hidePreloader, 200);
+    }
+
+    // Не держим экран дольше 1.5 с, даже если грузятся тяжёлые фото ниже первого экрана
+    setTimeout(hidePreloader, 1500);
+}
+
+/**
+ * Хедер при скролле
+ */
+function initHeader() {
+    const header = document.getElementById('header');
+    if (!header) return;
+    
+    let lastScroll = 0;
+    
+    window.addEventListener('scroll', function() {
+        const currentScroll = window.pageYOffset;
+        
+        if (currentScroll > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+        
+        lastScroll = currentScroll;
+    });
+}
+
+/**
+ * Мобильное меню
+ */
+function initMobileMenu() {
+    const burger = document.getElementById('burger');
+    const nav = document.getElementById('nav');
+    
+    if (!burger || !nav) return;
+    
+    burger.addEventListener('click', function() {
+        burger.classList.toggle('active');
+        nav.classList.toggle('active');
+        if (nav.classList.contains('active')) {
+            document.body.style.overflow = 'hidden';
+            document.body.style.position = 'fixed';
+            document.body.style.width = '100%';
+            document.body.dataset.scrollY = window.scrollY;
+            document.body.style.top = -window.scrollY + 'px';
+        } else {
+            document.body.style.overflow = '';
+            document.body.style.position = '';
+            document.body.style.width = '';
+            document.body.style.top = '';
+            window.scrollTo(0, parseInt(document.body.dataset.scrollY || '0'));
+        }
+    });
+    
+    nav.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', function() {
+            burger.classList.remove('active');
+            nav.classList.remove('active');
+            document.body.style.overflow = '';
+            document.body.style.position = '';
+            document.body.style.width = '';
+            document.body.style.top = '';
+            window.scrollTo(0, parseInt(document.body.dataset.scrollY || '0'));
+        });
+    });
+}
+
+/**
+ * Анимация появления при скролле.
+ * Fallback: если IntersectionObserver не сработал (старые/особые браузеры) — показываем контент принудительно.
+ */
+function initScrollReveal() {
+    const reveals = document.querySelectorAll('.reveal');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    const allEls = Array.prototype.slice.call(reveals).concat(Array.prototype.slice.call(galleryItems));
+
+    function activate(el) {
+        el.classList.add('active');
+        el.classList.add('visible');
+    }
+
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        allEls.forEach(activate);
+        return;
+    }
+
+    if (typeof IntersectionObserver === 'undefined') {
+        allEls.forEach(activate);
+        return;
+    }
+
+    function isInViewport(el) {
+        var rect = el.getBoundingClientRect();
+        var h = window.innerHeight || document.documentElement.clientHeight;
+        return rect.top < h && rect.bottom > 0;
+    }
+
+    allEls.forEach(function(el) {
+        if (isInViewport(el)) activate(el);
+    });
+
+    var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) activate(entry.target);
+        });
+    }, {
+        threshold: 0.05,
+        rootMargin: '0px'
+    });
+
+    allEls.forEach(function(el) {
+        if (!el.classList.contains('active')) observer.observe(el);
+    });
+
+    setTimeout(function() {
+        allEls.forEach(function(el) {
+            if (!el.classList.contains('active')) activate(el);
+        });
+    }, 1500);
+}
+
+/**
+ * Галерея изображений с навигацией и свайпом
+ */
+function initGallery() {
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    if (galleryItems.length === 0) return;
+    
+    const galleryImages = [];
+    galleryItems.forEach(item => {
+        const img = item.querySelector('img');
+        if (img) galleryImages.push(img.src);
+    });
+    
+    galleryItems.forEach((item, idx) => {
+        item.addEventListener('click', function() {
+            openLightbox(galleryImages, idx);
+        });
+    });
+}
+
+/**
+ * Лайтбокс: полноэкран на мобильных, свайп, pinch-to-zoom, панорамирование
+ */
+var _lightboxImages = [];
+var _lightboxIndex = 0;
+var _lightboxScale = 1;
+var _lightboxTranslateX = 0;
+var _lightboxTranslateY = 0;
+var _lightboxTouchStartX = 0;
+var _lightboxTouchStartY = 0;
+var _lightboxSwipeOnly = true;
+var _lightboxPinchStartDist = 0;
+var _lightboxPinchStartScale = 1;
+var _lightboxPanStartX = 0;
+var _lightboxPanStartY = 0;
+var _lightboxTranslateStartX = 0;
+var _lightboxTranslateStartY = 0;
+var _lightboxLastTap = 0;
+var _lightboxLastTapX = 0;
+var _lightboxLastTapY = 0;
+var _lightboxLastTouchEnd = 0;
+var _lightboxLastTouchEndX = 0;
+var _lightboxLastTouchEndY = 0;
+var _lightboxCloseTimer = null;
+var _lightboxAnimMs = 340;
+
+function _lightboxResetZoom() {
+    _lightboxScale = 1;
+    _lightboxTranslateX = 0;
+    _lightboxTranslateY = 0;
+    var wrap = document.getElementById('lightbox') && document.getElementById('lightbox').querySelector('.lightbox-image-wrap');
+    if (wrap) wrap.style.transform = 'translate(0, 0) scale(1)';
+}
+
+function _lightboxApplyTransform() {
+    var lb = document.getElementById('lightbox');
+    if (!lb) return;
+    var wrap = lb.querySelector('.lightbox-image-wrap');
+    if (!wrap) return;
+    wrap.style.transition = 'none';
+    wrap.style.transform = 'translate(' + _lightboxTranslateX + 'px, ' + _lightboxTranslateY + 'px) scale(' + _lightboxScale + ')';
+}
+
+function _lightboxIsAccessoryMode() {
+    var lb = document.getElementById('lightbox');
+    return lb && lb.classList.contains('lightbox--accessory');
+}
+
+function _lightboxBackdropClick(e) {
+    if (e.target.closest('.lightbox-close') || e.target.closest('.lightbox-prev') ||
+        e.target.closest('.lightbox-next')) {
+        return;
+    }
+    if (_lightboxIsAccessoryMode()) {
+        if (e.target.closest('.lightbox-image-wrap img')) return;
+        closeLightbox();
+        return;
+    }
+    if (e.target.closest('.lightbox-overlay')) {
+        closeLightbox();
+    }
+}
+
+function openLightbox(images, index, options) {
+    options = options || {};
+    if (typeof images === 'string') {
+        images = [images];
+        index = 0;
+    }
+    _lightboxImages = images;
+    _lightboxIndex = index || 0;
+    _lightboxResetZoom();
+
+    var isAccessory = options.variant === 'accessory';
+    var lightbox = document.getElementById('lightbox');
+
+    if (!lightbox) {
+        lightbox = document.createElement('div');
+        lightbox.id = 'lightbox';
+        lightbox.innerHTML = '<div class="lightbox-overlay"></div>' +
+            '<button class="lightbox-prev" type="button" aria-label="Назад"><i class="fas fa-chevron-left"></i></button>' +
+            '<button class="lightbox-next" type="button" aria-label="Вперёд"><i class="fas fa-chevron-right"></i></button>' +
+            '<div class="lightbox-content">' +
+            '<button class="lightbox-close" type="button" aria-label="Закрыть">&times;</button>' +
+            '<div class="lightbox-image-wrap"><img src="" alt=""></div>' +
+            '</div>' +
+            '<div class="lightbox-counter"></div>';
+        lightbox.style.cssText = 'position:fixed;inset:0;z-index:10100;display:flex;align-items:center;justify-content:center;';
+        lightbox.querySelector('.lightbox-overlay').style.cssText = 'position:absolute;inset:0;cursor:pointer;';
+        lightbox.querySelector('.lightbox-content').style.cssText = 'position:relative;max-width:90%;max-height:90%;z-index:2;pointer-events:none;';
+        lightbox.querySelector('.lightbox-close').style.cssText = 'position:absolute;top:-40px;right:0;background:none;border:none;color:white;font-size:2rem;cursor:pointer;z-index:3;pointer-events:auto;';
+        lightbox.querySelector('.lightbox-prev').style.cssText = 'position:absolute;left:15px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.15);border:none;color:white;font-size:1.5rem;cursor:pointer;z-index:3;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;pointer-events:auto;';
+        lightbox.querySelector('.lightbox-next').style.cssText = 'position:absolute;right:15px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.15);border:none;color:white;font-size:1.5rem;cursor:pointer;z-index:3;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;pointer-events:auto;';
+        lightbox.querySelector('.lightbox-counter').style.cssText = 'position:absolute;bottom:20px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,0.7);font-size:0.9rem;z-index:3;pointer-events:none;';
+        var img = lightbox.querySelector('.lightbox-image-wrap img');
+        img.style.cssText = 'max-width:100%;max-height:80vh;border-radius:10px;box-shadow:0 20px 60px rgba(0,0,0,0.5);user-select:none;-webkit-user-drag:none;';
+        lightbox.querySelector('.lightbox-image-wrap').style.pointerEvents = 'none';
+
+        document.body.appendChild(lightbox);
+
+        lightbox.querySelector('.lightbox-overlay').addEventListener('click', _lightboxBackdropClick);
+        lightbox.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+        lightbox.querySelector('.lightbox-prev').addEventListener('click', function(e) { e.stopPropagation(); lightboxGoPrev(); });
+        lightbox.querySelector('.lightbox-next').addEventListener('click', function(e) { e.stopPropagation(); lightboxGoNext(); });
+
+        lightbox.addEventListener('touchstart', _lightboxTouchStart, { passive: false });
+        lightbox.addEventListener('touchmove', _lightboxTouchMove, { passive: false });
+        lightbox.addEventListener('touchend', _lightboxTouchEnd, { passive: false });
+        lightbox.addEventListener('touchcancel', _lightboxTouchEnd, { passive: false });
+        lightbox.addEventListener('click', function(e) {
+            if (_lightboxIsAccessoryMode()) {
+                _lightboxBackdropClick(e);
+                return;
+            }
+            if (e.target.closest('.lightbox-close') || e.target.closest('.lightbox-prev') ||
+                e.target.closest('.lightbox-next') || e.target.closest('.lightbox-overlay')) {
+                return;
+            }
+            var now = Date.now();
+            if (now - _lightboxLastTap < 500 && Math.abs(e.clientX - _lightboxLastTapX) < 50 && Math.abs(e.clientY - _lightboxLastTapY) < 50) {
+                e.preventDefault();
+                e.stopPropagation();
+                if (_lightboxScale > 1) { _lightboxResetZoom(); } else { _lightboxScale = 2; _lightboxTranslateX = 0; _lightboxTranslateY = 0; }
+                _lightboxApplyTransform();
+                _lightboxLastTap = 0;
+                return;
+            }
+            _lightboxLastTap = now;
+            _lightboxLastTapX = e.clientX;
+            _lightboxLastTapY = e.clientY;
+        }, true);
+
+        document.addEventListener('keydown', handleLightboxKey);
+    }
+
+    lightbox.classList.toggle('lightbox--accessory', isAccessory);
+    lightbox.classList.toggle('lightbox--gallery', !isAccessory);
+
+    updateLightboxImage();
+    if (_lightboxCloseTimer) {
+        clearTimeout(_lightboxCloseTimer);
+        _lightboxCloseTimer = null;
+    }
+    lightbox.style.visibility = 'visible';
+    lightbox.classList.remove('is-active');
+    document.body.classList.add('lightbox-open');
+    document.body.style.overflow = 'hidden';
+
+    window.requestAnimationFrame(function() {
+        window.requestAnimationFrame(function() {
+            lightbox.classList.add('is-active');
+        });
+    });
+
+    var navBtns = lightbox.querySelectorAll('.lightbox-prev,.lightbox-next');
+    var show = _lightboxImages.length > 1;
+    navBtns.forEach(function(b) { b.style.display = show ? 'flex' : 'none'; });
+    lightbox.querySelector('.lightbox-counter').style.display = show ? 'block' : 'none';
+}
+
+function _lightboxTouchStart(e) {
+    if (e.touches.length === 2) {
+        e.preventDefault();
+        _lightboxSwipeOnly = false;
+        var d = Math.hypot(e.touches[1].clientX - e.touches[0].clientX, e.touches[1].clientY - e.touches[0].clientY);
+        _lightboxPinchStartDist = d;
+        _lightboxPinchStartScale = _lightboxScale;
+    } else if (e.touches.length === 1) {
+        _lightboxTouchStartX = e.touches[0].clientX;
+        _lightboxTouchStartY = e.touches[0].clientY;
+        _lightboxSwipeOnly = _lightboxScale <= 1;
+        if (_lightboxScale > 1) {
+            _lightboxPanStartX = e.touches[0].clientX;
+            _lightboxPanStartY = e.touches[0].clientY;
+            _lightboxTranslateStartX = _lightboxTranslateX;
+            _lightboxTranslateStartY = _lightboxTranslateY;
+        }
+    }
+}
+
+function _lightboxTouchMove(e) {
+    if (e.touches.length === 2) {
+        e.preventDefault();
+        var d = Math.hypot(e.touches[1].clientX - e.touches[0].clientX, e.touches[1].clientY - e.touches[0].clientY);
+        if (_lightboxPinchStartDist <= 0) {
+            _lightboxPinchStartDist = d;
+            _lightboxPinchStartScale = _lightboxScale;
+        }
+        if (_lightboxPinchStartDist > 0) {
+            var s = _lightboxPinchStartScale * (d / _lightboxPinchStartDist);
+            _lightboxScale = Math.max(0.5, Math.min(4, s));
+            _lightboxApplyTransform();
+        }
+    } else if (e.touches.length === 1 && _lightboxScale > 1) {
+        e.preventDefault();
+        _lightboxSwipeOnly = false;
+        var dx = e.touches[0].clientX - _lightboxPanStartX;
+        var dy = e.touches[0].clientY - _lightboxPanStartY;
+        _lightboxTranslateX = _lightboxTranslateStartX + dx;
+        _lightboxTranslateY = _lightboxTranslateStartY + dy;
+        _lightboxApplyTransform();
+    }
+}
+
+function _lightboxTouchEnd(e) {
+    if (e.changedTouches.length === 1 && e.touches.length === 0) {
+        if (_lightboxSwipeOnly && _lightboxScale <= 1 && _lightboxImages.length > 1) {
+            var diff = _lightboxTouchStartX - e.changedTouches[0].clientX;
+            if (Math.abs(diff) > 50) { diff > 0 ? lightboxGoNext() : lightboxGoPrev(); return; }
+        }
+        var x = e.changedTouches[0].clientX;
+        var y = e.changedTouches[0].clientY;
+        var now = Date.now();
+        if (now - _lightboxLastTouchEnd < 400 && Math.abs(x - _lightboxLastTouchEndX) < 40 && Math.abs(y - _lightboxLastTouchEndY) < 40) {
+            if (_lightboxScale > 1) _lightboxResetZoom(); else { _lightboxScale = 2; _lightboxTranslateX = 0; _lightboxTranslateY = 0; }
+            _lightboxApplyTransform();
+            _lightboxLastTouchEnd = 0;
+            return;
+        }
+        _lightboxLastTouchEnd = now;
+        _lightboxLastTouchEndX = x;
+        _lightboxLastTouchEndY = y;
+    }
+    if (e.touches.length < 2) _lightboxPinchStartDist = 0;
+}
+
+function updateLightboxImage() {
+    var lightbox = document.getElementById('lightbox');
+    if (!lightbox) return;
+    var img = lightbox.querySelector('.lightbox-image-wrap img');
+    if (img) img.src = _lightboxImages[_lightboxIndex];
+    lightbox.querySelector('.lightbox-counter').textContent = (_lightboxIndex + 1) + ' / ' + _lightboxImages.length;
+    _lightboxResetZoom();
+}
+
+function lightboxGoNext() {
+    _lightboxIndex = (_lightboxIndex + 1) % _lightboxImages.length;
+    var img = document.querySelector('#lightbox .lightbox-image-wrap img');
+    if (img) { img.style.opacity = '0'; setTimeout(function() { updateLightboxImage(); img.style.opacity = '1'; }, 150); }
+}
+
+function lightboxGoPrev() {
+    _lightboxIndex = (_lightboxIndex - 1 + _lightboxImages.length) % _lightboxImages.length;
+    var img = document.querySelector('#lightbox .lightbox-image-wrap img');
+    if (img) { img.style.opacity = '0'; setTimeout(function() { updateLightboxImage(); img.style.opacity = '1'; }, 150); }
+}
+
+function closeLightbox() {
+    var lightbox = document.getElementById('lightbox');
+    if (!lightbox || lightbox.style.visibility === 'hidden') return;
+    if (_lightboxCloseTimer) return;
+
+    lightbox.classList.remove('is-active');
+    document.body.classList.remove('lightbox-open');
+    document.body.style.overflow = '';
+
+    _lightboxCloseTimer = window.setTimeout(function() {
+        _lightboxCloseTimer = null;
+        lightbox.style.visibility = 'hidden';
+        lightbox.classList.remove('lightbox--accessory', 'lightbox--gallery');
+    }, _lightboxAnimMs);
+}
+
+function handleLightboxKey(e) {
+    var lightbox = document.getElementById('lightbox');
+    if (!lightbox || !lightbox.classList.contains('is-active')) return;
+    if (e.key === 'Escape') { if (_lightboxScale > 1) { _lightboxResetZoom(); _lightboxApplyTransform(); } else closeLightbox(); }
+    if (e.key === 'ArrowLeft') lightboxGoPrev();
+    if (e.key === 'ArrowRight') lightboxGoNext();
+}
+
+/**
+ * Видео плеер: воспроизведение по клику, пауза при уходе из зоны видимости (особенно на мобильных), кнопка паузы
+ */
+function initVideoPlayer() {
+    const videoContainers = document.querySelectorAll('.video-container');
+    
+    videoContainers.forEach(container => {
+        const video = container.querySelector('video');
+        const overlay = container.querySelector('.video-overlay');
+        
+        if (!video || !overlay) return;
+        
+        // Кнопка паузы поверх видео (видна при воспроизведении)
+        let pauseBtn = container.querySelector('.video-pause-btn');
+        if (!pauseBtn) {
+            pauseBtn = document.createElement('button');
+            pauseBtn.className = 'video-pause-btn';
+            pauseBtn.type = 'button';
+            pauseBtn.setAttribute('aria-label', 'Пауза');
+            pauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+            pauseBtn.style.cssText = 'position:absolute;bottom:20px;right:20px;z-index:5;width:50px;height:50px;border-radius:50%;background:rgba(0,0,0,0.7);color:#fff;border:none;cursor:pointer;display:none;align-items:center;justify-content:center;font-size:1.2rem;';
+            container.style.position = 'relative';
+            container.appendChild(pauseBtn);
+        }
+        
+        overlay.addEventListener('click', function() {
+            if (video.paused) {
+                video.play();
+                overlay.classList.add('hidden');
+                if (pauseBtn) pauseBtn.style.display = 'flex';
+            }
+        });
+        
+        if (pauseBtn) {
+            pauseBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                video.pause();
+                overlay.classList.remove('hidden');
+                pauseBtn.style.display = 'none';
+            });
+        }
+        
+        video.addEventListener('pause', function() {
+            overlay.classList.remove('hidden');
+            if (pauseBtn) pauseBtn.style.display = 'none';
+        });
+        
+        video.addEventListener('play', function() {
+            overlay.classList.add('hidden');
+            if (pauseBtn) pauseBtn.style.display = 'flex';
+        });
+        
+        video.addEventListener('ended', function() {
+            overlay.classList.remove('hidden');
+            if (pauseBtn) pauseBtn.style.display = 'none';
+        });
+        
+        // При уходе видео из зоны видимости — ставим на паузу (важно для мобильных)
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting && !video.paused) {
+                    video.pause();
+                    overlay.classList.remove('hidden');
+                    if (pauseBtn) pauseBtn.style.display = 'none';
+                }
+            });
+        }, { threshold: 0.25 });
+        observer.observe(container);
+    });
+}
+
+/**
+ * Карточки товаров: клик по всей карточке (в т.ч. по фото) ведёт на страницу товара; tilt-эффект
+ */
+function initProductCards() {
+    const cards = document.querySelectorAll('.product-card');
+    
+    cards.forEach(card => {
+        const linkToProduct = card.querySelector('a[href*="product.php?id="]');
+        const productUrl = linkToProduct ? linkToProduct.getAttribute('href') : null;
+        
+        if (productUrl) {
+            card.style.cursor = 'pointer';
+            card.addEventListener('click', function(e) {
+                // Не переходить, если клик по кнопке, ссылке или интерактивному элементу
+                if (e.target.closest('a[href], button, .product-card-actions')) return;
+                e.preventDefault();
+                window.location.href = productUrl;
+            });
+        }
+        
+        // Tilt эффект (только для десктопа)
+        card.addEventListener('mousemove', function(e) {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            const rotateX = (y - centerY) / 20;
+            const rotateY = (centerX - x) / 20;
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px)`;
+        });
+        card.addEventListener('mouseleave', function() {
+            card.style.transform = '';
+        });
+    });
+}
+
+/**
+ * Фильтры в каталоге
+ */
+function initFilters() {
+    const filterForm = document.getElementById('filter-form');
+    if (!filterForm) return;
+    
+    const inputs = filterForm.querySelectorAll('.filter-input, .filter-checkbox input');
+    
+    inputs.forEach(input => {
+        input.addEventListener('change', function() {
+            // Debounce для автоматической фильтрации
+            clearTimeout(window.filterTimeout);
+            window.filterTimeout = setTimeout(() => {
+                filterForm.submit();
+            }, 500);
+        });
+    });
+}
+
+/**
+ * Корзина
+ */
+function initCart() {
+    // Добавление в корзину (обычные кнопки .add-to-cart)
+    document.querySelectorAll('.add-to-cart').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const productId = this.dataset.productId;
+            let body = `action=add&product_id=${productId}`;
+            
+            // Комплектующие: ищем блок в той же карточке товара, что и кнопка
+            const productInfo = this.closest('.product-info') || this.closest('.product-detail');
+            const block = productInfo ? productInfo.querySelector('.product-accessories-block') : document.querySelector('.product-accessories-block');
+            if (block) {
+                const accessories = {};
+                block.querySelectorAll('.accessory-cb:checked').forEach(function(cb) {
+                    const id = cb.getAttribute('data-accessory-id') || cb.dataset.accessoryId || '';
+                    const row = cb.closest('.accessory-row');
+                    const optInput = row ? row.querySelector('select.accessory-option[data-accessory-id="' + id + '"], input.accessory-option[data-accessory-id="' + id + '"]') : block.querySelector('select.accessory-option[data-accessory-id="' + id + '"], input.accessory-option[data-accessory-id="' + id + '"]');
+                    let optVal = '';
+                    if (optInput) {
+                        optVal = optInput.tagName === 'SELECT' ? (optInput.value || '') : (optInput.value || '');
+                    }
+                    accessories[id] = optVal;
+                });
+                body += '&accessories=' + encodeURIComponent(JSON.stringify(accessories));
+            }
+            
+            fetch(BASE_PATH + 'pages/cart_actions.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: body
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    updateCartCount(data.cartCount);
+                    showNotification('Сохранено', 'success');
+                    
+                    // Анимация кнопки
+                    this.classList.add('added');
+                    setTimeout(() => this.classList.remove('added'), 1000);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                showNotification('Ошибка при добавлении', 'error');
+            });
+        });
+    });
+    
+    // Добавление в корзину с заменой на кнопки +/-
+    document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const productId = this.dataset.productId;
+            const buttonsContainer = this.parentElement;
+            
+            fetch(BASE_PATH + 'pages/cart_actions.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `action=add&product_id=${productId}`
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    updateCartCount(data.cartCount);
+                    showNotification('Сохранено', 'success');
+                    
+                    // Заменяем кнопку на контролы количества
+                    this.outerHTML = `
+                        <div class="cart-button-group">
+                            <div class="cart-qty-controls">
+                                <button type="button" class="cart-qty-btn cart-minus" data-product-id="${productId}">−</button>
+                                <span class="cart-qty-value" data-product-id="${productId}">1</span>
+                                <button type="button" class="cart-qty-btn cart-plus" data-product-id="${productId}">+</button>
+                            </div>
+                            <a href="/pages/contacts.php" class="btn btn-go-cart">
+                                <i class="fas fa-envelope"></i> Связаться с нами
+                            </a>
+                        </div>
+                    `;
+                    
+                    // Переинициализируем обработчики
+                    initCartQtyControls();
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                showNotification('Ошибка при добавлении', 'error');
+            });
+        });
+    });
+    
+    // Инициализируем контролы количества
+    initCartQtyControls();
+    
+    // Удаление из корзины
+    document.querySelectorAll('.remove-from-cart').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const productId = this.dataset.productId;
+            const cartItem = this.closest('.cart-item');
+            
+            fetch(BASE_PATH + 'pages/cart_actions.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `action=remove&product_id=${productId}`
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    updateCartCount(data.cartCount);
+                    
+                    // Анимация удаления
+                    cartItem.style.transform = 'translateX(-100%)';
+                    cartItem.style.opacity = '0';
+                    setTimeout(() => {
+                        cartItem.remove();
+                        updateCartTotal(data.total);
+                        
+                        // Если корзина пуста
+                        if (data.cartCount === 0) {
+                            location.reload();
+                        }
+                    }, 300);
+                }
+            });
+        });
+    });
+}
+
+/**
+ * Контролы количества в корзине (+/-)
+ */
+function initCartQtyControls() {
+    // Кнопка минус
+    document.querySelectorAll('.cart-minus').forEach(btn => {
+        btn.removeEventListener('click', handleMinus);
+        btn.addEventListener('click', handleMinus);
+    });
+    
+    // Кнопка плюс
+    document.querySelectorAll('.cart-plus').forEach(btn => {
+        btn.removeEventListener('click', handlePlus);
+        btn.addEventListener('click', handlePlus);
+    });
+}
+
+function handleMinus(e) {
+    e.preventDefault();
+    const productId = this.dataset.productId;
+    const qtyEl = document.querySelector(`.cart-qty-value[data-product-id="${productId}"]`);
+    let qty = parseInt(qtyEl.textContent);
+    
+    if (qty > 1) {
+        qty--;
+        qtyEl.textContent = qty;
+        // Можно добавить AJAX для обновления на сервере
+    } else {
+        // Удаляем из корзины
+        const buttonGroup = this.closest('.cart-button-group');
+        if (buttonGroup) {
+            fetch(BASE_PATH + 'pages/cart_actions.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `action=remove&product_id=${productId}`
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    updateCartCount(data.cartCount);
+                    // Возврат к одиночной кнопке добавления
+                    buttonGroup.outerHTML = `<button class="btn btn-primary add-to-cart-btn" data-product-id="${productId}">Сохранить ещё раз</button>`;
+                    // Переинициализируем
+                    initCart();
+                }
+            });
+        }
+    }
+}
+
+function handlePlus(e) {
+    e.preventDefault();
+    const productId = this.dataset.productId;
+    const qtyEl = document.querySelector(`.cart-qty-value[data-product-id="${productId}"]`);
+    let qty = parseInt(qtyEl.textContent);
+    qty++;
+    qtyEl.textContent = qty;
+    // Можно добавить AJAX для обновления на сервере
+}
+
+/**
+ * Сравнение товаров
+ */
+function initComparison() {
+    // Добавление в сравнение
+    document.querySelectorAll('.add-to-compare').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const productId = this.dataset.productId;
+            
+            fetch(BASE_PATH + 'pages/cart_actions.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `action=compare_add&product_id=${productId}`
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    showNotification('Товар добавлен для сравнения', 'success');
+                    this.classList.add('active');
+                } else {
+                    showNotification(data.message || 'Максимум 3 товара для сравнения', 'error');
+                }
+            });
+        });
+    });
+    
+    // Удаление из сравнения
+    document.querySelectorAll('.remove-from-compare').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const productId = this.dataset.productId;
+            
+            fetch(BASE_PATH + 'pages/cart_actions.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `action=compare_remove&product_id=${productId}`
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    location.reload();
+                }
+            });
+        });
+    });
+}
+
+/**
+ * Обновление счётчика корзины
+ */
+function updateCartCount(count) {
+    document.querySelectorAll('.cart-count').forEach(el => {
+        el.textContent = count;
+        
+        // Анимация
+        el.style.transform = 'scale(1.3)';
+        setTimeout(() => el.style.transform = 'scale(1)', 200);
+    });
+}
+
+/**
+ * Обновление суммы корзины
+ */
+function updateCartTotal(total) {
+    const totalEl = document.querySelector('.cart-total-value');
+    if (totalEl) {
+        totalEl.textContent = formatPrice(total);
+    }
+}
+
+/**
+ * Форматирование цены
+ */
+function formatPrice(price) {
+    return new Intl.NumberFormat('ru-RU').format(price) + ' ₽';
+}
+
+/**
+ * Уведомления
+ */
+function showNotification(message, type = 'info') {
+    // Удаляем старые уведомления
+    document.querySelectorAll('.notification').forEach(n => n.remove());
+    
+    const notification = document.createElement('div');
+    notification.className = `notification notification-${type}`;
+    notification.innerHTML = `
+        <div class="notification-content">
+            <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i>
+            <span>${message}</span>
+        </div>
+    `;
+    
+    notification.style.cssText = `
+        position: fixed;
+        top: 100px;
+        right: 20px;
+        background: ${type === 'success' ? 'rgba(76, 175, 80, 0.95)' : type === 'error' ? 'rgba(244, 67, 54, 0.95)' : 'rgba(74, 103, 65, 0.95)'};
+        color: #fff;
+        padding: 15px 25px;
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        z-index: 9999;
+        transform: translateX(120%);
+        transition: transform 0.3s ease;
+    `;
+    
+    const content = notification.querySelector('.notification-content');
+    content.style.cssText = `
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    `;
+    
+    document.body.appendChild(notification);
+    
+    // Анимация появления
+    requestAnimationFrame(() => {
+        notification.style.transform = 'translateX(0)';
+    });
+    
+    // Удаление через 3 секунды
+    setTimeout(() => {
+        notification.style.transform = 'translateX(120%)';
+        setTimeout(() => notification.remove(), 300);
+    }, 3000);
+}
+
+/**
+ * Анимация кнопок при клике
+ */
+document.querySelectorAll('.btn').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+        // Ripple эффект
+        const ripple = document.createElement('span');
+        const rect = this.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        const x = e.clientX - rect.left - size / 2;
+        const y = e.clientY - rect.top - size / 2;
+        
+        ripple.style.cssText = `
+            position: absolute;
+            width: ${size}px;
+            height: ${size}px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transform: scale(0);
+            animation: ripple 0.6s ease-out;
+            left: ${x}px;
+            top: ${y}px;
+            pointer-events: none;
+        `;
+        
+        this.style.position = 'relative';
+        this.style.overflow = 'hidden';
+        this.appendChild(ripple);
+        
+        setTimeout(() => ripple.remove(), 600);
+    });
+});
+
+// CSS для ripple анимации
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes ripple {
+        to {
+            transform: scale(4);
+            opacity: 0;
+        }
+    }
+    
+    .btn.added {
+        background: #4caf50 !important;
+        border-color: #4caf50 !important;
+    }
+    
+    .add-to-compare.active {
+        background: #4a6741 !important;
+        color: #fff !important;
+    }
+`;
+document.head.appendChild(style);
+
+/**
+ * Плавный скролл к якорям
+ */
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href === '#') return;
+        
+        const target = document.querySelector(href);
+        if (!target) return;
+        
+        e.preventDefault();
+        target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+    });
+});
+
+/**
+ * Параллакс эффект для hero секции
+ */
+const hero = document.querySelector('.hero');
+if (hero) {
+    window.addEventListener('scroll', function() {
+        const scrolled = window.pageYOffset;
+        const heroImage = hero.querySelector('.hero-image');
+        
+        if (heroImage && scrolled < window.innerHeight) {
+            heroImage.style.transform = `translateY(calc(-50% + ${scrolled * 0.3}px))`;
+        }
+    });
+}
+
+/**
+ * Inline Editing System for Admin
+ */
+(function() {
+    // Check if admin mode
+    const editables = document.querySelectorAll('.editable');
+    if (editables.length === 0) return;
+    
+    // Create save notification
+    const notification = document.createElement('div');
+    notification.className = 'save-notification';
+    notification.innerHTML = '<i class="fas fa-check"></i> <span>Сохранено!</span>';
+    document.body.appendChild(notification);
+    
+    // Show notification
+    function showNotification(message, isError = false) {
+        notification.innerHTML = `<i class="fas fa-${isError ? 'times' : 'check'}"></i> <span>${message}</span>`;
+        notification.classList.toggle('error', isError);
+        notification.classList.add('show');
+        setTimeout(() => notification.classList.remove('show'), 2000);
+    }
+    
+    // Save content to server
+    function saveContent(key, value) {
+        fetch(BASE_PATH + 'pages/save_content.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: `key=${encodeURIComponent(key)}&value=${encodeURIComponent(value)}`
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                showNotification('Сохранено!');
+            } else {
+                showNotification(data.message || 'Ошибка сохранения', true);
+            }
+        })
+        .catch(error => {
+            showNotification('Ошибка соединения', true);
+            console.error('Save error:', error);
+        });
+    }
+    
+    // Debounce function
+    function debounce(func, wait) {
+        let timeout;
+        return function(...args) {
+            clearTimeout(timeout);
+            timeout = setTimeout(() => func.apply(this, args), wait);
+        };
+    }
+    
+    // Handle editable elements
+    editables.forEach(el => {
+        const key = el.dataset.key;
+        if (!key) return;
+        
+        // Wrap in container for positioning
+        const wrapper = document.createElement('span');
+        wrapper.className = 'editable-wrapper';
+        wrapper.style.display = el.tagName === 'SPAN' ? 'inline' : 'block';
+        el.parentNode.insertBefore(wrapper, el);
+        wrapper.appendChild(el);
+        
+        // Move edit button inside wrapper
+        const editBtn = el.nextElementSibling;
+        if (editBtn && editBtn.classList.contains('edit-btn')) {
+            wrapper.appendChild(editBtn);
+        }
+        
+        // Save on blur with debounce
+        const debouncedSave = debounce((value) => {
+            saveContent(key, value);
+        }, 1000);
+        
+        // Input handler
+        el.addEventListener('input', function() {
+            debouncedSave(this.textContent);
+        });
+        
+        // Save on blur
+        el.addEventListener('blur', function() {
+            saveContent(key, this.textContent);
+        });
+        
+        // Prevent enter creating new lines in single-line elements
+        if (el.tagName !== 'P' && el.tagName !== 'DIV') {
+            el.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    this.blur();
+                }
+            });
+        }
+    });
+})();
+
+// Edit button click handler
+function editElement(el) {
+    if (el && el.focus) {
+        el.focus();
+        // Place cursor at end
+        const range = document.createRange();
+        const sel = window.getSelection();
+        range.selectNodeContents(el);
+        range.collapse(false);
+        sel.removeAllRanges();
+        sel.addRange(range);
+    }
+}

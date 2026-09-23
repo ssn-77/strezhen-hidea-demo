@@ -1,24 +1,946 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){
+            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=107199730', 'ym');
+
+        ym(107199730, 'init', {ssr:true, webvisor:true, trackHash:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/107199730" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
     <meta charset="UTF-8">
-    <title>Лодки Стрежень — Официальный демо-стенд</title>
-    <link href="https://jsdelivr.net" rel="stylesheet">
-    <style>
-        body { background: #f8f9fa; font-family: sans-serif; }
-        .hero { background: #1a1a1a; color: white; padding: 100px 0; text-align: center; }
-        .btn-custom { background: #ffc107; color: black; font-weight: bold; padding: 15px 30px; font-size: 1.2rem; border-radius: 8px; text-decoration: none; display: inline-block; }
-        .btn-custom:hover { background: #e0a800; color: black; }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="base-path" content="/">
+    <title>Стрежень — Моторные лодки из полипропилена</title>
+    <meta name="description" content="Производство моторных лодок из листового полипропилена. Лёгкие, прочные, долговечные — для рыбалки и отдыха на воде.">
+    <!-- Favicon (лодка без текста; при необходимости замените файлами из брендбука) -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicon-boat.svg">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest.html">
+    <meta name="theme-color" content="#1a1a2e">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Стрежень — Моторные лодки из полипропилена">
+    <meta property="og:description" content="Производство моторных лодок из листового полипропилена. Лёгкие, прочные, долговечные — для рыбалки и отдыха на воде.">
+    <meta property="og:image" content="https://strezhen-boat.ruandroid-chrome-512x512.png">
+    <meta property="og:url" content="https://strezhen-boat.ru">
+    <meta property="og:site_name" content="Стрежень">
+
+    <!-- JSON-LD для Google -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Стрежень",
+        "url": "https://strezhen-boat.ru",
+        "logo": "https://strezhen-boat.ru/android-chrome-512x512.png",
+        "description": "Производство моторных лодок из листового полипропилена",
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+7-953-560-19-06",
+            "contactType": "sales"
+        }
+    }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css%3Fv=8.7.css">
 </head>
 <body>
-    <div class="hero">
-        <div class="container">
-            <h1 class="display-4 fw-bold mb-3">⚓ СТРЕЖЕНЬ</h1>
-            <p class="lead mb-5">Молодая компания, опытная команда. Производство надежных лодок.</p>
-            <!-- КНОПКА ПЕРЕХОДА К МОТОРАМ -->
-            <a href="shop/index.html" class="btn-custom shadow">👉 Перейти в каталог моторов Hidea</a>
+    <!-- Прелоадер -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-logo">СТРЕЖЕНЬ</div>
+            <div class="preloader-bar"><span></span></div>
         </div>
     </div>
-</body>
+
+    <!-- Навигация -->
+    <header class="header" id="header">
+        <div class="container">
+            <!-- Логотип: основной logo.svg, запасной logo.jpg (см. &lt;picture&gt;) -->
+            <a href="index.html" class="logo">
+                <span class="logo-stack">
+                    <picture class="logo-picture">
+                        <source srcset="/assets/logo.svg?v=1" type="image/svg+xml">
+                        <img src="assets/logo.jpg%3Fv=7" alt="Стрежень" class="logo-img" onerror="this.style.display='none';this.closest('.logo').querySelector('.logo-text').style.display='inline';">
+                    </picture>
+                    <span class="logo-tagline">моторные лодки</span>
+                </span>
+                <span class="logo-text">СТРЕЖЕНЬ</span>
+            </a>
+            
+            <nav class="nav" id="nav">
+                <a href="index.html" class="nav-link active">Главная</a>
+                <a href="pages/catalog.php.html" class="nav-link ">Наша продукция</a>
+                <a href="pages/accessories.php.html" class="nav-link ">Комплектующие</a>
+                <a href="pages/about.php.html" class="nav-link ">О нас</a>
+                <a href="pages/contacts.php.html" class="nav-link ">Контакты</a>
+                <a href="pages/gallery.php.html" class="nav-link ">Фотогалерея</a>
+                <a href="pages/about.php.html#recommendations" class="nav-link ">Ваши рекомендации</a>
+                <a href="pages/partnership.php.html" class="nav-link ">Партнерство</a>
+                <a href="pages/faq.php.html" class="nav-link ">FAQ</a>
+                            </nav>
+            
+            <button class="burger" id="burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main class="main">
+
+<!-- Hero секция — шапка с фото -->
+<section class="hero hero-banner">
+    <div class="hero-banner-bg" style="background-image: url('glavnaya.jpg');"></div>
+    <div class="hero-banner-overlay"></div>
+    <div class="container">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="hero-badge hero-badge-styled"><span data-key="hero_badge" >Молодая компания, опытная команда</span></span>
+                <span class="brand">СТРЕЖЕНЬ</span>
+                <span class="hero-subtitle-line" data-key="hero_title" >Качество · Точность · Честность</span>            </h1>
+            <div class="hero-divider"></div>
+            <p class="hero-slogan">
+                <span class="hero-slogan-text" data-key="hero_slogan">Лодки из листового полипропилена — прочные, долговечные, непотопляемые.</span>            </p>
+            <div class="hero-buttons">
+                <a href="pages/catalog.php.html" class="btn btn-primary">
+                    <i class="fas fa-anchor"></i>
+                    Наша продукция
+                </a>
+                <a href="pages/about.php.html" class="btn btn-outline btn-outline-light">
+                    <i class="fas fa-info-circle"></i>
+                    О нас
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="hero-scroll-hint">
+        Листайте
+        <span></span>
+    </div>
+</section>
+
+<section class="quick-actions-bar" aria-label="Быстрые действия">
+    <div class="container">
+        <div class="quick-actions-row">
+            <a href="tel:+79535601906" class="quick-action-btn quick-action-btn--phone">
+                <i class="fas fa-phone" aria-hidden="true"></i>
+                <span class="quick-action-label">Позвонить</span>
+            </a>
+            <a href="https://max.ru/u/f9LHodD0cOI69ym7grseg8UikTBaIfiLL60j3p6zO2Zv47kprLWDtbkLrSM" class="quick-action-btn quick-action-btn--max" target="_blank" rel="noopener" aria-label="Написать в Max">
+                <span class="quick-action-icon-max-img" role="img" aria-hidden="true"></span>
+                <span class="quick-action-label">Написать</span>
+            </a>
+            <a href="https://yandex.ru/maps/?rtext=~56.136793,44.217872&amp;rtt=auto" class="quick-action-btn quick-action-btn--yandex" target="_blank" rel="noopener" aria-label="Построить маршрут">
+                <i class="fas fa-route" aria-hidden="true"></i>
+                <span class="quick-action-label">Поехать</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="section vk-clips-section section-white">
+    <div class="container">
+        <div class="section-header reveal">
+            <h2 class="section-title vk-clips-title"><span data-key="vk_clips_section_title" >Видеообзоры и отзывы</span></h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="site-carousel vk-clips-carousel-wrap reveal">
+            <button type="button" class="site-carousel__btn site-carousel__btn--prev vk-clips-nav vk-clips-prev" aria-label="Назад"><i class="fas fa-chevron-left"></i></button>
+            <div class="site-carousel__viewport vk-clips-viewport" id="vkClipsViewport">
+                <div class="site-carousel__track vk-clips-track" id="vkClipsTrack">
+                                <div class="vk-clip-card" role="button" tabindex="0"
+                     data-url="https://vk.com/clip-236149267_456239108"
+                     data-embed="https://vk.com/video_ext.php?oid=-236149267&amp;id=456239108&amp;hd=2">
+                    <div class="vk-clip-card-media">
+                                                <img class="vk-clip-card-thumb" src="uploads/vk_clips_thumbs/vkthumb_20260803_221330_9e031cb3f5cb.png" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+                                                <div class="vk-clip-card-bg vk-clip-card-bg--dim"></div>
+                    </div>
+                    <div class="vk-clip-card-play"><i class="fas fa-play"></i></div>
+                    <p class="vk-clip-card-title">Электропакет на румпельной</p>
+                </div>
+                                <div class="vk-clip-card" role="button" tabindex="0"
+                     data-url="https://vk.com/clip-236149267_456239094"
+                     data-embed="https://vk.com/video_ext.php?oid=-236149267&amp;id=456239094&amp;hd=2">
+                    <div class="vk-clip-card-media">
+                                                <img class="vk-clip-card-thumb" src="uploads/vk_clips_thumbs/vkthumb_20260803_220838_129295278dd8.png" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+                                                <div class="vk-clip-card-bg vk-clip-card-bg--dim"></div>
+                    </div>
+                    <div class="vk-clip-card-play"><i class="fas fa-play"></i></div>
+                    <p class="vk-clip-card-title">Обзор от владельца</p>
+                </div>
+                                <div class="vk-clip-card" role="button" tabindex="0"
+                     data-url="https://vk.com/clip-236149267_456239099"
+                     data-embed="https://vk.com/video_ext.php?oid=-236149267&amp;id=456239099&amp;hd=2">
+                    <div class="vk-clip-card-media">
+                                                <img class="vk-clip-card-thumb" src="uploads/vk_clips_thumbs/vkthumb_20260803_220941_ba8788cf1f8f.png" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+                                                <div class="vk-clip-card-bg vk-clip-card-bg--dim"></div>
+                    </div>
+                    <div class="vk-clip-card-play"><i class="fas fa-play"></i></div>
+                    <p class="vk-clip-card-title">Новое сиденье</p>
+                </div>
+                                <div class="vk-clip-card" role="button" tabindex="0"
+                     data-url="https://vk.com/clip-236149267_456239091"
+                     data-embed="https://vk.com/video_ext.php?oid=-236149267&amp;id=456239091&amp;hd=2">
+                    <div class="vk-clip-card-media">
+                                                <img class="vk-clip-card-thumb" src="uploads/vk_clips_thumbs/vkthumb_20260803_220711_bdbb57e6aa56.png" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+                                                <div class="vk-clip-card-bg vk-clip-card-bg--dim"></div>
+                    </div>
+                    <div class="vk-clip-card-play"><i class="fas fa-play"></i></div>
+                    <p class="vk-clip-card-title">Замер скорости</p>
+                </div>
+                                <div class="vk-clip-card" role="button" tabindex="0"
+                     data-url="https://vk.com/clip-236149267_456239101"
+                     data-embed="https://vk.com/video_ext.php?oid=-236149267&amp;id=456239101&amp;hd=2">
+                    <div class="vk-clip-card-media">
+                                                <img class="vk-clip-card-thumb" src="uploads/vk_clips_thumbs/vkthumb_20260803_221021_cb0785424596.png" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+                                                <div class="vk-clip-card-bg vk-clip-card-bg--dim"></div>
+                    </div>
+                    <div class="vk-clip-card-play"><i class="fas fa-play"></i></div>
+                    <p class="vk-clip-card-title">Вместимость рундуков</p>
+                </div>
+                                <div class="vk-clip-card" role="button" tabindex="0"
+                     data-url="https://vk.com/clip-236149267_456239107"
+                     data-embed="https://vk.com/video_ext.php?oid=-236149267&amp;id=456239107&amp;hd=2">
+                    <div class="vk-clip-card-media">
+                                                <img class="vk-clip-card-thumb" src="uploads/vk_clips_thumbs/vkthumb_20260803_221240_b10bbfe826c3.png" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+                                                <div class="vk-clip-card-bg vk-clip-card-bg--dim"></div>
+                    </div>
+                    <div class="vk-clip-card-play"><i class="fas fa-play"></i></div>
+                    <p class="vk-clip-card-title">Электропакет на консольной</p>
+                </div>
+                                <div class="vk-clip-card" role="button" tabindex="0"
+                     data-url="https://vk.com/clip-236149267_456239106"
+                     data-embed="https://vk.com/video_ext.php?oid=-236149267&amp;id=456239106&amp;hd=2">
+                    <div class="vk-clip-card-media">
+                                                <img class="vk-clip-card-thumb" src="uploads/vk_clips_thumbs/vkthumb_20260803_221151_91ba573f3778.png" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+                                                <div class="vk-clip-card-bg vk-clip-card-bg--dim"></div>
+                    </div>
+                    <div class="vk-clip-card-play"><i class="fas fa-play"></i></div>
+                    <p class="vk-clip-card-title">Размеры панели</p>
+                </div>
+                                <div class="vk-clip-card" role="button" tabindex="0"
+                     data-url="https://vk.com/clip-236149267_456239104"
+                     data-embed="https://vk.com/video_ext.php?oid=-236149267&amp;id=456239104&amp;hd=2">
+                    <div class="vk-clip-card-media">
+                                                <img class="vk-clip-card-thumb" src="uploads/vk_clips_thumbs/vkthumb_20260803_221111_f3afd0dffd7f.png" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+                                                <div class="vk-clip-card-bg vk-clip-card-bg--dim"></div>
+                    </div>
+                    <div class="vk-clip-card-play"><i class="fas fa-play"></i></div>
+                    <p class="vk-clip-card-title">Подготовка прицепа</p>
+                </div>
+                                <div class="vk-clip-card" role="button" tabindex="0"
+                     data-url="https://vk.com/clip-236149267_456239096"
+                     data-embed="https://vk.com/video_ext.php?oid=-236149267&amp;id=456239096&amp;hd=2">
+                    <div class="vk-clip-card-media">
+                                                <img class="vk-clip-card-thumb" src="uploads/vk_clips_thumbs/vkthumb_20260803_220911_c5e55a8f0e9d.png" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+                                                <div class="vk-clip-card-bg vk-clip-card-bg--dim"></div>
+                    </div>
+                    <div class="vk-clip-card-play"><i class="fas fa-play"></i></div>
+                    <p class="vk-clip-card-title">Управляемость лодки 410-С</p>
+                </div>
+                                <div class="vk-clip-card" role="button" tabindex="0"
+                     data-url="https://vk.com/clip-236149267_456239090"
+                     data-embed="https://vk.com/video_ext.php?oid=-236149267&amp;id=456239090&amp;hd=2">
+                    <div class="vk-clip-card-media">
+                                                <img class="vk-clip-card-thumb" src="uploads/vk_clips_thumbs/vkthumb_20260803_220626_92575f3acf01.png" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+                                                <div class="vk-clip-card-bg vk-clip-card-bg--dim"></div>
+                    </div>
+                    <div class="vk-clip-card-play"><i class="fas fa-play"></i></div>
+                    <p class="vk-clip-card-title">Отзыв владельца 410-С</p>
+                </div>
+                                <div class="vk-clip-card" role="button" tabindex="0"
+                     data-url="https://vk.com/clip-236149267_456239089"
+                     data-embed="https://vk.com/video_ext.php?oid=-236149267&amp;id=456239089&amp;hd=2">
+                    <div class="vk-clip-card-media">
+                                                <img class="vk-clip-card-thumb" src="uploads/vk_clips_thumbs/vkthumb_20260803_220540_f63a6ba1efd1.png" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+                                                <div class="vk-clip-card-bg vk-clip-card-bg--dim"></div>
+                    </div>
+                    <div class="vk-clip-card-play"><i class="fas fa-play"></i></div>
+                    <p class="vk-clip-card-title">Применение тента</p>
+                </div>
+                                <div class="vk-clip-card" role="button" tabindex="0"
+                     data-url="https://vk.com/clip-236149267_456239087"
+                     data-embed="https://vk.com/video_ext.php?oid=-236149267&amp;id=456239087&amp;hd=2">
+                    <div class="vk-clip-card-media">
+                                                <img class="vk-clip-card-thumb" src="uploads/vk_clips_thumbs/vkthumb_20260803_220428_3a2d2fab83dd.png" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+                                                <div class="vk-clip-card-bg vk-clip-card-bg--dim"></div>
+                    </div>
+                    <div class="vk-clip-card-play"><i class="fas fa-play"></i></div>
+                    <p class="vk-clip-card-title">Заломы - как исправить</p>
+                </div>
+                                <div class="vk-clip-card" role="button" tabindex="0"
+                     data-url="https://vk.com/clip-236149267_456239077"
+                     data-embed="https://vk.com/video_ext.php?oid=-236149267&amp;id=456239077&amp;hd=2">
+                    <div class="vk-clip-card-media">
+                                                <img class="vk-clip-card-thumb" src="uploads/vk_clips_thumbs/vkthumb_20260618_235159_dccaba4a7c79.jpg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+                                                <div class="vk-clip-card-bg vk-clip-card-bg--dim"></div>
+                    </div>
+                    <div class="vk-clip-card-play"><i class="fas fa-play"></i></div>
+                    <p class="vk-clip-card-title">Тест-драйв по волнам</p>
+                </div>
+                                <div class="vk-clip-card" role="button" tabindex="0"
+                     data-url="https://vk.com/clip-236149267_456239069"
+                     data-embed="https://vk.com/video_ext.php?oid=-236149267&amp;id=456239069&amp;hd=2">
+                    <div class="vk-clip-card-media">
+                                                <img class="vk-clip-card-thumb" src="uploads/vk_clips_thumbs/vkthumb_20260618_234949_26f5b5a6bcd4.jpg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+                                                <div class="vk-clip-card-bg vk-clip-card-bg--dim"></div>
+                    </div>
+                    <div class="vk-clip-card-play"><i class="fas fa-play"></i></div>
+                    <p class="vk-clip-card-title">Отзыв покупателя 410-С</p>
+                </div>
+                                <div class="vk-clip-card" role="button" tabindex="0"
+                     data-url="https://vk.com/clip-236149267_456239065"
+                     data-embed="https://vk.com/video_ext.php?oid=-236149267&amp;id=456239065&amp;hd=2">
+                    <div class="vk-clip-card-media">
+                                                <img class="vk-clip-card-thumb" src="uploads/vk_clips_thumbs/vkthumb_20260618_234300_602665fbe0b7.jpg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+                                                <div class="vk-clip-card-bg vk-clip-card-bg--dim"></div>
+                    </div>
+                    <div class="vk-clip-card-play"><i class="fas fa-play"></i></div>
+                    <p class="vk-clip-card-title">Кринолины на лодках Стрежень</p>
+                </div>
+                                <div class="vk-clip-card" role="button" tabindex="0"
+                     data-url="https://vk.com/clip-236149267_456239067"
+                     data-embed="https://vk.com/video_ext.php?oid=-236149267&amp;id=456239067&amp;hd=2">
+                    <div class="vk-clip-card-media">
+                                                <img class="vk-clip-card-thumb" src="uploads/vk_clips_thumbs/vkthumb_20260618_234600_53c8f6f0b56f.jpg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+                                                <div class="vk-clip-card-bg vk-clip-card-bg--dim"></div>
+                    </div>
+                    <div class="vk-clip-card-play"><i class="fas fa-play"></i></div>
+                    <p class="vk-clip-card-title">Лодка Стрежень 410-К на воде</p>
+                </div>
+                                <div class="vk-clip-card" role="button" tabindex="0"
+                     data-url="https://vk.com/clip-236149267_456239063"
+                     data-embed="https://vk.com/video_ext.php?oid=-236149267&amp;id=456239063&amp;hd=2">
+                    <div class="vk-clip-card-media">
+                                                <img class="vk-clip-card-thumb" src="uploads/vk_clips_thumbs/vkthumb_20260618_234026_492c48aefa94.jpg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+                                                <div class="vk-clip-card-bg vk-clip-card-bg--dim"></div>
+                    </div>
+                    <div class="vk-clip-card-play"><i class="fas fa-play"></i></div>
+                    <p class="vk-clip-card-title">Тюнинг лодки Стрежень</p>
+                </div>
+                                <div class="vk-clip-card" role="button" tabindex="0"
+                     data-url="https://vk.com/clip-236149267_456239061"
+                     data-embed="https://vk.com/video_ext.php?oid=-236149267&amp;id=456239061&amp;hd=2">
+                    <div class="vk-clip-card-media">
+                                                <img class="vk-clip-card-thumb" src="uploads/vk_clips_thumbs/vkthumb_20260618_233730_fd37db9f368d.jpg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+                                                <div class="vk-clip-card-bg vk-clip-card-bg--dim"></div>
+                    </div>
+                    <div class="vk-clip-card-play"><i class="fas fa-play"></i></div>
+                    <p class="vk-clip-card-title">Проставки на транец</p>
+                </div>
+                                <div class="vk-clip-card" role="button" tabindex="0"
+                     data-url="https://vk.com/clip-236149267_456239060"
+                     data-embed="https://vk.com/video_ext.php?oid=-236149267&amp;id=456239060&amp;hd=2">
+                    <div class="vk-clip-card-media">
+                                                <img class="vk-clip-card-thumb" src="uploads/vk_clips_thumbs/vkthumb_20260618_233443_4507b00dc1ad.jpg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+                                                <div class="vk-clip-card-bg vk-clip-card-bg--dim"></div>
+                    </div>
+                    <div class="vk-clip-card-play"><i class="fas fa-play"></i></div>
+                    <p class="vk-clip-card-title">Сколько весит Стрежень 410-Л</p>
+                </div>
+                                <div class="vk-clip-card" role="button" tabindex="0"
+                     data-url="https://vk.com/clip-236149267_456239059"
+                     data-embed="https://vk.com/video_ext.php?oid=-236149267&amp;id=456239059&amp;hd=2">
+                    <div class="vk-clip-card-media">
+                                                <img class="vk-clip-card-thumb" src="uploads/vk_clips_thumbs/vkthumb_20260618_233149_a2319a82a73e.jpg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+                                                <div class="vk-clip-card-bg vk-clip-card-bg--dim"></div>
+                    </div>
+                    <div class="vk-clip-card-play"><i class="fas fa-play"></i></div>
+                    <p class="vk-clip-card-title">Достаточно ли толщины транца</p>
+                </div>
+                                <div class="vk-clip-card" role="button" tabindex="0"
+                     data-url="https://vk.com/clip-236149267_456239055"
+                     data-embed="https://vk.com/video_ext.php?oid=-236149267&amp;id=456239055&amp;hd=2">
+                    <div class="vk-clip-card-media">
+                                                <img class="vk-clip-card-thumb" src="uploads/vk_clips_thumbs/vkthumb_20260618_232917_2c09299aa131.jpg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+                                                <div class="vk-clip-card-bg vk-clip-card-bg--dim"></div>
+                    </div>
+                    <div class="vk-clip-card-play"><i class="fas fa-play"></i></div>
+                    <p class="vk-clip-card-title">Сколько весит Стрежень 410-К</p>
+                </div>
+                                <div class="vk-clip-card" role="button" tabindex="0"
+                     data-url="https://vk.com/clip-236149267_456239054"
+                     data-embed="https://vk.com/video_ext.php?oid=-236149267&amp;id=456239054&amp;hd=2">
+                    <div class="vk-clip-card-media">
+                                                <img class="vk-clip-card-thumb" src="uploads/vk_clips_thumbs/vkthumb_20260618_232535_324d9db55411.jpg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+                                                <div class="vk-clip-card-bg vk-clip-card-bg--dim"></div>
+                    </div>
+                    <div class="vk-clip-card-play"><i class="fas fa-play"></i></div>
+                    <p class="vk-clip-card-title">Почему мы выбрали полипропилен</p>
+                </div>
+                                <div class="vk-clip-card" role="button" tabindex="0"
+                     data-url="https://vk.com/clip-236149267_456239053"
+                     data-embed="https://vk.com/video_ext.php?oid=-236149267&amp;id=456239053&amp;hd=2">
+                    <div class="vk-clip-card-media">
+                                                <img class="vk-clip-card-thumb" src="uploads/vk_clips_thumbs/vkthumb_20260618_232109_8c6d3e0e2c06.jpg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+                                                <div class="vk-clip-card-bg vk-clip-card-bg--dim"></div>
+                    </div>
+                    <div class="vk-clip-card-play"><i class="fas fa-play"></i></div>
+                    <p class="vk-clip-card-title">Аксессуары на лодку Стрежень</p>
+                </div>
+                                <div class="vk-clip-card" role="button" tabindex="0"
+                     data-url="https://vk.com/clip-236149267_456239051"
+                     data-embed="https://vk.com/video_ext.php?oid=-236149267&amp;id=456239051&amp;hd=2">
+                    <div class="vk-clip-card-media">
+                                                <img class="vk-clip-card-thumb" src="uploads/vk_clips_thumbs/vkthumb_20260618_231733_54be4e0b48dd.jpg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+                                                <div class="vk-clip-card-bg vk-clip-card-bg--dim"></div>
+                    </div>
+                    <div class="vk-clip-card-play"><i class="fas fa-play"></i></div>
+                    <p class="vk-clip-card-title">Как складывается тент на лодке Стрежень</p>
+                </div>
+                                <div class="vk-clip-card" role="button" tabindex="0"
+                     data-url="https://vk.com/clip-236149267_456239049"
+                     data-embed="https://vk.com/video_ext.php?oid=-236149267&amp;id=456239049&amp;hd=2">
+                    <div class="vk-clip-card-media">
+                                                <img class="vk-clip-card-thumb" src="uploads/vk_clips_thumbs/vkthumb_20260618_231312_75b32a21dd5e.jpg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+                                                <div class="vk-clip-card-bg vk-clip-card-bg--dim"></div>
+                    </div>
+                    <div class="vk-clip-card-play"><i class="fas fa-play"></i></div>
+                    <p class="vk-clip-card-title">Сколько весит лодка Стрежень 410-С?</p>
+                </div>
+                                <div class="vk-clip-card" role="button" tabindex="0"
+                     data-url="https://vk.com/clip-236149267_456239048"
+                     data-embed="https://vk.com/video_ext.php?oid=-236149267&amp;id=456239048&amp;hd=2">
+                    <div class="vk-clip-card-media">
+                                                <img class="vk-clip-card-thumb" src="uploads/vk_clips_thumbs/vkthumb_20260427_234615_c9ab520cb568.jpg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+                                                <div class="vk-clip-card-bg vk-clip-card-bg--dim"></div>
+                    </div>
+                    <div class="vk-clip-card-play"><i class="fas fa-play"></i></div>
+                    <p class="vk-clip-card-title">Проверяем на прочность</p>
+                </div>
+                                <div class="vk-clip-card" role="button" tabindex="0"
+                     data-url="https://vk.com/clip-236149267_456239041"
+                     data-embed="https://vk.com/video_ext.php?oid=-236149267&amp;id=456239041&amp;hd=2">
+                    <div class="vk-clip-card-media">
+                                                <img class="vk-clip-card-thumb" src="uploads/vk_clips_thumbs/vkthumb_20260421_003156_4f2a7c2a6dbb.jpg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+                                                <div class="vk-clip-card-bg vk-clip-card-bg--dim"></div>
+                    </div>
+                    <div class="vk-clip-card-play"><i class="fas fa-play"></i></div>
+                    <p class="vk-clip-card-title">Лодка под ключ для клиента</p>
+                </div>
+                                <div class="vk-clip-card" role="button" tabindex="0"
+                     data-url="https://vk.com/clip-236149267_456239043"
+                     data-embed="https://vk.com/video_ext.php?oid=-236149267&amp;id=456239043&amp;hd=2">
+                    <div class="vk-clip-card-media">
+                                                <img class="vk-clip-card-thumb" src="uploads/vk_clips_thumbs/vkthumb_20260420_233221_f2efbec10760.jpg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+                                                <div class="vk-clip-card-bg vk-clip-card-bg--dim"></div>
+                    </div>
+                    <div class="vk-clip-card-play"><i class="fas fa-play"></i></div>
+                    <p class="vk-clip-card-title">Видео от владельца 410-Л</p>
+                </div>
+                                <div class="vk-clip-card" role="button" tabindex="0"
+                     data-url="https://vk.com/clip-236149267_456239027"
+                     data-embed="https://vk.com/video_ext.php?oid=-236149267&amp;id=456239027&amp;hd=2">
+                    <div class="vk-clip-card-media">
+                                                <img class="vk-clip-card-thumb" src="uploads/vk_clips_thumbs/vkthumb_20260415_004539_7673d95af961.jpg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+                                                <div class="vk-clip-card-bg vk-clip-card-bg--dim"></div>
+                    </div>
+                    <div class="vk-clip-card-play"><i class="fas fa-play"></i></div>
+                    <p class="vk-clip-card-title">Прочность лобового стекла</p>
+                </div>
+                                <div class="vk-clip-card" role="button" tabindex="0"
+                     data-url="https://vk.com/clip-236149267_456239030"
+                     data-embed="https://vk.com/video_ext.php?oid=-236149267&amp;id=456239030&amp;hd=2">
+                    <div class="vk-clip-card-media">
+                                                <img class="vk-clip-card-thumb" src="uploads/vk_clips_thumbs/vkthumb_20260415_005339_313fb1457062.jpg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+                                                <div class="vk-clip-card-bg vk-clip-card-bg--dim"></div>
+                    </div>
+                    <div class="vk-clip-card-play"><i class="fas fa-play"></i></div>
+                    <p class="vk-clip-card-title">Обзор капотной версии 410-К</p>
+                </div>
+                                <div class="vk-clip-card" role="button" tabindex="0"
+                     data-url="https://vk.com/clip-236149267_456239032"
+                     data-embed="https://vk.com/video_ext.php?oid=-236149267&amp;id=456239032&amp;hd=2">
+                    <div class="vk-clip-card-media">
+                                                <img class="vk-clip-card-thumb" src="uploads/vk_clips_thumbs/vkthumb_20260415_010228_463a0a1f4de1.jpg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+                                                <div class="vk-clip-card-bg vk-clip-card-bg--dim"></div>
+                    </div>
+                    <div class="vk-clip-card-play"><i class="fas fa-play"></i></div>
+                    <p class="vk-clip-card-title">Тент и аксессуары на 410-С</p>
+                </div>
+                                <div class="vk-clip-card" role="button" tabindex="0"
+                     data-url="https://vk.com/clip-236149267_456239040"
+                     data-embed="https://vk.com/video_ext.php?oid=-236149267&amp;id=456239040&amp;hd=2">
+                    <div class="vk-clip-card-media">
+                                                <img class="vk-clip-card-thumb" src="uploads/vk_clips_thumbs/vkthumb_20260415_010048_97192b323dac.jpg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+                                                <div class="vk-clip-card-bg vk-clip-card-bg--dim"></div>
+                    </div>
+                    <div class="vk-clip-card-play"><i class="fas fa-play"></i></div>
+                    <p class="vk-clip-card-title">Обзор одноконсольной 410-МЛ</p>
+                </div>
+                                <div class="vk-clip-card" role="button" tabindex="0"
+                     data-url="https://vk.com/clip-236149267_456239069"
+                     data-embed="https://vk.com/video_ext.php?oid=-236149267&amp;id=456239069&amp;hd=2">
+                    <div class="vk-clip-card-media">
+                                                <img class="vk-clip-card-thumb" src="https://vk.com/clip-236149267_456239069" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+                                                <div class="vk-clip-card-bg vk-clip-card-bg--dim"></div>
+                    </div>
+                    <div class="vk-clip-card-play"><i class="fas fa-play"></i></div>
+                    <p class="vk-clip-card-title">Отзыв покупателя 410-С</p>
+                </div>
+                                <div class="vk-clip-card" role="button" tabindex="0"
+                     data-url="https://vk.com/clip-236149267_456239036"
+                     data-embed="https://vk.com/video_ext.php?oid=-236149267&amp;id=456239036&amp;hd=2">
+                    <div class="vk-clip-card-media">
+                                                <img class="vk-clip-card-thumb" src="uploads/vk_clips_thumbs/vkthumb_20260415_010531_7621d6e5cd57.jpg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+                                                <div class="vk-clip-card-bg vk-clip-card-bg--dim"></div>
+                    </div>
+                    <div class="vk-clip-card-play"><i class="fas fa-play"></i></div>
+                    <p class="vk-clip-card-title">Полипропилен тонет?</p>
+                </div>
+                                <div class="vk-clip-card" role="button" tabindex="0"
+                     data-url="https://vk.com/clip-236149267_456239037"
+                     data-embed="https://vk.com/video_ext.php?oid=-236149267&amp;id=456239037&amp;hd=2">
+                    <div class="vk-clip-card-media">
+                                                <img class="vk-clip-card-thumb" src="uploads/vk_clips_thumbs/vkthumb_20260415_010827_93019ea1b160.jpg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+                                                <div class="vk-clip-card-bg vk-clip-card-bg--dim"></div>
+                    </div>
+                    <div class="vk-clip-card-play"><i class="fas fa-play"></i></div>
+                    <p class="vk-clip-card-title">Куда стекает вода?</p>
+                </div>
+                                </div>
+            </div>
+            <button type="button" class="site-carousel__btn site-carousel__btn--next vk-clips-nav vk-clips-next" aria-label="Вперёд"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        <div class="vk-clips-cta-wrap reveal">
+            <div class="social-channel-btns">
+                <a href="https://vk.com/strezhenboat" class="btn btn-primary vk-group-btn social-channel-btn" target="_blank" rel="noopener">
+                    <i class="fab fa-vk"></i> Вступайте в нашу группу ВКонтакте
+                </a>
+                                <a href="https://max.ru/id5252052158_biz" class="btn btn-primary max-channel-btn social-channel-btn" target="_blank" rel="noopener">
+                    <img src="assets/img/max-icon.svg" alt="" class="btn-max-icon"> Наш MAX-канал
+                </a>
+                            </div>
+        </div>
+    </div>
+</section>
+<div class="vk-modal" id="vkClipModal" hidden>
+    <div class="vk-modal-backdrop" data-close-vk-modal></div>
+    <div class="vk-modal-dialog">
+        <button type="button" class="vk-modal-close" data-close-vk-modal aria-label="Закрыть">&times;</button>
+        <div class="vk-modal-body">
+            <iframe id="vkModalIframe" title="VK" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture; fullscreen"></iframe>
+            <p class="vk-modal-fallback" id="vkModalFallback" hidden>
+                <a href="index.html#" id="vkModalLink" target="_blank" rel="noopener">Открыть клип в VK</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- Популярные товары -->
+<section class="section section-alt products-section">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="section-badge"><span data-key="home_products_badge" >Продукция</span></span>
+            <h2 class="section-title"><span data-key="home_products_title_1" >Наши</span> <span class="highlight" data-key="home_products_title_2" >лодки</span></h2>
+            <div class="section-line"></div>
+        </div>
+        
+        <div class="site-carousel site-carousel--grid reveal">
+            <button type="button" class="site-carousel__btn site-carousel__btn--prev" aria-label="Назад"><i class="fas fa-chevron-left"></i></button>
+            <div class="site-carousel__viewport">
+            <div class="site-carousel__track products-grid">
+                        <div class="product-card reveal reveal-delay-1">
+                <div class="product-card-image">
+                    <img src="uploads/1789411069_1439_card.jpeg" alt="Стрежень 410-Л" loading="lazy" decoding="async">
+                    <span class="product-card-badge">Популярное</span>
+                    
+                    
+                </div>
+                
+                <div class="product-card-content">
+                    <span class="product-card-category">Моторная лодка</span>
+                    <h3 class="product-card-title">Стрежень 410-Л</h3>
+                    
+                    <div class="product-card-specs">
+                        <span class="product-card-spec">
+                            <i class="fas fa-ruler-horizontal"></i>
+                            408 см
+                        </span>
+                        <span class="product-card-spec">
+                            <i class="fas fa-users"></i>
+                            до 4 чел.
+                        </span>
+                        <span class="product-card-spec">
+                            <i class="fas fa-tachometer-alt"></i>
+                            20 л.с.
+                        </span>
+                    </div>
+                    
+                    <div class="product-card-price">
+                        210 000 ₽                    </div>
+                    
+                    <div class="product-card-buttons">
+                        <a href="pages/product.php%3Fid=8.html" class="btn btn-primary" style="width:100%;">Подробнее</a>
+                    </div>
+                </div>
+            </div>
+                        <div class="product-card reveal reveal-delay-2">
+                <div class="product-card-image">
+                    <img src="uploads/1789411993_8178_card.jpeg" alt="Стрежень 410-Мл" loading="lazy" decoding="async">
+                    <span class="product-card-badge">Популярное</span>
+                    
+                    
+                </div>
+                
+                <div class="product-card-content">
+                    <span class="product-card-category">Моторная лодка</span>
+                    <h3 class="product-card-title">Стрежень 410-Мл</h3>
+                    
+                    <div class="product-card-specs">
+                        <span class="product-card-spec">
+                            <i class="fas fa-ruler-horizontal"></i>
+                            408 см
+                        </span>
+                        <span class="product-card-spec">
+                            <i class="fas fa-users"></i>
+                            до 4 чел.
+                        </span>
+                        <span class="product-card-spec">
+                            <i class="fas fa-tachometer-alt"></i>
+                            20 л.с.
+                        </span>
+                    </div>
+                    
+                    <div class="product-card-price">
+                        175 000 ₽                    </div>
+                    
+                    <div class="product-card-buttons">
+                        <a href="pages/product.php%3Fid=9.html" class="btn btn-primary" style="width:100%;">Подробнее</a>
+                    </div>
+                </div>
+            </div>
+                        <div class="product-card reveal reveal-delay-3">
+                <div class="product-card-image">
+                    <img src="uploads/1789411106_6833_card.jpeg" alt="Стрежень 410-С" loading="lazy" decoding="async">
+                    <span class="product-card-badge">Популярное</span>
+                    
+                    
+                </div>
+                
+                <div class="product-card-content">
+                    <span class="product-card-category">Моторная лодка</span>
+                    <h3 class="product-card-title">Стрежень 410-С</h3>
+                    
+                    <div class="product-card-specs">
+                        <span class="product-card-spec">
+                            <i class="fas fa-ruler-horizontal"></i>
+                            408 см
+                        </span>
+                        <span class="product-card-spec">
+                            <i class="fas fa-users"></i>
+                            до 4 чел.
+                        </span>
+                        <span class="product-card-spec">
+                            <i class="fas fa-tachometer-alt"></i>
+                            20 л.с.
+                        </span>
+                    </div>
+                    
+                    <div class="product-card-price">
+                        150 000 ₽                    </div>
+                    
+                    <div class="product-card-buttons">
+                        <a href="pages/product.php%3Fid=10.html" class="btn btn-primary" style="width:100%;">Подробнее</a>
+                    </div>
+                </div>
+            </div>
+                        </div>
+            </div>
+            <button type="button" class="site-carousel__btn site-carousel__btn--next" aria-label="Вперёд"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        
+        <div style="text-align: center; margin-top: 30px;" class="reveal">
+            <a href="pages/catalog.php.html" class="btn btn-primary">
+                Вся продукция
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Конструктив лодки -->
+<section class="section section-alt section-construction">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="section-badge"><span data-key="home_construct_badge" >Конструктив</span></span>
+            <h2 class="section-title"><span data-key="home_construct_title_1" >Качество в</span> <span class="highlight" data-key="home_construct_title_2" >деталях</span></h2>
+            <div class="section-line"></div>
+            <p class="section-subtitle"><span data-key="construct_section_subtitle" >Наша базовая лодка соответствует заявленным параметрам — мы не экономим на материалах</span></p>
+        </div>
+        
+        <div class="construction-grid">
+            <div class="construction-card reveal reveal-delay-1">
+                <h3><i class="fas fa-shield-alt"></i> <span data-key="construct_1_title" >Усиленный корпус</span></h3>
+                <p><span data-key="construct_1_desc" >Продуманная система усилителей обеспечивает жёсткость конструкции и устойчивость к нагрузкам при активной эксплуатации. Напишите нам и мы пришлем Вам фотографию как это выглядит, чтобы развеять Ваши последние сомнения.</span></p>
+            </div>
+            
+            <div class="construction-card reveal reveal-delay-2">
+                <h3><i class="fas fa-layer-group"></i> <span data-key="construct_2_title" >Влагостойкая фанера</span></h3>
+                <p><span data-key="construct_2_desc" >Пол из влагостойкой фанеры, а не из пластика. Надёжное и практичное решение для комфортного использования.</span></p>
+            </div>
+            
+            <div class="construction-card reveal reveal-delay-3">
+                <h3><i class="fas fa-anchor"></i> <span data-key="construct_3_title" >Нержавеющая сталь</span></h3>
+                <p><span data-key="construct_3_desc" >Швартовые утки, петли и иные комплектующие из качественной нержавеющей стали — входят в базовую стоимость.</span></p>
+            </div>
+            
+            <div class="construction-card reveal reveal-delay-4">
+                <h3><i class="fas fa-life-ring"></i> <span data-key="construct_4_title" >Блоки плавучести</span></h3>
+                <p><span data-key="construct_4_desc" >Встроенные блоки плавучести обеспечивают непотопляемость лодки даже при полном заполнении водой.</span></p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Преимущества материала -->
+<section class="section features">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="section-badge"><span data-key="home_features_badge" >Материал</span></span>
+            <h2 class="section-title"><span data-key="home_features_title_1" >Преимущества</span> <span class="highlight" data-key="home_features_title_2" >полипропилена</span></h2>
+            <div class="section-line"></div>
+        </div>
+        
+        <div class="features-grid">
+            <div class="feature-card reveal reveal-delay-1">
+                <div class="feature-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3 class="feature-title"><span data-key="feature_1_title" >Прочность</span></h3>
+                <p class="feature-desc">
+                    <span data-key="feature_1_desc" >Полипропилен — необычайно прочный материал.</span>                </p>
+            </div>
+            
+            <div class="feature-card reveal reveal-delay-2">
+                <div class="feature-icon">
+                    <i class="fas fa-infinity"></i>
+                </div>
+                <h3 class="feature-title"><span data-key="feature_2_title" >Долговечность</span></h3>
+                <p class="feature-desc">
+                    <span data-key="feature_2_desc" >Листовой полипропилен нейтрален к агрессивным средам.</span>                </p>
+            </div>
+            
+            <div class="feature-card reveal reveal-delay-3">
+                <div class="feature-icon">
+                    <i class="fas fa-life-ring"></i>
+                </div>
+                <h3 class="feature-title"><span data-key="feature_3_title" >Безопасность</span></h3>
+                <p class="feature-desc">
+                    <span data-key="feature_3_desc" >Полипропилен легче воды — положительная плавучесть!</span>                </p>
+            </div>
+            
+            <div class="feature-card reveal reveal-delay-4">
+                <div class="feature-icon">
+                    <i class="fas fa-feather"></i>
+                </div>
+                <h3 class="feature-title"><span data-key="feature_4_title" >Скорость</span></h3>
+                <p class="feature-desc">
+                    <span data-key="feature_4_desc" >Быстрый выход на глисс и отличная управляемость.</span>                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Гарантия -->
+<section class="section section-white">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="section-badge"><span data-key="home_warranty_badge" >Гарантия</span></span>
+            <h2 class="section-title"><span data-key="home_warranty_title_1" >Мы уверены в</span> <span class="highlight" data-key="home_warranty_title_2" >качестве</span></h2>
+            <div class="section-line"></div>
+        </div>
+        
+        <div class="stats reveal">
+            <div class="stat-item">
+                <div class="stat-number">III</div>
+                <div class="stat-label">Года гарантии</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">2024</div>
+                <div class="stat-label">Год основания</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">PP</div>
+                <div class="stat-label">Полипропилен</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Непотопляемость</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Ранее просмотренные -->
+
+<!-- CTA секция -->
+<section class="section" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: var(--white);">
+    <div class="container">
+        <div class="section-header reveal" style="color: white;">
+            <h2 class="section-title" style="color: white;"><span data-key="home_cta_title_1" >Закажите лодку</span> <span style="color: var(--bg);"><span data-key="home_cta_title_2" >мечты</span></span></h2>
+            <p class="section-subtitle" style="color: rgba(255,255,255,0.8);">
+                <span data-key="home_cta_subtitle" >Свяжитесь с нами для консультации или посетите наш выставочный зал</span>            </p>
+            <div style="margin-top: 40px; display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                <a href="tel:+79535601906" class="btn btn-white">
+                    <i class="fas fa-phone"></i>
+                    Позвонить
+                </a>
+                <a href="pages/catalog.php.html" class="btn btn-outline" style="border-color: white; color: white;">
+                    <i class="fas fa-shopping-bag"></i>
+                    Выбрать лодку
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+    </main>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <span class="logo-text">СТРЕЖЕНЬ</span>
+                        <span class="logo-tagline">моторные лодки</span>
+                    </div>
+                <p class="footer-desc">
+                    <span data-key="footer_tagline" >Производим современные моторные лодки из листового полипропилена. Лёгкие, прочные, долговечные — для рыбалки и отдыха на воде.</span>                </p>
+                </div>
+                
+                <div class="footer-col">
+                    <h4 class="footer-title">Навигация</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Главная</a></li>
+                        <li><a href="pages/catalog.php.html">Наша продукция</a></li>
+                        <li><a href="pages/accessories.php.html">Комплектующие</a></li>
+                        <li><a href="pages/about.php.html">О нас</a></li>
+                        <li><a href="pages/contacts.php.html">Контакты</a></li>
+                        <li><a href="pages/gallery.php.html">Фотогалерея</a></li>
+                        <li><a href="pages/about.php.html#recommendations">Ваши рекомендации</a></li>
+                        <li><a href="pages/partnership.php.html">Партнерство</a></li>
+                        <li><a href="pages/faq.php.html">Вопросы и ответы</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4 class="footer-title">Контакты</h4>
+                    <ul class="footer-contacts">
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+79535601906">+7 (953) 560-19-06</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:info@strezhen-boat.ru">info@strezhen-boat.ru</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>г. Кстово, ул. Березовая, д. 5</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4 class="footer-title">Мы в соцсетях</h4>
+                    <div class="footer-social">
+                        <a href="https://vk.com/strezhenboat" class="social-link" aria-label="ВКонтакте" target="_blank" rel="noopener">
+                            <i class="fab fa-vk"></i>
+                        </a>
+                                                <a href="https://max.ru/id5252052158_biz" class="social-link social-link--max" aria-label="MAX" target="_blank" rel="noopener">
+                            <img src="assets/img/max-icon.svg" alt="MAX" loading="lazy">
+                        </a>
+                                                <a href="https://rutube.ru/channel/9405592/" class="social-link" aria-label="Rutube" target="_blank" rel="noopener">
+                            <i class="fas fa-play"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@Стрежень-лодки" class="social-link" aria-label="YouTube" target="_blank" rel="noopener">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="footer-work-hours">
+                        <h5>Режим работы:</h5>
+                        <p>Пн-Пт: 8:00 - 17:00</p>
+                        <p>Выходные: по согласованию</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Стрежень. Все права защищены.</p>
+                <p>Сделано с <i class="fas fa-heart"></i> в России</p>
+            </div>
+        </div>
+    </footer>
+
+    
+    <script src="assets/js/main.js%3Fv=4.6"></script>
+        <script src="assets/js/site-analytics.js%3Fv=2" defer></script>
+        <script>
+(function() {
+    var viewport = document.getElementById('vkClipsViewport');
+    var track = document.getElementById('vkClipsTrack');
+    if (!viewport || !track) return;
+    var modal = document.getElementById('vkClipModal');
+    var iframe = document.getElementById('vkModalIframe');
+    var fallback = document.getElementById('vkModalFallback');
+    var link = document.getElementById('vkModalLink');
+
+    function openModal(url, embed) {
+        if (!modal) return;
+        modal.hidden = false;
+        document.body.style.overflow = 'hidden';
+        if (embed && iframe) {
+            iframe.src = embed;
+            iframe.hidden = false;
+            if (fallback) fallback.hidden = true;
+        } else {
+            if (iframe) { iframe.hidden = true; iframe.removeAttribute('src'); }
+            if (fallback && link) {
+                link.href = url;
+                fallback.hidden = false;
+            }
+        }
+    }
+    function closeModal() {
+        if (!modal) return;
+        modal.hidden = true;
+        document.body.style.overflow = '';
+        if (iframe) { iframe.src = ''; }
+    }
+    document.querySelectorAll('[data-close-vk-modal]').forEach(function(el) {
+        el.addEventListener('click', closeModal);
+    });
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal && !modal.hidden) closeModal();
+    });
+
+    track.querySelectorAll('.vk-clip-card').forEach(function(card) {
+        function go() {
+            openModal(card.getAttribute('data-url'), card.getAttribute('data-embed'));
+        }
+        card.addEventListener('click', go);
+        card.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); }
+        });
+    });
+})();
+</script></body>
 </html>

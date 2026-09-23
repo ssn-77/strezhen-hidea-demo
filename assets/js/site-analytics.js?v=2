@@ -1,0 +1,123 @@
+(function () {
+    'use strict';
+    if (/\/admin\//i.test(location.pathname)) {
+        return;
+    }
+
+    var BASE_PATH = document.querySelector('meta[name="base-path"]')?.content || '/';
+    var ENDPOINT = BASE_PATH.replace(/\/?$/, '/') + 'api/analytics_collect.php';
+    var PING_MS = 15000;
+    var sessionKey = sessionStorage.getItem('sa_sid');
+    if (!sessionKey) {
+        sessionKey = 's_' + Date.now().toString(36) + '_' + Math.random().toString(36).slice(2, 10);
+        sessionStorage.setItem('sa_sid', sessionKey);
+    }
+
+    function qp(name) {
+        try {
+            return new URLSearchParams(location.search).get(name) || '';
+        } catch (e) {
+            return '';
+        }
+    }
+
+    function captureUtm() {
+        var keys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
+        var stored = {};
+        try {
+            stored = JSON.parse(sessionStorage.getItem('sa_utm') || '{}');
+        } catch (e) {}
+        keys.forEach(function (k) {
+            var v = qp(k);
+            if (v) {
+                stored[k] = v.slice(0, 120);
+            }
+        });
+        sessionStorage.setItem('sa_utm', JSON.stringify(stored));
+        return stored;
+    }
+
+    function deviceType() {
+        var ua = navigator.userAgent || '';
+        if (/tablet|ipad|playbook|silk/i.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)) {
+            return 'tablet';
+        }
+        if (/mobile|iphone|ipod|android.*mobile|windows phone/i.test(ua)) {
+            return 'mobile';
+        }
+        return 'desktop';
+    }
+
+    var utm = captureUtm();
+    var pageStart = Date.now();
+    var clicks = 0;
+    var sentLeave = false;
+
+    function send(payload) {
+        payload.session_key = sessionKey;
+        payload.url = location.href;
+        payload.referrer = document.referrer || '';
+        payload.visible = document.visibilityState === 'visible' ? '1' : '0';
+        payload.device_type = deviceType();
+        if (utm.utm_source) payload.utm_source = utm.utm_source;
+        if (utm.utm_medium) payload.utm_medium = utm.utm_medium;
+        if (utm.utm_campaign) payload.utm_campaign = utm.utm_campaign;
+        try {
+            var body = JSON.stringify(payload);
+            if (navigator.sendBeacon) {
+                var blob = new Blob([body], { type: 'application/json' });
+                navigator.sendBeacon(ENDPOINT, blob);
+            } else {
+                fetch(ENDPOINT, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: body,
+                    keepalive: true,
+                }).catch(function () {});
+            }
+        } catch (e) {}
+    }
+
+    send({ action: 'pageview', duration: 0 });
+
+    document.addEventListener('click', function () {
+        clicks++;
+        if (clicks === 20) {
+            send({ action: 'burst', clicks: clicks });
+        }
+    }, true);
+
+    document.addEventListener('click', function (ev) {
+        var el = ev.target;
+        while (el && el !== document) {
+            if (el.tagName === 'A' && el.getAttribute('href') && /^tel:/i.test(el.getAttribute('href'))) {
+                send({ action: 'ping', phone_click: 1 });
+                break;
+            }
+            el = el.parentNode;
+        }
+    }, true);
+
+    setInterval(function () {
+        if (document.visibilityState === 'visible') {
+            send({ action: 'ping' });
+        }
+    }, PING_MS);
+
+    function leave() {
+        if (sentLeave) {
+            return;
+        }
+        sentLeave = true;
+        var sec = Math.round((Date.now() - pageStart) / 1000);
+        send({ action: 'leave', duration: sec });
+    }
+
+    window.addEventListener('pagehide', leave);
+    window.addEventListener('beforeunload', leave);
+    document.addEventListener('visibilitychange', function () {
+        if (document.visibilityState === 'hidden') {
+            leave();
+        }
+    });
+})();
