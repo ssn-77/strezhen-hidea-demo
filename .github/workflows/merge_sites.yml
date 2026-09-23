@@ -1,0 +1,48 @@
+name: Merge Strezhen and Hidea Directly
+on:
+  workflow_dispatch: # Запуск кнопкой вручную
+
+permissions:
+  contents: write
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Download and Merge Sites
+        run: |
+          # 1. Скачиваем сайт лодок Стрежень
+          wget --mirror --page-requisites --adjust-extension --convert-links --no-parent --user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64)" https://strezhen-boat.ru
+          
+          # Переносим файлы Стрежня в корень репозитория
+          mv strezhen-boat.ru/* . || true
+          rm -rf strezhen-boat.ru
+
+          # 2. Скачиваем точный визуальный клон магазина Hidea
+          wget --mirror --page-requisites --adjust-extension --convert-links --no-parent --user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64)" https://hidea.ru/shop/
+          
+          # Создаем в структуре Стрежня отдельную папку /shop/ и переносим клон Hidea туда
+          mkdir -p shop
+          mv hidea.ru/shop/* shop/ || true
+          rm -rf hidea.ru
+
+          # 3. Интеграция: добавляем кнопку "Моторы Hidea" в меню на главную страницу Стрежня
+          # Ищем закрывающий тег навигационного меню или удобное место в коде и внедряем ссылку
+          if [ -f index.html ]; then
+            # Внедряем стильную ссылку в навигационное меню Стрежня перед списком контактов
+            sed -i 's|<li><a href="\#contacts">Контакты</a></li>|<li><a href="\#contacts">Контакты</a></li><li><a href="/shop/" style="color: #ffc107; font-weight: bold;">⚓ Моторы Hidea</a></li>|g' index.html
+            
+            # На всякий случай добавляем заметную кнопку-ссылку в самое начало первого экрана сайта
+            sed -i 's|<h1>Молодая компания, опытная команда СТРЕЖЕНЬ|<h1>Молодая компания, опытная команда СТРЕЖЕНЬ</h1><div style="margin: 20px 0;"><a href="/shop/" class="btn" style="background: #ffc107; color: #000; padding: 12px 24px; font-weight: bold; text-decoration: none; border-radius: 5px; display: inline-block;">👉 Перейти в каталог моторов Hidea</a></div><!--|g' index.html
+          fi
+
+      - name: Commit and Push to GitHub
+        run: |
+          git config --global user.name "GitHub Action Bot"
+          git config --global user.email "actions@github.com"
+          git add .
+          git commit -m "Успешное слияние сайтов Стрежень и Hidea" || exit 0
+          git push
