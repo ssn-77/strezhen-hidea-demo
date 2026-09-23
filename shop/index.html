@@ -4,97 +4,115 @@
     <meta charset="UTF-8">
     <title>Каталог моторов Hidea</title>
     <style>
-        /* Собственные чистые стили без использования внешних библиотек */
-        body { background-color: #f4f6f9; font-family: system-ui, -apple-system, sans-serif; margin: 0; padding: 20px; color: #333; }
-        .navbar { background-color: #212529; padding: 15px; color: white; display: flex; justify-content: space-between; align-items: center; border-radius: 6px; margin-bottom: 30px; }
-        .navbar a { color: #fff; text-decoration: none; font-weight: bold; font-size: 0.9rem; }
-        .navbar-text { color: #198754; font-weight: bold; }
-        
-        .catalog-title { font-size: 1.5rem; font-weight: bold; margin-bottom: 25px; }
-        
-        /* Сетка товаров */
-        .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px; }
+        body { background-color: #111; font-family: system-ui, sans-serif; margin: 0; padding: 20px; color: #fff; }
+        .navbar { background-color: #1a1a1a; padding: 15px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #333; margin-bottom: 30px; }
+        .navbar a { color: #fff; text-decoration: none; font-weight: bold; }
+        .catalog-title { font-size: 2rem; font-weight: 300; margin-bottom: 40px; text-transform: uppercase; letter-spacing: 2px; }
+        .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 30px; }
         .page-bucket { display: none; }
         .page-bucket.active { display: grid; }
-        
-        /* Карточка товара */
-        .product-card { border: 1px solid #e3e6ec; border-radius: 8px; background: #fff; display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
-        .img-container { background: #111; text-align: center; height: 150px; display: flex; align-items: center; justify-content: center; }
-        .product-img-placeholder { color: #6c757d; font-size: 0.8rem; font-weight: bold; text-transform: uppercase; }
-        
-        .card-body { padding: 15px; display: flex; flex-direction: column; flex-grow: 1; }
-        .motor-title { font-size: 0.95rem; font-weight: bold; margin: 0 0 10px 0; color: #212529; min-height: 38px; }
-        .price-text { font-size: 1.1rem; font-weight: bold; color: #dc3545; margin-top: auto; }
-        
-        /* Пагинация */
-        .pagination-container { display: flex; justify-content: center; margin: 40px 0; }
-        .pagination-btn { background: #fff; border: 1px solid #dee2e6; padding: 8px 16px; margin: 0 4px; cursor: pointer; border-radius: 4px; font-weight: bold; color: #0d6efd; transition: all 0.2s; }
-        .pagination-btn:hover { background: #e9ecef; }
-        .pagination-btn.active { background: #0d6efd; color: #fff; border-color: #0d6efd; }
+        .product-card { background: #111; display: flex; flex-direction: column; padding: 15px; border-radius: 8px; }
+        .img-container { text-align: center; height: 180px; display: flex; align-items: center; justify-content: center; margin-bottom: 15px; background: #161616; border-radius: 6px; font-size: 3rem; }
+        .motor-title { font-size: 1.1rem; font-weight: bold; margin: 0 0 5px 0; text-transform: uppercase; }
+        .motor-cat { font-size: 0.8rem; color: #888; margin-bottom: 15px; }
+        .btn-watch { background: #fff; color: #000; border: none; padding: 10px 20px; border-radius: 20px; font-weight: bold; font-size: 0.85rem; cursor: pointer; text-transform: uppercase; align-self: flex-start; }
+        .btn-watch:hover { background: #e0e0e0; }
+        .pagination-container { display: flex; justify-content: center; margin: 50px 0; }
+        .pagination-btn { background: #222; border: 1px solid #333; padding: 10px 20px; margin: 0 6px; cursor: pointer; border-radius: 4px; color: #fff; font-weight: bold; }
+        .pagination-btn.active { background: #ffc107; color: #000; border-color: #ffc107; }
+        /* Модальное окно */
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); display: none; align-items: center; justify-content: center; z-index: 1000; }
+        .modal-overlay.active { display: flex; }
+        .modal-box { background: #1a1a1a; width: 90%; max-width: 500px; padding: 30px; border-radius: 12px; border: 1px solid #333; position: relative; }
+        .close-modal { position: absolute; top: 15px; right: 20px; font-size: 1.8rem; color: #888; cursor: pointer; background: none; border: none; }
+        .modal-title { font-size: 1.5rem; font-weight: bold; color: #ffc107; text-transform: uppercase; }
+        .modal-price { font-size: 1.3rem; font-weight: bold; color: #dc3545; margin: 10px 0; }
+        .specs-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        .specs-table th, .specs-table td { padding: 8px; text-align: left; border-bottom: 1px solid #333; font-size: 0.9rem; }
+        .specs-table th { color: #888; font-weight: normal; width: 50%; }
     </style>
 </head>
 <body>
 
-    <!-- Шапка без внешних скриптов -->
     <div class="navbar">
         <a href="../index.html">← НАЗАД НА САЙТ СТРЕЖЕНЬ</a>
-        <span class="navbar-text">⚓ АВТОНОМНЫЙ КАТАЛОГ</span>
+        <span style="color:#ffc107; font-weight:bold;">⚓ ДЕМО-КАТАЛОГ</span>
     </div>
 
     <div class="container">
-        <div class="catalog-title">Каталог лодочных моторов Hidea</div>
+        <div class="catalog-title">Каталог</div>
 
         <!-- СТРАНИЦА 1 -->
         <div class="products-grid page-bucket active" id="content-page-1">
-            <div class="product-card"><div class="img-container"><span class="product-img-placeholder">HD 3 ИЗОБРАЖЕНИЕ</span></div><div class="card-body"><h6 class="motor-title">HD 3 (2-х тактный)</h6><span class="price-text">Цена по запросу</span></div></div>
-            <div class="product-card"><div class="img-container"><span class="product-img-placeholder">HD 4 ИЗОБРАЖЕНИЕ</span></div><div class="card-body"><h6 class="motor-title">HD 4 (2-х тактный)</h6><span class="price-text">Цена по запросу</span></div></div>
-            <div class="product-card"><div class="img-container"><span class="product-img-placeholder">HD 5 ИЗОБРАЖЕНИЕ</span></div><div class="card-body"><h6 class="motor-title">HD 5 (2-х тактный)</h6><span class="price-text">Цена по запросу</span></div></div>
-            <div class="product-card"><div class="img-container"><span class="product-img-placeholder">HD 9.8 ИЗОБРАЖЕНИЕ</span></div><div class="card-body"><h6 class="motor-title">HD 9.8 (2-х тактный)</h6><span class="price-text">Цена по запросу</span></div></div>
-            <div class="product-card"><div class="img-container"><span class="product-img-placeholder">HD 9.9 ИЗОБРАЖЕНИЕ</span></div><div class="card-body"><h6 class="motor-title">HD 9.9 (2-х тактный)</h6><span class="price-text">Цена по запросу</span></div></div>
-            <div class="product-card"><div class="img-container"><span class="product-img-placeholder">ENDURO ИЗОБРАЖЕНИЕ</span></div><div class="card-body"><h6 class="motor-title">HDD 9.9 ENDURO</h6><span class="price-text">Цена по запросу</span></div></div>
-            <div class="product-card"><div class="img-container"><span class="product-img-placeholder">PRO ИЗОБРАЖЕНИЕ</span></div><div class="card-body"><h6 class="motor-title">HD 9.9 PRO</h6><span class="price-text">Цена по запросу</span></div></div>
-            <div class="product-card"><div class="img-container"><span class="product-img-placeholder">PRO ДИСТ ИЗОБРАЖЕНИЕ</span></div><div class="card-body"><h6 class="motor-title">HD 9.9 PRO (дист.)</h6><span class="price-text">Цена по запросу</span></div></div>
+            <div class="product-card">
+                <div class="img-container">⚓</div>
+                <h6 class="motor-title">HD 3</h6><div class="motor-cat">2-х тактные моторы</div>
+                <button class="btn-watch" onclick="openSpecs('HD 3', '2-х тактные моторы', 'Цена по запросу', {'Мощность': '3.0 л.с.', 'Тип': '2-х тактный', 'Объем': '50 куб.см', 'Вес': '9.8 кг'})">Смотреть</button>
+            </div>
+            <div class="product-card">
+                <div class="img-container">⚓</div>
+                <h6 class="motor-title">HD 5</h6><div class="motor-cat">2-х тактные моторы</div>
+                <button class="btn-watch" onclick="openSpecs('HD 5', '2-х тактные моторы', 'Цена по запросу', {'Мощность': '5.0 л.с.', 'Тип': '2-х тактный', 'Объем': '102 куб.см', 'Вес': '20 кг'})">Смотреть</button>
+            </div>
+            <div class="product-card">
+                <div class="img-container">⚓</div>
+                <h6 class="motor-title">HD 9.9</h6><div class="motor-cat">2-х тактные моторы</div>
+                <button class="btn-watch" onclick="openSpecs('HD 9.9', '2-х тактные моторы', 'Цена по запросу', {'Мощность': '9.9 л.с.', 'Тип': '2-х тактный', 'Объем': '246 куб.см', 'Вес': '36 кг'})">Смотреть</button>
+            </div>
         </div>
 
         <!-- СТРАНИЦА 2 -->
         <div class="products-grid page-bucket" id="content-page-2">
-            <div class="product-card"><div class="img-container"><span class="product-img-placeholder">HD 30 ИЗОБРАЖЕНИЕ</span></div><div class="card-body"><h6 class="motor-title">HD 30 (2-х тактный)</h6><span class="price-text">Цена по запросу</span></div></div>
-            <div class="product-card"><div class="img-container"><span class="product-img-placeholder">HD 30 ДИСТ ИЗОБРАЖЕНИЕ</span></div><div class="card-body"><h6 class="motor-title">HD 30 (дист.)</h6><span class="price-text">Цена по запросу</span></div></div>
-            <div class="product-card"><div class="img-container"><span class="product-img-placeholder">HD 40 ИЗОБРАЖЕНИЕ</span></div><div class="card-body"><h6 class="motor-title">HD 40 (2-х тактный)</h6><span class="price-text">Цена по запросу</span></div></div>
-            <div class="product-card"><div class="img-container"><span class="product-img-placeholder">HD 40 ДИСТ ИЗОБРАЖЕНИЕ</span></div><div class="card-body"><h6 class="motor-title">HD 40 (дист.)</h6><span class="price-text">Цена по запросу</span></div></div>
-            <div class="product-card"><div class="img-container"><span class="product-img-placeholder">TRIM ИЗОБРАЖЕНИЕ</span></div><div class="card-body"><h6 class="motor-title">HD 40 (дист. + трим)</h6><span class="price-text">Цена по запросу</span></div></div>
-            <div class="product-card"><div class="img-container"><span class="product-img-placeholder">HD 60 ИЗОБРАЖЕНИЕ</span></div><div class="card-body"><h6 class="motor-title">HD 60 (2-х тактный)</h6><span class="price-text">Цена по запросу</span></div></div>
+            <div class="product-card">
+                <div class="img-container">⚓</div>
+                <h6 class="motor-title">HDF 3.5</h6><div class="motor-cat">4-х тактные моторы</div>
+                <button class="btn-watch" onclick="openSpecs('HDF 3.5', '4-х тактные моторы', 'Цена по запросу', {'Мощность': '3.5 л.с.', 'Тип': '4-х тактный', 'Объем': '85 куб.см', 'Вес': '17 кг'})">Смотреть</button>
+            </div>
+            <div class="product-card">
+                <div class="img-container">⚓</div>
+                <h6 class="motor-title">HD 30 FES-EFI</h6><div class="motor-cat">Моторы EFI</div>
+                <button class="btn-watch" onclick="openSpecs('HD 30 FES-EFI', 'Моторы EFI', 'Цена по запросу', {'Мощность': '30.0 л.с.', 'Тип': 'Инжекторный EFI', 'Объем': '496 куб.см', 'Вес': '53 кг'})">Смотреть</button>
+            </div>
         </div>
 
-        <!-- СТРАНИЦА 3 -->
-        <div class="products-grid page-bucket" id="content-page-3">
-            <div class="product-card"><div class="img-container"><span class="product-img-placeholder">HD 90 ИЗОБРАЖЕНИЕ</span></div><div class="card-body"><h6 class="motor-title">HD 90 (2-х тактный)</h6><span class="price-text">Цена по запросу</span></div></div>
-            <div class="product-card"><div class="img-container"><span class="product-img-placeholder">HDF 3.5 ИЗОБРАЖЕНИЕ</span></div><div class="card-body"><h6 class="motor-title">HDF 3.5 (4-х тактный)</h6><span class="price-text">Цена по запросу</span></div></div>
-            <div class="product-card"><div class="img-container"><span class="product-img-placeholder">EFI 30 ИЗОБРАЖЕНИЕ</span></div><div class="card-body"><h6 class="motor-title">HD 30 FES-EFI</h6><span class="price-text">Цена по запросу</span></div></div>
-            <div class="product-card"><div class="img-container"><span class="product-img-placeholder">EFI 60 ИЗОБРАЖЕНИЕ</span></div><div class="card-body"><h6 class="motor-title">HD 60 FEL-T-EFI</h6><span class="price-text">Цена по запросу</span></div></div>
-        </div>
-
-        <!-- Переключатель страниц каталога -->
         <div class="pagination-container">
             <button class="pagination-btn active" id="nav-1" onclick="switchTab(1)">1</button>
             <button class="pagination-btn" id="nav-2" onclick="switchTab(2)">2</button>
-            <button class="pagination-btn" id="nav-3" onclick="switchTab(3)">3</button>
+        </div>
+    </div>
+
+    <!-- ВСПЛЫВАЮЩЕЕ ОКНО -->
+    <div class="modal-overlay" id="specs-modal" onclick="closeSpecs()">
+        <div class="modal-box" onclick="event.stopPropagation()">
+            <button class="close-modal" onclick="closeSpecs()">&times;</button>
+            <div id="m-category" style="font-size: 0.8rem; color: #888; text-transform: uppercase;"></div>
+            <div class="modal-title" id="m-title"></div>
+            <div class="modal-price" id="m-price"></div>
+            <h5 style="margin: 20px 0 10px 0; border-bottom: 1px solid #333; padding-bottom: 5px;">Характеристики:</h5>
+            <table class="specs-table"><tbody id="m-specs-body"></tbody></table>
         </div>
     </div>
 
     <script>
-        function switchTab(pageNum) {
-            // Переключаем активную сетку товаров
-            const buckets = document.querySelectorAll('.page-bucket');
-            buckets.forEach(el => el.classList.remove('active'));
-            const activeBucket = document.getElementById('content-page-' + pageNum);
-            if(activeBucket) activeBucket.classList.add('active');
-            
-            // Переключаем состояние кнопок пагинации
-            const buttons = document.querySelectorAll('.pagination-btn');
-            buttons.forEach(el => el.classList.remove('active'));
-            const activeBtn = document.getElementById('nav-' + pageNum);
-            if(activeBtn) activeBtn.classList.add('active');
+        function switchTab(p) {
+            document.querySelectorAll('.page-bucket').forEach(el => el.classList.remove('active'));
+            document.getElementById('content-page-' + p).classList.add('active');
+            document.querySelectorAll('.pagination-btn').forEach(el => el.classList.remove('active'));
+            document.getElementById('nav-' + p).classList.add('active');
+        }
+        function openSpecs(title, category, price, specsObj) {
+            document.getElementById('m-title').innerText = title;
+            document.getElementById('m-category').innerText = category;
+            document.getElementById('m-price').innerText = price;
+            const tbody = document.getElementById('m-specs-body');
+            tbody.innerHTML = '';
+            for (const [key, value] of Object.entries(specsObj)) {
+                tbody.innerHTML += `<tr><th>${key}</th><td>${value}</td></tr>`;
+            }
+            document.getElementById('specs-modal').classList.add('active');
+        }
+        function closeSpecs() {
+            document.getElementById('specs-modal').classList.remove('active');
         }
     </script>
 </body>
